@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000019;
+            overflow: hidden;
+        }
+        @media screen and (max-width: 500px) {
+            body {
+                overflow-y: auto;
+                margin-top: 100px;
+            }
+        }
+        .head {
+            position: relative;
+            margin-top: -33.1em;
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: inset 0px 0px 30px brown;
+            animation: head 1s 0s infinite linear;
+            z-index: 10;
+        }
+        @keyframes head {
+            0%, 100% {
+                box-shadow: inset 0px 0px 30px brown, 0px 0px 20px transparent,
+                        0px 0px 60px transparent,
+                        0px 0px 100px transparent,
+                        0px 0px 200px transparent,
+                        0px 0px 300px transparent;
+            }
+            50% {
+                box-shadow: inset 0px 0px 30px brown, 0px 0px 20px royalblue,
+                        0px 0px 60px royalblue,
+                        0px 0px 100px royalblue,
+                        0px 0px 200px royalblue,
+                        0px 0px 300px royalblue;
+            }
+        }
+        .left {
+            position: absolute;
+            left: 35px;
+            top: 45px;
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            transform: rotate(25deg);
+            animation: left_eye .5s 0s infinite ease-out;
+        }
+        .left::before, .left::after {
+            content: '';
+            width: 25px;            
+            height: 25px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+        }
+        .left::before {
+            transform: translate(0%, -50%);
+        }
+        .left::after {
+            transform: translate(-50%, 0%);
+        }
+        .right {
+            position: absolute;
+            right: 35px;
+            top: 45px;
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            transform: rotate(70deg);
+            animation: right_eye .5s 0s infinite linear;
+        }
+        .right::before, .right::after {
+            content: '';
+            width: 25px;            
+            height: 25px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+        }
+        .right::before {
+            transform: translate(0%, -50%);
+        }
+        .right::after {
+            transform: translate(-50%, 0%);
+        }
+        .mouth {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            width: 40px;
+            height: 85px;
+            border: none;
+            transform: rotate(90deg);
+            border-left: 5px solid transparent;
+            border-right: 25px solid brown;
+            background-color: transparent;
+            border-radius: 50%;
+            /* overflow: hidden; */
+        }
+        .mouth::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: -26px;
+            width: 5px;
+            height: 35px;
+            border: none;
+            transform: rotate(-180deg);
+            border-left: 5px solid transparent;
+            border-right: 5px solid rgb(248, 154, 99);
+            background-color: rgb(248, 154, 99);
+            border-radius: 50%;
+        }
+        @keyframes left_eye {
+            0%, 100% {
+                transform: rotate(25deg) scale(0.9);
+            }
+            25% {
+                transform: rotate(25deg) scale(1.05);
+            }
+            75% {
+                transform: rotate(25deg) scale(1.15);
+            }
+        }
+        @keyframes right_eye {
+            0%, 100% {
+                transform: rotate(70deg) scale(0.9);
+            }
+            25% {
+                transform: rotate(70deg) scale(1.05);
+            }
+            75% {
+                transform: rotate(70deg) scale(1.15);
+            }
+        }
+        .think {
+            position: absolute;
+            width: 150px;
+            height: fit-content;
+            border: 8px solid white;
+            margin-top: 50px;
+            padding: 50px 0px;
+        }
+        .think p {
+            text-transform: uppercase;
+            color: white;
+            font-size: 2.3em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            line-height: 60px;
+            margin-left: -70px;
+            background: #000019;
+        }
+        .think p span:nth-child(1) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0s;
+        }
+        .think p span:nth-child(2) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.25s;
+        }
+        .think p span:nth-child(3) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.5s;
+        }
+        .think p span:nth-child(4) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.75s;
+        }
+        .think p span:nth-child(5) {
+            animation: lift 2s infinite linear;
+            animation-delay: 1s;
+        }
+
+        .think p span:nth-child(6) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0s;
+        }
+        .think p span:nth-child(7) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.25s;
+        }
+        .think p span:nth-child(8) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.5s;
+        }
+        .think p span:nth-child(9) {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.75s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 1s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 0s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.25s;
+        }
+
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.5s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.75s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 1s;
+        }
+
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.5s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 0.75s;
+        }
+        .last {
+            animation: lift 2s infinite linear;
+            animation-delay: 1s;
+        }
+        @keyframes lift {
+            0%, 100% {
+                transform: translateX(0px);
+                /* opacity: 1; */
+                color: royalblue;
+                letter-spacing: -15px;
+            }
+            50% {
+                transform: translateX(25px);
+                letter-spacing: 5px;
+                color: white;
+                /* opacity: 0; */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="mouth"></div>
+    </div>
+    <div class="think">
+        <p>
+            <span class="last">t</span><span class="last">h</span><span class="last">i</span><span class="last">n</span><span class="last">k</span> <br>
+            <span class="last">o</span><span class="last">u</span><span class="last">t</span><span class="last">s</span><span class="last">i</span><span class="last">d</span><span class="last">e</span> <br>
+            <span class="last">t</span><span class="last">h</span><span class="last">e</span> <br>
+            <span class="last">b</span><span class="last">o</span><span class="last">x</span>
+        </p>
+    </div>
+</body>
+</html>

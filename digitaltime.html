@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            align: center;
+            background: #000;
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 70%;
+            width: 95%;
+            overflow: hidden;
+        }
+
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .o {
+            margin: 0 auto;
+            width: 100vw;
+            overflow: hidden;
+        }
+        .o > div {
+            width: 12vw;
+            height: 100%;
+        }
+        ul {
+            margin: 0px;
+            padding: 0px;
+            width: 25%;
+        }
+        ul > li {
+            border: #000080 solid 2px;
+            width: 2.5vw;
+            height: 2.5vw;
+            list-style: none;
+            border-radius: 2vw;
+            margin-top: 5px;
+        }
+        ul > li > div:nth-child(1) {
+            margin-left: 1.25vw;
+            margin-top: 1.25vw;
+        }
+        ul > li > div:nth-child(2) {
+            margin-left: 1.25vw;
+            margin-top: -1.25vw;
+        }
+        ul > li > div {
+            width: 3px;
+            background: #fff;
+            height: 1.25vw;
+            transform-origin: 1.5px 0;
+            border-radius: 1em;
+        }
+        div {
+            display: flex;
+        }
+        @media screen and (max-width:600px) {
+          ul > li {
+            border: #000080 solid 1px;
+          }
+          ul > li > div {
+            width: 1px;
+            transform-origin: 0.5px 0;
+          }
+        }
+
+    </style>
+</head>
+<body>
+    
+<div class="middle">
+    <div class="o">
+      <div class="n h1">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="n h2">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="d">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="n m1">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="n m2">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="d">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="n s1">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="n s2">
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+          <li>
+            <div></div>
+            <div></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var numbers = [
+        [
+            [
+                [0, 270],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 270]
+            ],
+            [
+                [90, 270],
+                [270, 0],
+                [180, 0],
+                [180, 0],
+                [180, 270],
+                [90, 270]
+            ],
+            [
+                [90, 270],
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [90, 180]
+            ]
+        ],
+        [
+            [
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45]
+            ],
+            [
+                [0, 270],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 270]
+            ],
+            [
+                [0, 90],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90]
+            ],
+            [
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45]
+            ]
+        ],
+        [
+            [
+                [270, 0],
+                [270, 180],
+                [270, 0],
+                [180, 0],
+                [180, 0],
+                [270, 180]
+            ],
+            [
+                [90, 270],
+                [90, 270],
+                [90, 270],
+                [0, 270],
+                [180, 270],
+                [90, 270]
+            ],
+            [
+                [90, 270],
+                [90, 0],
+                [180, 90],
+                [90, 270],
+                [90, 270],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90],
+                [90, 0],
+                [90, 180]
+            ]
+        ],
+        [
+            [
+                [0, 270],
+                [180, 270],
+                [0, 270],
+                [180, 270],
+                [0, 270],
+                [180, 270]
+            ],
+            [
+                [270, 90],
+                [270, 90],
+                [270, 90],
+                [270, 90],
+                [270, 90],
+                [270, 90]
+            ],
+            [
+                [90, 270],
+                [90, 0],
+                [180, 90],
+                [90, 0],
+                [180, 90],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [90, 180]
+            ]
+        ],
+        [
+            [
+                [0, 270],
+                [180, 0],
+                [0, 180],
+                [180, 270],
+                [45, 45],
+                [45, 45]
+            ],
+            [
+                [0, 90],
+                [180, 0],
+                [270, 180],
+                [270, 90],
+                [45, 45],
+                [45, 45]
+            ],
+            [
+                [0, 270],
+                [180, 0],
+                [180, 90],
+                [90, 0],
+                [180, 0],
+                [180, 270]
+            ],
+            [
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [90, 180]
+            ]
+        ],
+        [
+            [
+                [270, 0],
+                [0, 180],
+                [180, 0],
+                [180, 270],
+                [270, 0],
+                [270, 180]
+            ],
+            [
+                [90, 270],
+                [0, 270],
+                [180, 270],
+                [90, 270],
+                [90, 270],
+                [90, 270]
+            ],
+            [
+                [90, 270],
+                [90, 270],
+                [270, 90],
+                [90, 0],
+                [90, 180],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [90, 180],
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90]
+            ]
+        ],
+        [
+            [
+                [270, 0],
+                [0, 180],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [270, 180]
+            ],
+            [
+                [90, 270],
+                [0, 270],
+                [180, 270],
+                [0, 270],
+                [180, 270],
+                [90, 270]
+            ],
+            [
+                [90, 270],
+                [90, 270],
+                [270, 90],
+                [90, 0],
+                [90, 180],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [90, 180],
+                [90, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90]
+            ]
+        ],
+        [
+            [
+                [270, 0],
+                [270, 180],
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45]
+            ],
+            [
+                [90, 270],
+                [90, 270],
+                [45, 45],
+                [45, 45],
+                [45, 45],
+                [45, 45]
+            ],
+            [
+                [90, 270],
+                [90, 0],
+                [0, 180],
+                [180, 0],
+                [0, 180],
+                [180, 270]
+            ],
+            [
+                [90, 0],
+                [0, 180],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90]
+            ]
+        ],
+        [
+            [
+                [270, 0],
+                [0, 180],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [270, 180]
+            ],
+            [
+                [90, 270],
+                [0, 270],
+                [180, 270],
+                [0, 270],
+                [180, 270],
+                [90, 270]
+            ],
+            [
+                [90, 270],
+                [90, 0],
+                [180, 90],
+                [90, 0],
+                [90, 180],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [0, 180],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90]
+            ]
+        ],
+        [
+            [
+                [270, 0],
+                [0, 180],
+                [180, 0],
+                [180, 270],
+                [270, 0],
+                [270, 180]
+            ],
+            [
+                [90, 270],
+                [0, 270],
+                [180, 270],
+                [90, 270],
+                [90, 270],
+                [90, 270]
+            ],
+            [
+                [90, 270],
+                [90, 0],
+                [180, 90],
+                [90, 0],
+                [90, 180],
+                [90, 270]
+            ],
+            [
+                [90, 0],
+                [0, 180],
+                [180, 0],
+                [180, 0],
+                [180, 0],
+                [180, 90]
+            ]
+        ]
+    ];
+
+    $.fn.animateRotate = function (startA, angle, duration, easing, complete) {
+        var args = $.speed(duration, easing, complete);
+        var step = args.step;
+        return this.each(function (i, e) {
+            args.complete = $.proxy(args.complete, e);
+            args.step = function (now) {
+                $.style(e, "transform", "rotate(" + now + "deg)");
+                if (step) return step.apply(e, arguments);
+            };
+            $({ deg: startA }).animate({ deg: angle }, args);
+        });
+    };
+
+    $.fn.getDeg = function () {
+        var m =
+            this.css("-webkit-transform") ||
+            this.css("-moz-transform") ||
+            this.css("-ms-transform") ||
+            this.css("-o-transform") ||
+            this.css("transform");
+        var angle =
+            m !== "none"
+                ? Math.round(
+                        Math.atan2(
+                            m.split("(")[1].split(")")[0].split(",")[1],
+                            m.split("(")[1].split(")")[0].split(",")[0]
+                        ) *
+                            (180 / Math.PI)
+                )
+                : 0;
+        if (angle < 0) angle += 360;
+        return angle;
+    };
+
+    function displayNumber(s, n) {
+        $.each(n, function (c, value) {
+            $.each(value, function (r, value) {
+                sel = s + "ul:nth-child(" + (c + 1) + ")>li:nth-child(" + (r + 1) + ")>div:";
+                el1 = $(sel + "first-child");
+                if (value[0] == 45 || value[0] == 315) {
+                    el1.fadeTo("fast", 0.2);
+                } else {
+                    el1.fadeTo("fast", 1);
+                }
+                el1.animateRotate(el1.getDeg(), value[0], 500, "linear", function () {});
+
+                el2 = $(sel + "last-child");
+                if (value[1] == 45 || value[1] == 315) {
+                    el2.fadeTo("fast", 0.2);
+                } else {
+                    el2.fadeTo("fast", 1);
+                }
+                el2.animateRotate(el2.getDeg(), value[1], 500, "linear", function () {});
+            });
+        });
+    }
+
+    displayNumber("div.d>", [
+        [
+            [45, 45],
+            [45, 45],
+            [45, 45],
+            [45, 45],
+            [45, 45],
+            [45, 45]
+        ],
+        [
+            [45, 45],
+            [0, 270],
+            [180, 270],
+            [0, 270],
+            [180, 270],
+            [45, 45]
+        ],
+        [
+            [45, 45],
+            [90, 0],
+            [180, 90],
+            [90, 0],
+            [90, 180],
+            [45, 45]
+        ],
+        [
+            [45, 45],
+            [45, 45],
+            [45, 45],
+            [45, 45],
+            [45, 45],
+            [45, 45]
+        ]
+    ]);
+
+    var tick = 0;
+    time = setInterval(function () {
+        if (tick) {
+            tick = 0;
+            displayNumber("div.d>", [
+                [
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45]
+                ],
+                [
+                    [45, 45],
+                    [0, 270],
+                    [180, 270],
+                    [0, 270],
+                    [180, 270],
+                    [45, 45]
+                ],
+                [
+                    [45, 45],
+                    [0, 90],
+                    [90, 180],
+                    [0, 90],
+                    [90, 180],
+                    [45, 45]
+                ],
+                [
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45]
+                ]
+            ]);
+        } else {
+            tick = 1;
+            displayNumber("div.d>", [
+                [
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45]
+                ],
+                [
+                    [45, 45],
+                    [45, 315],
+                    [45, 315],
+                    [45, 315],
+                    [45, 315],
+                    [45, 45]
+                ],
+                [
+                    [45, 45],
+                    [45, 315],
+                    [45, 315],
+                    [45, 315],
+                    [45, 315],
+                    [45, 45]
+                ],
+                [
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45],
+                    [45, 45]
+                ]
+            ]);
+        }
+        var dt = new Date($.now());
+        var h = dt.getHours() < 10 ? 0 : dt.getHours().toString().slice(0, 1);
+        var m = dt.getMinutes() < 10 ? 0 : dt.getMinutes().toString().slice(0, 1);
+        var s = dt.getSeconds() < 10 ? 0 : dt.getSeconds().toString().slice(0, 1);
+        displayNumber("div.h1>", numbers[h]);
+        displayNumber("div.h2>", numbers[dt.getHours() % 10]);
+        displayNumber("div.m1>", numbers[m]);
+        displayNumber("div.m2>", numbers[dt.getMinutes() % 10]);
+        displayNumber("div.s1>", numbers[s]);
+        displayNumber("div.s2>", numbers[dt.getSeconds() % 10]);
+    }, 1000);
+
+  </script>
+</body>
+</html>

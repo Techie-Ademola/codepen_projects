@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            min-height: 100vh;
+            background: linear-gradient(to right, #7f53ac 0, #657ced 100%);
+        }
+        .circle {
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transform: scale(0.7);
+        }
+        .box {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            transform: rotate(45deg);
+            background-color: #fff;
+            box-shadow: 
+            0 0 0 15px orangered,
+            0 0 0 30px #fff,
+            0 0 0 45px orangered,
+            0 0 0 60px #fff,
+            0 0 0 75px orangered;
+        }
+        .box::before {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            left: -118px;
+            width: 85px;
+            height: 85px;
+            background-color: #fff;
+            transform: rotate(45deg);
+        }
+
+        .circle_2 {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transform: scale(0.7);
+        }
+        .box_2 {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            transform: rotate(45deg);
+            background-color: black;
+            box-shadow: 
+            0 0 0 15px orangered,
+            0 0 0 30px black,
+            0 0 0 45px orangered,
+            0 0 0 60px black,
+            0 0 0 75px orangered;
+            animation: pulse 2s linear 0s infinite;
+        }
+        .box_2::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: -118px;
+            width: 85px;
+            height: 85px;
+            background-image: linear-gradient(45deg, transparent 25%, transparent 25%, transparent 25%, black 25%);
+            transform: rotate(45deg);
+        }
+        .inner_box {
+            width: 50px;
+            height: 50px;
+            margin-top: -10px;
+            margin-left: -10px;
+            position: relative;
+            animation: inner 2s linear 0s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1.15) rotate(45deg);
+                transition: 2s ease;
+                box-shadow: 
+                0 0 0 15px orangered,
+                0 0 0 30px black,
+                0 0 0 45px orangered,
+                0 0 0 60px black,
+                0 0 0 75px orangered;
+            }
+            30% {
+                transform: scale(0.7) rotate(45deg);
+                box-shadow: 
+                0 0 0 15px RGBA(231, 65, 44, 0),
+                0 0 0 30px black,
+                0 0 0 45px RGBA(231, 65, 44, 0),
+                0 0 0 60px black,
+                0 0 0 75px RGBA(231, 65, 44, 0);
+            }
+        }
+        @keyframes inner {
+            0%, 100% {
+                box-shadow: none;
+                transform: scale(1.2);
+            }
+            30% {
+                box-shadow: inset 0px 0px 35px RGBA(231, 65, 44, 0.5);
+                transform: scale(1.2);
+            }
+        }
+        .tryme {
+            cursor: pointer;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-transform: uppercase;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            transition: .2s linear;
+            overflow: hidden;
+        }
+        .tryme:hover {
+            box-shadow: inset 0 0 0 50px #111;
+            transition: .2s linear;
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="box"></div>
+    </div>
+    <div class="circle_2">
+        <div class="box_2">
+            <div class="inner_box"></div>
+        </div>
+    </div>
+    <div class="tryme">
+        <p>try me</p>
+    </div>
+</body>
+</html>

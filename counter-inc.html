@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 0px;
+            background: pink;
+            font-family: 'Arial Narrow Bold', sans-serif;
+        }
+        .container {
+            width: 50%;
+            border: 2px solid #999;
+            padding: 30px;
+        }
+        .container h2 {
+            font-size: 3rem;
+            color: #555;
+        }
+        .list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: my-counter;
+        }
+        .list li {
+            counter-increment: my-counter;
+            padding-left: 35px;
+            line-height: 30px;
+        }
+        .list li::before {
+            content: counter(my-counter);
+            position: relative;
+            background-color: #222;
+            font-size: 1em;
+            color: #efefef;
+            line-height: 1;
+            font-weight: 900;
+            display: inline-grid;
+            place-items: center;
+            width: 1.5rem;
+            aspect-ratio: 1;
+            border: 3px solid purple;
+            border-radius: 50%;
+            margin-left: -40px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Here is a Group of Lists</h2>
+        <ol class="list">
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+            <li>
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays.
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

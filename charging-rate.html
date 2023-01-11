@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charging Rate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            margin: 150px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+            min-height: 100%;
+            background: #222;
+            font-family: "Sofia", sans-serif;
+            overflow: hidden;
+        }
+
+        @media screen and (min-width: 300px) and (max-width: 400px) {
+            body {
+                margin: 80px auto;
+            }
+        }
+
+        .tunnel {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: none;
+            background-color: #333;
+            animation: frame 2.5s 0s infinite ease-out;
+        }
+
+        @keyframes frame {
+            0%, 100% {
+                transform: scale(1);
+            }
+            85% {
+                transform: scale(1.2);
+            }
+        }
+        
+        .tunnel_2 {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 275px;
+            height: 275px;
+            border-radius: 50%;
+            border: none;
+            background-color: forestgreen;
+            animation: ScndFrame 2.5s 0s infinite ease-in-out;
+        }
+
+        @keyframes ScndFrame {
+            0%, 100% {
+                transform: scale(0.85);
+            }
+            85% {
+                transform: scale(1);
+            }
+        }
+        
+        .main {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: none;
+            border-top: 1px solid rgba(71, 247, 71, 0.3);
+            background-image: radial-gradient( circle at top, rgba(71, 247, 71, 0.1), transparent, 90%, transparent);
+            box-shadow: 0px 10px 15px #0005;
+            z-index: 1;
+        }
+
+        @media screen and (max-width: 500px) {
+            .charge-container {
+                transform: scale(0.7);
+            }
+        }
+
+        .circle-1 {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            border: 3px solid rgba(208, 250, 226, 0.8);
+            box-shadow: 
+            0px 0px 8px 0px rgb(208, 250, 226) inset,
+            0px 0px 25px rgb(63, 190, 13) inset;
+            overflow: hidden;
+            z-index: 999999;
+            background-color: #222;
+        }
+
+        .text {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .text span:nth-child(1) {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: lightgray;
+            z-index: 9999;
+        }
+
+        .text span:nth-child(2) {
+            font-size: 6.5rem;
+            font-weight: bold;
+            color: lightgray;
+            z-index: 9999;
+        }
+
+        .text span:nth-child(3) {
+            font-size: 1rem;
+            font-weight: bold;
+            color: lightgray;
+            z-index: 9999;
+        }
+
+        .chargeSign {
+            animation: charged 1s 0s infinite linear;
+        }
+
+        @keyframes charged {
+            0%, 100% {
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.4);
+            }
+        }
+
+
+        .boost-box a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 4px
+        }
+
+        .boost-box a:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4,
+                        0 0 25px #03e9f4,
+                        0 0 50px #03e9f4,
+                        0 0 100px #03e9f4;
+        }
+
+
+        .boost-box a span {
+            position: absolute;
+            display: block;
+        }
+
+
+        .boost-box a span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            animation: btn-anim1 1s linear infinite;
+        }
+
+
+        @keyframes btn-anim1 {
+            0% {
+                left:   -100%;
+            }
+            50%,100% {
+                left: 100%;
+            }
+        }
+
+
+        .boost-box a span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: btn-anim2 1s linear infinite;
+            animation-delay: .25s
+        }
+
+        @keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+            50%,100% {
+                top: 100%;
+            }
+        }
+
+
+        .boost-box a span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: btn-anim3 1s linear infinite;
+            animation-delay: .5s
+        }
+
+        @keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+            50%,100% {
+                right: 100%;
+            }
+        }
+
+
+        .boost-box a span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: btn-anim4 1s linear infinite;
+            animation-delay: .75s
+        }
+
+        @keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+            50%,100% {
+                bottom: 100%;
+            }
+        }
+
+
+        .crest {
+            position: absolute;
+            left: 0px;
+            top: -10%;
+            background-image: linear-gradient(to top, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: crest 6s infinite linear;
+        }
+
+        .crest::before {
+            content: '';
+            position: absolute;
+            left: 57px;
+            top: 0;
+            background-image: linear-gradient(to top, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .crest::after {
+            content: '';
+            position: absolute;
+            left: -57px;
+            top: 0;
+            background-image: linear-gradient(to top, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .crest-2 {
+            content: '';
+            position: absolute;
+            right: 0px;
+            top: -10%;
+            background-image: linear-gradient(to top, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: crest 6s infinite linear;
+        }
+
+        .crest-2::before {
+            content: '';
+            position: absolute;
+            right: 57px;
+            top: 0;
+            background-image: linear-gradient(to top, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .crest-2::after {
+            content: '';
+            position: absolute;
+            right: -57px;
+            top: 0;
+            background-image: linear-gradient(to top, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+
+        .trough {
+            position: absolute;
+            left: 0px;
+            top: -10%;
+            background-image: linear-gradient(to bottom, transparent, green, green, transparent);
+            animation: trough 6s infinite linear;
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .trough::before {
+            content: '';
+            position: absolute;
+            left: 57px;
+            top: 0;
+            background-image: linear-gradient(to bottom, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .trough::after {
+            content: '';
+            position: absolute;
+            left: -57px;
+            top: 0;
+            background-image: linear-gradient(to bottom, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .trough-2 {
+            content: '';
+            position: absolute;
+            right: 0px;
+            top: -10%;
+            background-image: linear-gradient(to bottom, transparent, green, green, transparent);
+            animation: trough 6s infinite linear;
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .trough-2::before {
+            content: '';
+            position: absolute;
+            right: 57px;
+            top: 0;
+            background-image: linear-gradient(to bottom, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .trough-2::after {
+            content: '';
+            position: absolute;
+            right: -57px;
+            top: 0;
+            background-image: linear-gradient(to bottom, transparent, green, green, transparent);
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .fill {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-image: radial-gradient( circle at bottom, RGBA(28, 40, 26, 1), 55%, green, green);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .btn1 {
+            display: block;
+        }
+
+        .btn2 {
+            display: none;
+        }
+
+        @keyframes trough {
+            0% {
+                transform: translateX(57px);
+            }
+            50% {
+                transform: translateX(-57px);
+            }
+            100% {
+                transform: translateX(57px);
+            }
+        }
+
+        @keyframes crest {
+            0% {
+                transform: translateX(-57px);
+            }
+            50% {
+                transform: translateX(57px);
+            }
+            100% {
+                transform: translateX(-57px);
+            }
+        }
+
+        .carrier {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translateY(230px);
+        }
+
+        .carrier-2 {
+            animation: carrier 5s 1 linear;
+        }
+
+        @keyframes carrier {
+            0% {
+                transform: translateY(230px);
+            }
+            100% {
+                transform: translateY(5px);
+            }
+        }
+
+        .reBoost {
+            animation: carrierTwo 5s 1 linear;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translateY(230px);
+        }
+
+        @keyframes carrierTwo {
+            0% {
+                transform: translateY(230px);
+            }
+            100% {
+                transform: translateY(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="charge-container">
+        <div class="tunnel">
+            <div class="tunnel_2">
+                <div class="main">
+                    <div class="circle-1">
+                        <div class="carrier" id="carrier">
+                            <div class="crest"></div>
+                            <div class="crest-2"></div>
+                            <div class="trough"></div>
+                            <div class="trough-2"></div>
+                            <div class="fill"></div>
+                        </div>
+                        <div class="text">
+                            <span class="chargeSign"><i class="bi bi-lightning-charge-fill"></i></span>
+                            <span id="percent">0</span>
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="boost-box btn1">
+        <a href="#" onclick="batteryPercent()" id="reAct">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Boost
+          </a>
+    </div>
+
+    <div class="boost-box btn2">
+        <a href="#" onclick="reboostBattery()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            ReBoost
+          </a>
+    </div>
+
+
+    <script>
+        var i = 0;
+        var num = document.getElementById('percent');
+        let carrier = document.querySelector('.carrier')
+        let btn1 = document.querySelector('.btn1')
+        let btn2 = document.querySelector('.btn2')
+
+        function start() {
+            setInterval(increase, 50);
+        }
+
+        function batteryPercent() {
+            setTimeout(start, 0000);
+        }
+
+        function increase() {
+            if (i < 100) {
+                i += 1;
+                num.innerText = Math.round(i);
+            }
+
+            if (num.innerText == 100) {
+                carrier.style.animationIterationCount = '1';
+                carrier.style.transform = 'translateY(5px)';
+                btn1.style.display = 'none'
+                btn2.style.display = 'block'
+            }
+            let carrie = document.getElementById('carrier').classList;
+            carrie.remove("reBoost")
+            carrie.add("carrier-2")
+        }
+
+        function reboostBattery() {
+            if (num.innerText == 100) {
+                i = 0;
+                btn1.style.display = 'block'
+                btn2.style.display = 'none'
+                document.getElementById('reAct').innerHTML = `<span></span>` + 
+                                                            `<span></span>` + 
+                                                            `<span></span>` + 
+                                                            `<span></span>` + 'ReBoost'
+            }
+            let carrie = document.getElementById('carrier').classList;
+            carrie.add("reBoost")
+        }
+    </script>
+</body>
+</html>

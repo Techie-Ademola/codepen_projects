@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <style>
+        .modal-window {
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0.25);
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            z-index: 999;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            overflow-y: scroll;
+        }
+        .modal-window:target {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-window > div {
+            width: 650px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-top: 0em;
+            background: #FDF7F3;
+            margin-top: 0px;
+            margin-bottom:50px;
+        }
+        @media screen and (max-width: 600px) {
+            .modal-window {
+            }
+            .modal-window > div {
+                width: 96% !important;
+                height: fit-content !important;
+                margin-top: 100px;
+            }
+            .pay_with {
+                display: none;
+            }
+            .demo {
+                display: none;
+            }
+            .tab_head,
+            .nav-pills li button {
+                padding-left: 10px !important;
+            }
+            .bi {
+                margin-right: 5px !important;
+            }
+        }
+        .close-div {
+            cursor: pointer !important;
+        }
+        .modal-close {
+            color: #111;
+            line-height: 0px;
+            font-size: 30px !important;
+            font-weight: 900 !important;
+            position: absolute;
+            right: -15px;
+            text-align: center;
+            top: -15px;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 50%;
+            padding: 18px 10px 23px;
+            background-color: white !important;
+            text-decoration: none;
+            z-index: 999999;
+            box-shadow: 0px 0px 5px lightgray;
+        }
+        .modal-close:hover {
+            color: black;
+        }
+        .modal-window header {
+            font-weight: bold;
+        }
+        .modal-window h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .option-left {
+            color: #1F036A;
+            line-height: 50px;
+            font-size: 16px;
+            /* position: absolute; */
+            left: 15px;
+            text-align: center;
+            top: 10px;
+            text-decoration: none;
+        }
+
+        .option-right {
+            color: #7C3FFD;
+            line-height: 50px;
+            font-size: 16px;
+            /* position: absolute; */
+            right: 15px;
+            text-align: center;
+            top: 10px;
+            /* width: 70px; */
+            text-decoration: none;
+        }
+        .option-right:hover {
+            color: #5424bb;
+        }
+
+        /* Demo Styles */
+        html,
+        body {
+            height: 100%;
+        }
+
+        html {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        body {
+            font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-weight: 600;
+            /* background-image: linear-gradient(to right, #7f53ac 0, #657ced 100%); */
+            background-color: #F1F0F7;
+            color: black;
+        }
+
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .modal-window > div {
+            border-radius: 1rem;
+        }
+
+        .modal-window div:not(:last-of-type) {
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            max-width: 150px;
+            display: block;
+        }
+
+        small {
+            color: lightgray;
+        }
+
+        .modalBtn {
+            background-color: white;
+            padding: 1em 1.5em;
+            border-radius: 0.3rem;
+            text-decoration: none;
+        }
+        .modalBtn i {
+            padding-right: 0.3em;
+        }
+
+        .demo-container {
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 0rem 1rem 1rem 0rem;
+        }
+
+        .demo-logo {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background-image: linear-gradient(to right, #657ced 5%, #7f53ac 100%);
+            border: 4px solid whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 15px;
+        }
+
+        .payment-side .email {
+            float: right;
+            text-align: right;
+            font-size: 15px;
+            color: gray;
+            margin-top: -5px;
+            font-weight: lighter;
+        }
+        .price {
+            text-align: right;
+            position: relative;
+            right: 0px;
+            top: 0px;
+            font-size: 1.5em;
+        }
+        .price sup {
+            position: absolute;
+            font-size: 0.5em;
+            top: 15px;
+            left: -35px;
+        }
+        .top_rule {
+            border: none;
+            width: 100%;
+            border-bottom: 2px solid #f1f1f1;
+            margin-top: -15px;
+        }
+        .enter_card {
+            font-size: 15px;
+            color: gray;
+        }
+        form label {
+            font-size: 16px;
+            color: #1F036A;
+        }
+        form input {
+            border-radius: 8px !important;
+            font-size: 16px;
+            color: black;
+            padding: 25px 13px !important;
+        }
+        form input::placeholder {
+            font-size: 15px;
+            font-weight: 600;
+            color: lightgray !important;
+        }
+        .form_submit {
+            border-radius: 8px !important;
+            background-color: RGB(124, 63, 253);
+            border: none !important;
+            transition: .3s;
+            padding-top: 13px !important;
+            padding-bottom: 13px !important;
+            font-size: 15px;
+            font-weight: 600;
+            color: whitesmoke;
+        }
+        .form_submit:hover {
+            background-color: RGBA(124, 63, 253, 0.9);
+            transition: .3s;
+            color: white;
+            /* animation: shake .5s ease-out 0s 1; */
+
+        }
+        .form_submit:active, .form_submit:focus {
+            animation: shake .2s ease-in-out 1;
+        }
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0px);
+            }
+            20% {
+                transform: translateX(20px);
+            }
+            40% {
+                transform: translateX(-20px);
+            }
+            60% {
+                transform: translateX(10px);
+            }
+            80% {
+                transform: translateX(-10px);
+            }
+        }
+        .base_rule {
+            border: none;
+            width: 100%;
+            border-bottom: 1px solid #f1f1f1;
+            margin-top: 150px;
+        }
+        .footer_ {
+            position: relative;
+            display: inline-block;
+            border: 1px solid #E1E7EB;
+            border-radius: 7px;
+            width: 150px;
+        }
+        .fincra_logo {
+            position: absolute;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            margin: 0; 
+        }
+        input[type=date]::-webkit-datetime-edit {
+            appearance: none !important;
+            -moz-appearance: none !important;
+        }
+        .tab_head {
+            font-size: 16px;
+            color: #555;
+            margin-top: 50px;
+            padding-left: 35px;
+        }
+        .nav-pills {
+            margin-top: 30px !important;
+        }
+        .nav-pills li button {
+            display: block !important;
+            text-align: left !important;
+            border-radius: 0px !important;
+            font-size: 15px;
+            padding-left: 35px;
+            background-color: transparent !important;
+            color: black !important;
+            font-weight: 600;
+        }
+        .nav-pills li button:hover {
+            background-color: rgb(255, 217, 223) !important;
+        }
+
+        .nav-pills li button.active {
+            background-image: linear-gradient(to right, RGB(124, 63, 253), RGB(124, 63, 253));
+            background-repeat: no-repeat;
+            background-size: 5px 100%;
+            color: RGB(124, 63, 253) !important;
+            font-weight: 600;
+        }
+
+        .transfer_card {
+            font-size: 15px;
+            color: gray;
+            font-weight: lighter;
+        }
+        .acc_no-div {
+            flex-direction: column;
+            text-align: center;
+            padding: 0.5em;
+            border-radius: .6em;
+            height: fit-content !important;
+            background-color: #F8F7FD;
+            border: none;
+        }
+        .acc_no-div h1 {
+            font-size: 1.7em; 
+            /* line-height: 3px;  */
+            color: RGB(124, 63, 253);
+        }
+        .acc_no-div span {
+            color: gray;
+            font-size: 15px;
+            margin-top: -10px;
+        }
+        .acc_no-div p {
+            color: gray;
+            font-size: 16px;
+            margin-top: 30px;
+            /* line-height: 5px; */
+            font-weight: lighter;
+        }
+        .payAttitude {
+            font-size: 15px;
+            color: #7C3FFD;
+            font-weight: 700;
+            text-align: center !important;
+        }
+        .payAttitude:hover {
+            color: #7f53ac;
+        }
+        .bi {
+            font-size: 16px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="interior">
+          <a class="modalBtn" href="#open-modal">👋 Fincra Modal</a>
+        </div>
+      </div>
+
+      <div id="open-modal" class="modal-window">
+        <div>
+            <a href="#" class="close-div"><i class="modal-close" title="Close">&times;</i></a>
+          <div class="row">
+            <div class="col-4 pr-0 side_nav">
+                <p class="tab_head">PAY&nbsp;<span class="pay_with">WITH</span></p>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item d-block w-100" role="presentation">
+                      <button class="nav-link d-block w-100 active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mr-2 bi bi-credit-card"></i> <span class="pay_with">Card</span></button>
+                    </li>
+                    <li class="nav-item d-block w-100" role="presentation">
+                      <button class="nav-link d-block w-100" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="mr-2 bi bi-bank2"></i> <span class="pay_with">Transfer</span></button>
+                    </li>
+                    <!-- <li class="nav-item d-block w-100" role="presentation">
+                      <button class="nav-link d-block w-100" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="mr-2 bi bi-phone"></i> <span class="pay_with">PayAttitude</span></button>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-8 pl-0">
+                <div class="demo-container">
+                    <div class="d-flex justify-content-between d-lg-none d-block">
+                        <span class="option-left">Card</span>
+                    <a href="#" class="option-right">Change Method</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="demo-logo">DE</div>
+                                </div>
+                                <div class="col-3 pt-2 mt-1 ml-2 pl-4">
+                                    <span class="demo">Demo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 ml-auto payment-side">
+                            <div style="text-align: right;">
+                                <span class="price"><sup class="">NGN</sup>100</span> <br>
+                                <span class="email ml-auto">coolchi01@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="top_rule">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active pb-0 mb-0" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            
+                            <p class="text-center enter_card py-2">Enter card details</p>
+                            <form id="cardSubmit" action="" method="post">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <input name="cardNumber" maxlength="20" type="number" class="form-control " id="CardNumber" placeholder="1234 1234 1234 1234">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="expiryDate">Expiry Date</label>
+                                        <input name="expiryDate" maxlength="4" type="number" class="form-control" id="expiryDate" placeholder="MM / YY">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCVV">CVV 
+                                            <span style="color: rgb(153 153 153 / 0.6);" data-toggle="tooltip" data-placement="left" title="The 3 digit number behind your card">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </span>
+                                        </label>
+                                        <input maxlength="16" type="password" name="inputCVV" class="form-control" id="inputCVV" placeholder="***">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 submit_div">
+                                        <a type="submit" class="btn form_submit d-block w-100">Pay NGN 100</a>
+                                    </div>
+                                </div>
+                            </form>
+        
+                            <hr class="base_rule d-none">
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <p class="text-center transfer_card py-2">Make a <b>single transfer</b> from your bank to <b>Fincra Checkout</b></p>
+                            <div class="card d-flex acc_no-div">
+                                <h1 class="font-weight-bold mt-2">7299657912</h1>
+                                <span>Wema Bank</span>
+                                <p>This account will expire in 20 minutes</p>
+                            </div>
+                            <p class="transfer_card px-4 text-center">You will get a confirmation once we receive your payment</p>
+                            <div class="row">
+                                <div class="col-12 submit_div">
+                                    <a type="submit" class="btn form_submit d-block w-100">I've made payment</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <p class="transfer_card text-center px-4 mt-4 mb-4">Please enter your registered phone number to start this payment</p>
+                            <form>
+                                <div class="form-group">
+                                    <input maxlength="20" name="inputPhoneNumber" type="number" class="form-control " id="inputPhoneNumber" placeholder="1234 1234 1234 1234">
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 submit_div my-3">
+                                        <a type="submit" class="btn form_submit d-block w-100">Confirm</a>
+                                    </div>
+                                </div>
+                            <p class="text-center mt-2 mb-4"><a href="" class="payAttitude">Click here to learn how PayAttitude works</a></p>
+                            </form>
+                        </div>
+                    </div> -->
+
+                    <section class="mx-auto mt-3" style="width: fit-content !important;">
+                        <svg width="170" height="37" viewBox="0 0 170 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="169" height="36" rx="9.5" fill="white" fill-opacity="0.7" stroke="#E1E7EB"></rect>
+                            <path d="M23.597 13.662C21.683 13.662 20.748 14.773 20.748 16.071C20.748 17.644 21.958 18.062 23.432 18.425C24.686 18.722 25.401 18.942 25.401 19.767C25.401 20.625 24.708 20.977 23.762 20.977C22.728 20.977 21.947 20.416 21.892 19.536L20.561 19.613C20.616 21.219 21.958 22.11 23.762 22.11C25.39 22.11 26.732 21.373 26.732 19.679C26.732 18.227 25.643 17.732 23.916 17.314C22.728 17.039 22.09 16.852 22.09 16.027C22.09 15.323 22.618 14.795 23.619 14.795C24.543 14.795 25.148 15.301 25.192 16.126L26.523 16.049C26.468 14.542 25.28 13.662 23.597 13.662ZM33.3856 19.646V19.041C33.3856 17.325 32.3626 16.258 30.7456 16.258C29.1066 16.258 27.9296 17.347 27.9296 19.184C27.9296 21.01 29.1176 22.11 30.7786 22.11C32.0876 22.11 33.1106 21.307 33.3306 20.306L32.0876 20.24C31.9336 20.746 31.4606 21.043 30.7456 21.043C29.8876 21.043 29.3046 20.504 29.2386 19.646H33.3856ZM30.7346 17.314C31.6476 17.314 32.1096 17.864 32.1426 18.678H29.2496C29.3156 17.798 29.9096 17.314 30.7346 17.314ZM37.2879 16.258C35.6599 16.258 34.4609 17.325 34.4609 19.184C34.4609 21.032 35.6709 22.11 37.2879 22.11C38.6629 22.11 39.6749 21.318 39.8949 20.031L38.6849 19.921C38.5749 20.614 38.0579 21.043 37.2879 21.043C36.3859 21.043 35.7149 20.372 35.7149 19.184C35.7149 17.985 36.3749 17.314 37.2879 17.314C38.0359 17.314 38.5859 17.765 38.6739 18.502L39.8839 18.392C39.6969 17.061 38.6409 16.258 37.2879 16.258ZM46.0107 22V16.357H44.7787V19.58C44.7787 20.317 44.3277 20.955 43.5577 20.955C42.8097 20.955 42.4137 20.46 42.4137 19.646V16.357H41.1817V19.833C41.1817 21.197 41.9737 22.11 43.2497 22.11C44.1297 22.11 44.6357 21.681 44.8447 21.263V22H46.0107ZM50.5944 16.291C49.6924 16.291 49.1974 16.709 48.9884 17.149V16.357H47.7894V22H49.0214V18.931C49.0214 18.106 49.6264 17.49 50.5944 17.49V16.291ZM56.7821 19.646V19.041C56.7821 17.325 55.7591 16.258 54.1421 16.258C52.5031 16.258 51.3261 17.347 51.3261 19.184C51.3261 21.01 52.5141 22.11 54.1751 22.11C55.4841 22.11 56.5071 21.307 56.7271 20.306L55.4841 20.24C55.3301 20.746 54.8571 21.043 54.1421 21.043C53.2841 21.043 52.7011 20.504 52.6351 19.646H56.7821ZM54.1311 17.314C55.0441 17.314 55.5061 17.864 55.5391 18.678H52.6461C52.7121 17.798 53.3061 17.314 54.1311 17.314ZM63.5994 22V13.453H62.3674V17.039C62.0594 16.599 61.4214 16.258 60.5744 16.258C59.0014 16.258 57.8574 17.38 57.8574 19.184C57.8574 20.977 59.0014 22.11 60.5744 22.11C61.4544 22.11 62.1254 21.736 62.4334 21.219V22H63.5994ZM60.7724 17.314C61.6964 17.314 62.3674 17.919 62.3674 19.03V19.327C62.3674 20.449 61.6964 21.043 60.7724 21.043C59.8154 21.043 59.1114 20.383 59.1114 19.184C59.1114 17.985 59.8154 17.314 60.7724 17.314ZM67.9855 13.772V22H71.4835C72.9685 22 74.0685 21.23 74.0685 19.668C74.0685 18.59 73.5075 17.93 72.7925 17.699C73.3535 17.424 73.7165 16.863 73.7165 16.005C73.7165 14.498 72.6605 13.772 71.2195 13.772H67.9855ZM69.2835 14.927H71.0655C71.8465 14.927 72.3855 15.312 72.3855 16.093C72.3855 16.907 71.9235 17.226 71.2525 17.226H69.2835V14.927ZM69.2835 18.348H71.3845C72.0995 18.348 72.7265 18.7 72.7265 19.602C72.7265 20.482 72.1105 20.834 71.3295 20.834H69.2835V18.348ZM77.042 24.805L80.628 16.357H79.253L77.735 20.218L76.217 16.357H74.842L77.075 21.604L75.689 24.805H77.042Z" fill="black"></path>
+                            
+                            <path d="M105 17.5005C105 22.1943 101.194 26 96.4995 26C95.2119 26.0009 93.941 25.709 92.7829 25.1463C91.6248 24.5836 90.6098 23.7649 89.8149 22.7521C90.6175 21.7988 91.6042 21.1958 92.9697 21.3089C93.3265 21.3389 93.6898 21.302 94.0484 21.3148C94.8141 21.343 95.5069 21.1079 96.1509 20.726C97.2233 20.0926 97.9685 19.1497 98.5992 18.1011C98.7816 17.7994 98.7433 17.6814 98.3591 17.6855C96.9576 17.7005 95.5561 17.6973 94.1546 17.6923C91.8485 17.6856 90.2343 18.7376 89.3122 20.8481C89.2064 21.09 89.1182 21.3391 89.0483 21.5937C88.3584 20.3398 87.9978 18.9315 88 17.5005C88 12.8066 91.8056 9 96.5 9C97.9141 8.99901 99.306 9.35122 100.549 10.0247C101.793 10.6981 102.848 11.6714 103.62 12.8563C100.883 12.8453 98.1458 12.7423 95.4116 12.8945C93.1428 13.0203 91.5613 15.2155 92.1042 17.5305C92.7331 16.6191 93.5858 16.4409 94.5402 16.4468C96.3979 16.4591 98.2551 16.4268 100.113 16.43C100.94 16.43 101.685 16.198 102.346 15.7182C103.051 15.2073 103.706 14.6377 104.183 13.8953C104.186 13.8912 104.19 13.8862 104.192 13.8821C104.726 15.0136 105.002 16.2494 105 17.5005Z" fill="#5922ED"></path>
+                            
+                            <path d="M113.817 10.5271C111.919 10.5271 110.691 11.7233 110.691 13.6852V14.8176H109.144V16.3648H110.691V23H112.477V16.3648H114.487V14.8176H112.477V13.6373C112.477 12.6803 113.099 12.0902 114.008 12.0902C114.232 12.0902 114.375 12.1061 114.519 12.1221V10.5749C114.311 10.543 114.12 10.5271 113.817 10.5271ZM116.911 10.862C116.305 10.862 115.795 11.3565 115.795 11.9785C115.795 12.6006 116.289 13.095 116.911 13.095C117.533 13.095 118.044 12.6006 118.044 11.9785C118.044 11.3565 117.533 10.862 116.911 10.862ZM117.804 23V14.8176H116.018V23H117.804ZM123.671 14.6741C122.475 14.6741 121.693 15.1845 121.279 15.9022V14.8176H119.588V23H121.374V18.3266C121.374 17.1942 122.14 16.3329 123.272 16.3329C124.357 16.3329 125.059 17.0825 125.059 18.3107V23H126.861V18.0714C126.861 15.9501 125.537 14.6741 123.671 14.6741ZM132.161 14.6741C129.8 14.6741 128.062 16.2212 128.062 18.9168C128.062 21.5964 129.816 23.1595 132.161 23.1595C134.155 23.1595 135.622 22.0111 135.941 20.1449L134.187 19.9854C134.027 20.9903 133.277 21.6123 132.161 21.6123C130.853 21.6123 129.88 20.6394 129.88 18.9168C129.88 17.1782 130.837 16.2053 132.161 16.2053C133.245 16.2053 134.043 16.8592 134.171 17.9279L135.925 17.7684C135.654 15.8384 134.123 14.6741 132.161 14.6741ZM141.156 14.7219C139.849 14.7219 139.131 15.328 138.828 15.966V14.8176H137.089V23H138.876V18.5499C138.876 17.3537 139.753 16.4605 141.156 16.4605V14.7219ZM144.959 14.6741C142.918 14.6741 141.705 16.1255 141.705 17.561L143.508 17.6248C143.508 16.8911 143.954 16.2372 144.975 16.2372C145.98 16.2372 146.427 16.8911 146.427 17.9439V18.1831L144.481 18.2947C142.806 18.3904 141.482 19.0125 141.482 20.767C141.482 22.2982 142.583 23.1595 144.21 23.1595C145.119 23.1595 145.852 22.8086 146.427 22.2663V23H148.229V17.9119C148.229 15.8225 147.065 14.6741 144.959 14.6741ZM146.443 19.5707V19.8578C146.443 21.1019 145.645 21.6602 144.513 21.6602C143.795 21.6602 143.285 21.4209 143.285 20.7351C143.285 20.0014 143.891 19.7302 144.736 19.6824L146.443 19.5707Z" fill="black"></path>
+                        </svg>
+                    </section>
+                </div>
+                
+                
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* It's a dangerous business walking out of your front door. */
+
+
+:root {
+	--wood-bg: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23d2af88' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+	--gold:radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+	--dark-color:#775149;
+	--edge-color:#8b7556;
+		--pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='77' height='107' viewBox='0 0 77 107'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='stamp-collection' fill='%23eed412' fill-opacity='0.4'%3E%3Cpath d='M46 101a5 5 0 0 1 5 5h5a5 5 0 0 1 10 0h5a5 5 0 0 1 5-5v-5a5 5 0 0 1 0-10v-5a5 5 0 0 1 0-10v-5a5 5 0 0 1 0-10v-5a5 5 0 0 1 0-10v-5a5 5 0 0 1 0-10v-5a5 5 0 0 1 0-10V6a5 5 0 0 1-5-5h-5a5 5 0 0 1-10 0h-5a5 5 0 0 1-10 0h-5a5 5 0 0 1-10 0h-5a5 5 0 0 1-10 0H6a5 5 0 0 1-5 5v5a5 5 0 0 1 0 10v5a5 5 0 0 1 0 10v5a5 5 0 0 1 0 10v5a5 5 0 0 1 0 10v5a5 5 0 0 1 0 10v5a5 5 0 0 1 0 10v5a5 5 0 0 1 5 5h5a5 5 0 0 1 10 0h5a5 5 0 0 1 10 0h5a5 5 0 0 1 5-5zm15-2a7 7 0 0 0-6.71 5h-1.58a7 7 0 0 0-13.42 0h-1.58a7 7 0 0 0-13.42 0h-1.58a7 7 0 0 0-13.42 0H7.71A7.01 7.01 0 0 0 3 99.29v-1.58a7 7 0 0 0 0-13.42v-1.58a7 7 0 0 0 0-13.42v-1.58a7 7 0 0 0 0-13.42v-1.58a7 7 0 0 0 0-13.42v-1.58a7 7 0 0 0 0-13.42v-1.58A7 7 0 0 0 3 9.29V7.71A7.02 7.02 0 0 0 7.71 3h1.58a7 7 0 0 0 13.42 0h1.58a7 7 0 0 0 13.42 0h1.58a7 7 0 0 0 13.42 0h1.58a7 7 0 0 0 13.42 0h1.58A7.02 7.02 0 0 0 74 7.71v1.58a7 7 0 0 0 0 13.42v1.58a7 7 0 0 0 0 13.42v1.58a7 7 0 0 0 0 13.42v1.58a7 7 0 0 0 0 13.42v1.58a7 7 0 0 0 0 13.42v1.58a7 7 0 0 0 0 13.42v1.58a7.01 7.01 0 0 0-4.71 4.71h-1.58A7 7 0 0 0 61 99zM12 12h53v83H12V12zm51 81H14V14h49v79z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+html {animation:fade-it 1s 1 }
+
+body{
+	margin:0;
+	padding:0;
+	line-height:1em;
+	display: block;
+	background: radial-gradient(closest-side, rgba(0,0,0,0) 0, rgba(0,0,0,0) 75%, rgb(182,204,102) 76%, rgb(182,204,102) 85%, rgb(237,255,219) 86%, rgb(237,255,219) 94%, rgb(255,255,255) 95%, rgb(255,255,255) 103%, rgb(217,230,167) 104%, rgb(217,230,167) 112%, rgb(121,139,60) 113%, rgb(121,139,60) 121%, rgb(255,255,255) 122%, rgb(255,255,255) 130%, rgb(224,234,215) 131%, rgb(224,234,215) 140%), radial-gradient(closest-side, rgba(0,0,0,0) 0, rgba(0,0,0,0) 75%, rgb(182,204,102) 76%, rgb(182,204,102) 85%, rgb(237,255,219) 86%, rgb(237,255,219) 94%, rgb(255,255,255) 95%, rgb(255,255,255) 103%, rgb(217,230,167) 104%, rgb(217,230,167) 112%, rgb(121,139,60) 113%, rgb(121,139,60) 121%, rgb(255,255,255) 122%, rgb(255,255,255) 130%, rgb(224,234,215) 131%, rgb(224,234,215) 140%), rgb(200, 211, 167);
+	background-position: 0 0, 55px 55px;
+	background-size: 110px 110px;
+}
+
+@keyframes fade-it {
+	0% {
+		opacity:0;
+		filter:blur(30px)
+}
+	100% {
+		opacity:1
+}
+}
+
+
+.clear {
+	clear:both;
+}
+/* thanks http://tobiasahlin.com/blog/how-to-animate-box-shadow/ */
+@keyframes shadows-pulse {
+	0% {
+		opacity: 0
+}
+	50% {
+		opacity: 1 
+}
+	100% {
+		opacity: .8 
+}
+}
+.candles {
+	display: grid;
+	height: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 0;
+	grid-template-areas: "left mid right";
+}
+.left {
+	grid-area: left
+}
+.mid {
+	grid-area: mid
+}
+.right {
+	grid-area: right
+}
+
+.frame:after{	
+	content:"";
+	display:block;
+	height:310px;
+	background:rgba(0,0,0,.3);
+	width:276px;
+	margin:-290px auto -360px;
+	padding-bottom:400px;
+	position: relative;
+	z-index:99;
+	transform: skew(10deg, 0deg);
+	filter:blur(50px);
+ }
+.light {
+	height:12px;
+	width:80px;
+	margin:250px auto -100px;
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	border-bottom:3px solid #65311b;
+	border-top:3px solid var(--edge-color);	
+	transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.light:before{
+	content:"";
+	display:block;
+	height:10px;
+	left:-9px;
+	width:90px;
+	padding-bottom:150px;
+	border-radius: 50%;
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 1%,rgba(229,155,52,1) 83%,rgba(241,218,54,1) 100%);
+	position:relative;
+	filter:blur(40px);
+	animation:light-pulse 2ms infinite;
+	
+}
+.light:after{
+	content:"";
+	display:block;
+	height:80px;
+	width:10px;
+	background:#fff;
+	border-top:3px solid rgba(255,255,255,.8);
+	margin-left:25px;
+	position:relative;
+	z-index:-1;
+	background: linear-gradient(to right, rgba(224,202,159,1) 0%,rgba(255,245,232,1) 47%,rgba(224,202,159,1) 100%);
+}
+.candles .fleur {
+	margin-top:40px;
+	font-size:.5em;
+	width:12px;
+}
+.flame {
+	height:6px;
+	width:6px;
+	margin-top:-100px ;
+	margin-left:37px;
+	background:orange;
+	box-shadow:0 10px 16px yellow;
+	border-radius:40px;
+	border-bottom:3px solid #222;
+	border-top:3px solid #fff;
+	animation:pendulum-2 10ms infinite;
+	filter:blur(2px);
+}
+@keyframes light-pulse {
+	0% {
+		opacity: .5
+}
+	49% {
+		opacity: .5
+}
+	50% {
+		opacity: .7 
+}
+	51% {
+		opacity: .5 
+}
+	100% {
+		opacity: .5 
+}
+}
+.roof {
+	height:160px;
+	width:316px;
+	margin:10px 0 0 -18px;
+	-webkit-clip-path: polygon(50% 39%, 100% 70%, 94% 100%, 6% 100%, 0 70%);
+	padding-top:20px;
+	color:yellow;
+	clip-path: polygon(50% 39%, 100% 70%, 94% 100%, 6% 100%, 0 70%);
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+
+	box-shadow:inset 0 120px 50px rgba(0,0,0,.4);
+	border-bottom:1px solid #222
+}
+.roof span{
+	margin-right:10px;
+	margin-left:10px;
+}
+.roof:after {
+	content:"";
+	display:block;
+	height:150px;
+	width:270px;
+	margin:10px auto 0px;
+	-webkit-clip-path: polygon(50% 39%, 100% 70%, 94% 100%, 6% 100%, 0 70%);
+	clip-path: polygon(50% 39%, 100% 70%, 94% 100%, 6% 100%, 0 70%);
+	background-color: rgba(0,0,0,.1);
+	background-image:var(--wood-bg);
+}
+.fleur {
+	font-size:1.2em;
+	margin:130px auto 0;
+	width:66px;
+	position:relative;
+	color:yellow;
+}
+.clock-in .fleur {
+	margin-top:16px;
+	margin-bottom:12px;
+	text-shadow:10px 10px 16px rgba (0,0,0,1)
+}
+.clock-box{
+	width:280px;
+	margin:0 auto 0px;
+	position:relative;
+	z-index:99;
+}
+.clock {
+	display:block;
+	clear:both;
+	height:50px;
+}
+.mechanism {
+	border-radius:50%;
+	overflow:hidden;
+	width:200px;
+	height:200px;
+	margin:-226px auto 26px;
+	background:rgba(0,0,0,.3);
+	border:1px solid rgba(0,0,0,.3);
+	box-shadow:inset 0 20px 20px rgba(0,0,0,1);
+}
+.clock-in{
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	border-bottom:3px solid rgba(0,0,0,.9);
+	padding:5px 0 5px;
+	margin-top:4px;
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	box-shadow:inset 0 40px 50px rgba(0,0,0,.15);
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.cuckoo {
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	width:260px;
+	margin:auto;
+	box-shadow: 20px 10px 40px rgba(0,0,0,.8);
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	border-bottom:3px solid rgba(0,0,0,.8);
+	position:relative;
+	z-index:9;
+	border-radius:5px
+}
+.pendulum-top {
+	height:10px;
+	margin-top:-150px
+}
+.cabinet-strip {
+	font-family:script;
+	text-align:center;
+	line-height:16px;
+	padding-top:16px;
+	letter-spacing:2px;
+	font-size:.6em;
+	height:50px;
+	text-transform:uppercase;
+	width:214px;
+	margin:0 auto 0px;
+	position:relative;
+	z-index:99999;
+}
+
+.project {
+	text-shadow: 0 1px 1px rgba(0,0,0,1);
+	color:#d5ad6d;
+	background:yellow;;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
+}
+.cabinet-strip:after {
+	content: "";
+	display:block;
+	background:var(--gold);
+	margin: 37px auto 0;
+	height:6px;
+	position:relative;
+	box-shadow: 0 6px 9px rgba(0,0,0,.8);
+}
+
+.cabinet-strip span{
+	display:block;
+	text-transform:capitalize;
+	font-style:italic;
+	text-shadow: 0 1px 1px rgba(0,0,0,1);
+	background:yellow;;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.cuckoo-sm {
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	height:250px;
+	box-shadow:20px 20px 40px rgba(0,0,0,.8),inset 0 40px 50px rgba(0,0,0,.4);
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	border-bottom:3px solid rgba(0,0,0,.8);
+}
+.mechanism svg {
+	width:136px;
+	margin-left:-65px;
+	transform:rotate(40deg);
+	filter: drop-shadow( 1px 1px 1px rgba(0,0,0,.3 ));
+}
+
+
+.rod {
+	background:gold;
+	height:150px;
+	margin:0 auto;
+	width:6px;
+	background:var(--gold);
+	box-shadow:4px 10px 20px rgba(0,0,0,.8)
+}
+.rod:after {
+	content:"";
+	display:block;
+	position:absolute;
+	top:0;
+	background:gold;
+	height:10px;
+	border-radius:50%;
+	padding:2px;
+	margin:-10px 0 10px -5px;
+	width:10px;
+	background:var(--gold);
+	box-shadow:4px 10px 20px rgba(0,0,0,.8)
+}
+.massive-bob {
+	background:gold;
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	margin:-40px auto 0;
+	background:var(--gold);
+	box-shadow:4px 10px 20px rgba(0,0,0,.8)
+}
+.pendulum {
+	margin:-144px auto 0;
+	position:relative;
+	z-index:9999;
+	width:220px;
+	transform-origin: 50% 0;
+	animation: pendulum 2s ease-in-out infinite;
+}
+.weights {
+	width:90px;
+	margin:-283px auto 0;
+	position:relative;
+	z-index:9
+}
+.weight {
+	height:60px;
+	width:20px;
+	background:var(--gold);
+	border-top:1px solid yellow;
+	border-bottom:3px solid #333;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	margin-left: 12px;
+	margin-right: 12px;
+	position:relative;
+	z-index:9;
+	box-shadow:2px 6px 6px rgba(0,0,0,.4)
+}
+
+.weight:before {
+	content:"";
+	display:block;
+	width:4px;
+	margin-top:-80px;
+	margin-left:7px;
+	background:var(--gold);
+	position:relative;
+	box-shadow:2px 2px 2px rgba(0,0,0,.4);
+	border-radius:10px;
+}
+
+
+
+.weight-l.weight:before {
+	height:79px;
+}
+
+.weight-r.weight:before {
+	height:79px;
+}
+
+
+
+.weight-l {	float:left;margin-top:69px;}
+.weight-r { float: right;margin-top:69px;}
+
+.mouse {
+	width: 30px;
+	left:-300px;
+	height: 45px;
+	position:absolute;
+	background: rgba(0, 0, 0,.6);
+	box-shadow:inset -5px 0 2px rgba(0,0,0,.6);
+	border-radius: 50%;
+	margin: 25px auto -170px;
+	position:relative;
+}
+.shadow {
+	width: 30px;
+	height: 25px;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+	margin: 122px auto 210px;
+	animation: move-shadow 1s ease-in-out alternate infinite;
+	position:relative;
+	z-index:9999;
+}
+@keyframes pendulum {
+	0%, 100% {
+		transform: rotate(45deg);
+	}
+	50% {
+		transform: rotate(-45deg);
+	}
+}
+@keyframes move-shadow {
+	0% {
+		transform: translateX(-120px) scale(1.4, .5);
+		filter: blur(20px);
+	}
+	50% {
+		filter: blur(3px);
+	}
+	100% {
+		transform: translateX(120px) scale(1.4, .5);
+		filter: blur(20px);
+	}
+}
+.minutes-container, .hours-container, .seconds-container {
+	position: absolute;
+	top: 100px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height:240px;
+	margin-top:100px;
+}
+.hours {
+	background: #000;
+	height: 20%;
+	left: 48.75%;
+	position: absolute;
+	top: 30%;
+	transform-origin: 50% 100%;
+	width: 2.5%;
+	box-shadow:2px 2px 2px rgba(0,0,0,.4)
+}
+.minutes {
+	background: #000;
+	height: 40%;
+	left: 49%;
+	position: absolute;
+	top: 10%;
+	transform-origin: 50% 100%;
+	width: 2%;
+	box-shadow:2px 2px 2px rgba(0,0,0,.4)
+}
+.seconds {
+	background: #000;
+	height: 45%;
+	left: 49.5%;
+	position: absolute;
+	top: 14%;
+	transform-origin: 50% 80%;
+	width: 1%;
+	z-index: 8;
+	box-shadow:2px 2px 2px rgba(0,0,0,.4);
+}
+.main-cabinet {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 0;
+	grid-template-areas: "l m r";
+	margin-bottom: 90px;
+}
+.cabinet-one {
+	grid-area: l 
+}
+.cabinet-two {
+	grid-area: m 
+}
+.cabinet-three {
+	grid-area: r 
+}
+.cabinet{	
+	width:276px;
+	margin:0 auto;
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	border-top-left-radius:10px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	box-shadow: 10px 0px 40px rgba(0,0,0,.6)
+}
+
+.cabinet-one:after, .cabinet-three:after
+{
+	content:"";
+	display:block;
+	top:100px;
+	width:50%;
+	margin:auto;
+	height:30px;
+}
+.cabinet-r, .cabinet-l {
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	height:300px;
+	padding-top:30px;
+	position:relative;
+	z-index:99999;
+	box-shadow:inset 0 30px 40px rgba(0,0,0,.1);
+	border-bottom:3px solid  var(--dark-color);
+}
+.cabinet-l{
+	border-left:3px solid var(--edge-color);
+	border-top-left-radius:14px;
+  }
+.cabinet-r {	
+	border-right:3px solid  var(--edge-color);
+	border-top-right-radius:14px;
+}
+.cabinet-r:after, .cabinet-l:after {
+	display:block;
+	content:"";
+	height:278px;
+	width:50px;
+	top:16px;
+	margin-left:20px;
+	background-image: var(--pattern);
+	background-size:50px;
+	box-shadow:inset 0 3px 4px rgba(0,0,0,.5);
+	border:1px solid  var(--edge-color);
+}
+.cabinet-r:after {
+	display:block;
+	content:"";
+	height:278px;
+	width:50px;
+	top:16px;
+	margin-left:20px;
+	background-image: var(--pattern);
+	background-size:50px;
+}
+
+.glass{
+	background:lightskyblue;
+	opacity:.3;
+	position:relative;
+	z-index:99999;
+	height:300px;
+	box-shadow:inset 0 0 20px rgba(0,0,0,.6);
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	border-bottom:35px solid rgba(0,0,0,.2);
+	background: linear-gradient(135deg, rgba(225,255,255,1) 0%,rgba(225,255,255,1) 7%,rgba(225,255,255,1) 12%,rgba(253,255,255,1) 12%,rgba(230,248,253,1) 30%,rgba(200,238,251,1) 54%,rgba(190,228,248,1) 75%,rgba(177,216,245,1));
+}
+.skirt{
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	border-top: 3px solid #a6803d;
+	border-bottom: 2px solid #222;
+	height:50px;
+	overflow:hidden;
+	margin-top: -440px;
+	margin-bottom: 0;
+}
+
+.wallpaper-strip {
+	border-top: 3px solid #5c3b34;
+	border-bottom: 3px solid #5c3b34;
+	height:60px;
+	width:100%;
+	position:absolute;
+	z-index:-3;
+	top: 600px;
+	background-color: #dbe1b9;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 80 80'%3E%3Cg fill='%236d7647' fill-opacity='0.6'%3E%3Cpath fill-rule='evenodd' d='M41 37.59V25h-2v12.59l-8.9-8.9-1.41 1.41 8.9 8.9H25v2h12.59l-8.9 8.9 1.41 1.41 8.9-8.9V55h2V42.41l8.9 8.9 1.41-1.41-8.9-8.9H55v-2H42.41l8.9-8.9-1.41-1.41-8.9 8.9zM1 1h2v2H1V1zm0 4h2v2H1V5zm0 4h2v2H1V9zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm0 4h2v2H1v-2zm4 0h2v2H5v-2zm4 0h2v2H9v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zM5 1h2v2H5V1zm4 0h2v2H9V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1zm0 4h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zM5 5h70v70H5V5zm2 68h66V7H7v66zM9 9h62v62H9V9zm2 60h58V11H11v58zm2-39.6V13h16.4A29.1 29.1 0 0 0 13 29.4zM15 15v6.67A31.17 31.17 0 0 1 21.67 15H15zm-2 52V50.6A29.1 29.1 0 0 0 29.4 67H13zm2-8.67V65h6.67A31.17 31.17 0 0 1 15 58.33zM67 67H50.6A29.1 29.1 0 0 0 67 50.6V67zm-8.67-2H65v-6.67A31.17 31.17 0 0 1 58.33 65zM67 13v16.4A29.1 29.1 0 0 0 50.6 13H67zm-2 8.67V15h-6.67A31.17 31.17 0 0 1 65 21.67zM39 13h2v2h-2v-2zm7.02.66l1.93.52-.51 1.93-1.94-.52.52-1.93zm6.61 2.46l1.74 1-1 1.73-1.74-1 1-1.73zm5.75 4.08l1.42 1.42-1.42 1.4-1.4-1.4 1.4-1.42zm4.5 5.43l1 1.74-1.73 1-1-1.74 1.73-1zm2.94 6.42l.52 1.93-1.93.52-.52-1.94 1.93-.51zM67 39v2h-2v-2h2zm-.66 7.02l-.52 1.93-1.93-.51.52-1.94 1.93.52zm-2.46 6.61l-1 1.74-1.73-1 1-1.74 1.73 1zm-4.08 5.75l-1.42 1.42-1.4-1.42 1.4-1.4 1.42 1.4zm-5.43 4.5l-1.74 1-1-1.73 1.74-1 1 1.73zM41 67h-2v-2h2v2zm6.95-1.18l-1.93.52-.52-1.93 1.94-.52.51 1.93zm-13.97.52l-1.93-.52.51-1.93 1.94.52-.52 1.93zm-6.61-2.46l-1.74-1 1-1.73 1.74 1-1 1.73zm-5.75-4.08l-1.42-1.42 1.42-1.4 1.4 1.4-1.4 1.42zm-4.5-5.43l-1-1.74 1.73-1 1 1.74-1.73 1zm-2.94-6.42l-.52-1.93 1.93-.52.52 1.94-1.93.51zM13 41v-2h2v2h-2zm.66-7.02l.52-1.93 1.93.51-.52 1.94-1.93-.52zm2.46-6.61l1-1.74 1.73 1-1 1.74-1.73-1zm4.08-5.75l1.42-1.42 1.4 1.42-1.4 1.4-1.42-1.4zm5.43-4.5l1.74-1 1 1.73-1.74 1-1-1.73zm6.42-2.94l1.93-.52.52 1.93-1.94.52-.51-1.93zM40 63a23 23 0 1 1 0-46 23 23 0 0 1 0 46zm0-2a21 21 0 1 0 0-42 21 21 0 0 0 0 42zm0-2a19 19 0 1 1 0-38 19 19 0 0 1 0 38zm0-2a17 17 0 1 0 0-34 17 17 0 0 0 0 34z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.window {
+	height:350px;
+	top: 290px;
+	width:200px;
+	padding:30px;
+	position:absolute;
+	margin-left: 150px;
+	border:20px solid #775149;
+	box-shadow:inset 0 3px 53px rgba(0,0,0,1),inset 0 13px 13px rgba(0,0,0,1);
+	overflow:hidden;
+	animation: night 10s ease-in-out infinite;
+}
+
+
+@keyframes night {
+	0% {
+		background:#4d7473
+}
+	20% {
+		background:#4d7473
+}
+	30% {
+		background:#333
+}
+	80% {
+		background:#333
+}
+	100% {
+		background:#4d7473
+}
+}
+
+.lightning {
+	height:420px;
+	background: yellow;
+	width:80px;
+	margin-left:80px;
+	margin-top:-30px;
+	animation: lightning 10s ease-in-out infinite;
+	-webkit-clip-path: polygon(31% 0%, 35% 4%, 39% 8%, 34% 11%, 38% 13%, 29% 18%, 36% 29%, 28% 40%, 21% 47%, 29% 56%, 27% 61%, 34% 53%, 37% 47%, 38% 30%, 41% 19%, 40% 12%, 35% 0%, 49% 3%, 55% 7%, 60% 12%, 67% 17%, 59% 22%, 54% 26%, 56% 35%, 58% 46%, 51% 52%, 62% 55%, 61% 41%, 61% 27%, 41% 1%);
+	clip-path: polygon(31% 0%, 35% 4%, 39% 8%, 34% 11%, 38% 13%, 29% 18%, 36% 29%, 28% 40%, 21% 47%, 29% 56%, 27% 61%, 34% 53%, 37% 47%, 38% 30%, 41% 19%, 40% 12%, 35% 0%, 49% 3%, 55% 7%, 60% 12%, 67% 17%, 59% 22%, 54% 26%, 56% 35%, 58% 46%, 51% 52%, 62% 55%, 61% 41%, 61% 27%, 41% 1%);	
+}
+
+.dark-light {
+	height:420px;
+	width:260px;
+	margin-left:-30px;
+	margin-top:-30px;
+	margin-bottom: -360px;
+	animation: flash 10s ease-in-out infinite;
+	position:relative;
+}
+@keyframes flash {
+	0% {
+		background:transparent
+}
+	49% {
+		background:transparent
+}
+	50% {
+		background:#fff;
+		opacity:.4
+}
+	51% {
+		background:transparent
+}
+	100% {
+		background:transparent
+}
+}
+@keyframes lightning {
+	0% {
+		background:transparent;
+	}
+	47% {
+		background:transparent;
+		transform:scaleY(.3);
+}
+	50% {
+		background:yellow;
+		transform:scaleY(1);	
+		
+	}
+	52% {
+		background:transparent
+}
+	100% {
+		background:transparent
+}
+}
+@keyframes light-pulse {
+	0% {
+		opacity: .5
+}
+	50% {
+		opacity: 1 
+}
+	100% {
+		opacity: .5 
+}
+}
+
+.window-divide {
+	height:20px;
+	border-top:15px solid var(--dark-color);
+	border-left:14px solid var(--dark-color);
+	border-right:14px solid var(--dark-color);
+	border-bottom:15px solid var(--dark-color);
+	background:rgba(142,205,214,.5);
+	width:232px;
+	height:190px;
+	margin-top:-460px;
+	margin-left: -30px;
+	box-shadow: 0 3px 7px rgba(0,0,0,.5);
+	position: relative;
+	z-index:9;
+	box-shadow:inset 0 -40px 80px rgba(0,0,0,.3), 0px -40px 80px rgba(24,120,216,.3)
+}
+.window-divide:before {
+	content:"";
+	font-size:5em;
+	display:block;
+	height:6px;
+	color: gold;
+	border-top:2px solid #fff;
+	width:40px;
+	margin-top:-6px;
+	margin-left:100px;
+	background:var(--gold);
+	position:relative;
+	z-index:999999;
+	-webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+	clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+.window-divide:after {
+	content:"";
+	font-size:5em;
+	display:block;
+	height:6px;
+	color: gold;
+	border-top:2px solid yellow;
+	width:30px;
+	margin-top:-4px;
+	margin-left:105px;
+	background:var(--gold);
+	position:relative;
+	z-index:999999;
+	-webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+	clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+svg.castle {
+	width:53px;
+	margin-left: 95px ;
+	margin-top:100px;
+	margin-bottom: -40px;
+	position:relative;
+	fill: #666;
+	z-index:9;
+		filter:blur(1px)
+	
+}
+svg.hills {
+	width:261px;
+	margin-top:-207px;
+	margin-left: -30px;
+	filter:blur(2px)
+}
+.spider-thread {
+	background:#222;
+	width:1px;
+	height:300px;
+	margin:0px auto -5px;
+	background: linear-gradient(to right, rgba(63,63,63,1) 0%,rgba(10,10,10,1) 100%);
+	box-shadow:2px 2px 6px rgba(0,0,0,1);
+}
+.spider {
+	position:absolute;
+	top:0px;
+	width:80px;
+	right:100px;
+	animation-delay:10s;
+	animation: pendulum-2 3.3s ease-in-out infinite;
+	transform-origin: top center;
+	z-index: 9999999999;
+}
+
+.spider-head {
+	background:#222;
+	width:20px;
+	height:20px;
+	margin:0 auto -5px;
+	border-radius:30px;
+	box-shadow: 0 20px 5px rgba(0, 0, 0, .3);
+	background: radial-gradient(ellipse at center, rgba(63,63,63,1) 0%,rgba(10,10,10,1) 101%);
+}
+.spider-body {
+	background:#222;
+	width:30px;
+	height:30px;
+	border-radius:90%;
+	box-shadow: 0 20px 5px rgba(0, 0, 0, .3);
+	position:relative;
+	z-index:99
+}
+
+.spider-body:after {
+	content:"";
+	display:block;
+	background:red;
+	width:40px;
+	height:40px;
+	margin:-15px 0 40px -5px;
+	border-radius:90%;
+	box-shadow: 0 20px 5px rgba(0, 0, 0, .3);
+	background: radial-gradient(ellipse at center, rgba(63,63,63,1) 0%,rgba(10,10,10,1) 101%);
+	position:relative;
+	z-index:99
+}
+@keyframes pendulum-2 {
+	0%, 100% {
+		transform: rotate(5deg);
+	}
+	50% {
+		transform: rotate(-5deg);
+	}
+}
+@keyframes pendulum-3 {
+	0%, 100% {
+		transform: rotate(2deg);
+	}
+	50% {
+		transform: rotate(-2deg);
+	}
+}
+@keyframes pendulum-4 {
+	0%, 100% {
+		transform: rotate(39deg);filter:blur(0);
+	}
+	50% {
+		transform: rotate(29deg);filter:blur(2px);
+	}
+}
+@keyframes pendulum-5 {
+	0%, 100% {
+		transform: rotate(100deg);filter:blur(0);
+		;
+	}
+	50% {
+		transform: rotate(110deg);filter:blur(2px)
+	}
+}
+.l .spider-leg {
+	width:1px;
+	height:50px;
+	margin:297px 2px 0 1px;
+	border-radius:30px;
+	float:left;
+	animation:pendulum-4 100ms infinite;
+}
+.r .spider-leg {
+	width:3px;
+	height:50px;
+	margin:290px 2px 0 0;
+	border-radius:30px;
+	float:right;
+	animation:pendulum-5 100ms infinite;
+	transform: scaleX(-1)
+}
+.btm-leg {
+	background:#111;
+	width:3px;
+	margin-top:-5px;
+	margin-left:-4px;
+	height:25px;
+	transform:rotate(-20deg);
+}
+.top-leg {
+	background:#111;
+	width:3px;
+	height:25px;
+	transform:rotate(40deg);
+}
+.spider-eye:before {
+	content:"";
+	background:#222;
+	width:2px;
+	height:12px;
+	float:left;
+	margin-top:2px;
+	margin-left:2px;
+	margin-right:2px;
+	border-radius:50%;
+}
+.spider-eye {
+	background:#fff;
+	width:6px;
+	height:6px;
+	float:left;
+	margin-top:20px;
+	margin-left:2px;
+	margin-right:2px;
+	border-radius:50%;
+}
+.spider-eye:after {
+	content:"";
+	background:red;
+	width:2px;
+	height:2px;
+	float:left;
+	margin-top:2px;
+	margin-left:2px;
+	margin-right:2px;
+	border-radius:50%;
+}
+.spider-grid {
+	display: grid;
+	height: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: undefined;
+	grid-template-areas: "l m r";
+}
+.l {
+	grid-area: l 
+}
+.m {
+	grid-area: m 
+}
+.r {
+	grid-area: r 
+}
+
+.WarpShadow {
+	position: relative;
+	box-shadow: 0 14px 10px -9px rgba(0,0,0,1);
+}
+.WarpShadow:before, .WarpShadow:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	bottom: 15px;
+	box-shadow: 0px 15px 15px rgba(0, 0, 0,1);
+}
+.WarpShadow:before {
+	right: 10px;
+	transform: rotate(4deg) skewX(4deg);
+}
+.WarpShadow:after {
+	left: 10px;
+	transform: rotate(-4deg) skewX(-4deg);
+}
+
+.statue-frame {
+	margin:0 auto 0px;
+	width:280px;
+	margin-top: -1250px;
+	margin-bottom: 0;
+	margin-right: 50px;
+	transform:scale(.45);
+	border-radius:10%
+}
+.statue-frame:after {
+	content:"";
+	display:block;
+	margin:0 auto 0px;
+	padding:50px;
+	box-shadow: 2px 0px 10px rgba(0,0,0,1);
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	margin-bottom: 0;
+	border-bottom:10px solid  var(--dark-color);
+	border-radius:10%
+}
+#statue {
+	text-align:center;
+	width:280px;
+	position:relative;
+	overflow:hidden;
+}
+#statue-stand:before {
+	width:330px;
+	height:15px;
+	content:"";
+	display:block;
+	border-top:6px solid var(--edge-color);
+	border-bottom:4px solid #444;
+	margin-top:-95px;
+	margin-left:-80px;
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	position:relative;
+	z-index:1
+}
+#statue-stand {
+	width:170px;
+	height:1200px;
+	padding:20px 0;
+	margin:0 auto -520px;
+	border-top:78px solid var(--dark-color);
+	border-bottom:2px solid var(--dark-color);
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	box-shadow:inset 0px -20px 80px rgba(0,0,0,.5);
+}
+#statue-stand:after {
+	width:330px;
+	height:5px;
+	content:"";
+	display:block;
+	padding:20px 0;
+	margin-top:-80px;
+	margin-left:-80px;
+	background-color: var(--edge-color);
+	border-left:3px solid var(--edge-color);
+	border-right:3px solid var(--edge-color);
+	border-top:6px solid var(--edge-color);
+	border-bottom:4px solid #444;
+	-webkit-clip-path: polygon(20% 0%, 81% 0, 100% 100%, 0% 100%);
+	clip-path: polygon(20% 0%, 81% 0, 100% 100%, 0% 100%);
+	position:relative;
+	z-index:-1
+}
+#statue-ear-lshading {
+	width:24px;
+	height:60px;
+	position:absolute;
+	margin-top:130px;
+	margin-left:22px;
+	border-radius:100%;
+	background:#eee;
+	border-left:3px solid #999;
+	transform: rotate(-10deg);
+	box-shadow:inset 3px 9px 3px rgba(0,0,0,.2)
+}
+#statue-ear-rshading {
+	width:24px;
+	height:60px;
+	margin-top:130px;
+	margin-bottom:-430px;
+	margin-left:229px;
+	background:#eee;
+	background:radial-gradient(center, ellipse cover, #636363 0%,#0e0e0e 100%);
+	border-radius:100%;
+	border-right:3px solid #999;
+	transform: rotate(10deg);
+	box-shadow:inset -3px 9px 3px rgba(0,0,0,.2)
+}
+#statue-head {
+	width:196px;
+	height:290px;
+	margin-top:270px;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid #999;
+	clear:both;
+	position:relative;
+	z-index:999;
+	background:#fff;
+	border-radius:50% 50% 50% 50%/40% 40% 60% 60%;
+	box-shadow:inset 0 20px 45px rgba(0, 0, 0, .5);
+}
+#statue-forehead {
+	width:120px;
+	height:120px;
+	margin-top:50px;
+	margin-bottom:-120px;
+	margin-left:auto;
+	margin-right:auto;
+	background:#fff;
+	padding-top:46px;
+	box-shadow:inset 0 20px 25px rgba(0, 0, 0, .2);
+	border-top-left-radius:30px;
+	border-top-right-radius:30px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+	filter:blur(8px)
+}
+#statue-sclera-l {
+	padding:0 9px;
+	background:#ccc;
+	height:7px;
+	overflow:hidden;
+	background:radial-gradient(center, ellipse cover, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+	box-shadow:inset 0 -1px 2px rgba(255, 255, 255, .9);
+	border-top-left-radius:0;
+	border-top-right-radius:60px;
+	border-bottom-left-radius:90px;
+	border-bottom-right-radius:0;
+	transform:rotate(-10deg);
+}
+#statue-eye-l {
+	padding:6px 10px 1px 15px;
+	margin-left:24px;
+	clear:both;
+	border-top:1px solid #fff;
+	border-bottom:3px solid #eee;
+	float:left;
+	background:#fff;
+	box-shadow:inset 0 20px 25px rgba(0, 0, 0, .1);
+	border-top-left-radius:0;
+	border-top-right-radius:60px;
+	border-bottom-left-radius:90px;
+	border-bottom-right-radius:90px;
+	transform:rotate(10deg);
+}
+#statue-eye-r {
+	padding:6px 15px 1px 10px;
+	margin-right:21px;
+	border-top:1px solid #fff;
+	border-bottom:3px solid #ccc;
+	clear:both;
+	background:#fff;
+	box-shadow:inset 0 20px 25px rgba(0, 0, 0, .1);
+	border-bottom-left-radius:90px;
+	border-bottom-right-radius:90px;
+	transform:rotate(-10deg);
+}
+#statue-eye-r:after {
+	display:block;
+	content:"";
+	background:#fff;
+	height: 20px;
+	width:100%;
+	padding:0 7px;
+	margin-top:-18px;
+	margin-left:-10px;
+	position:relative;
+	border-radius:50%;
+	animation: eyes 10s linear infinite;
+	animation-delay:12s
+}
+#statue-eye-l:after {
+	display:block;
+	content:"";
+	background:#fff;
+	height:20px;
+	width:100%;
+	padding:0 7px;
+	margin-top:-18px;
+	margin-left:-10px;
+	position:relative;
+	border-radius:50%;
+	animation: eyes 10s linear infinite;
+	animation-delay:12s
+}
+@keyframes eyes{
+	0% {
+		height:20px;
+	}
+	10% {
+		height:0px
+}
+	100% {
+		height:0px
+}
+}
+#statue-eye-box-l {
+	width:80px;
+	float:left;
+	margin-bottom:-50px;
+}
+#statue-eye-box-r {
+	width:80px;
+	float:right;
+	margin-bottom:-50px;
+}
+#statue-eye-ridge-l {
+	width:0;
+	height:0;
+	border-bottom:10px solid #fff;
+	border-left:16px solid transparent;
+	border-right:32px solid transparent;
+	margin-top:16px;
+	margin-left:27px;
+	transform:rotate(9deg);
+	filter:blur(2px)
+}
+#statue-eye-ridge-r {
+	width:0;
+	height:0;
+	border-bottom:10px solid #fff;
+	border-left:32px solid transparent;
+	border-right:16px solid transparent;
+	margin-top:16px;
+	margin-left:10px;
+	transform:rotate(-9deg);
+	filter:blur(2px)
+}
+#statue-sclera-r {
+	padding:0 9px;
+	height:7px;
+	overflow:hidden;
+	background:#ccc;
+	background:radial-gradient(center, ellipse cover, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+	box-shadow:inset 0 -1px 2px rgba(255, 255, 255, .9);
+	border-top-left-radius:60px;
+	border-top-right-radius:0;
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:90px;
+	transform:rotate(10deg);
+}
+.statue-pupil {
+	padding:5px 5px;
+	margin:0 2px;
+	background:#999;
+	background:radial-gradient(center, ellipse cover, #636363 0%,#0e0e0e 100%);
+	box-shadow:inset 0 20px 5px rgba(0, 0, 0, .3);
+	border-radius:40px;
+}
+.statue-iris {
+	padding:1px 1px;
+	margin-top:-5px;
+	margin-left:0;
+	margin-bottom:2px;
+	margin-right:0;
+	background:#ccc;
+	box-shadow:inset 0 20px 5px rgba(0, 0, 0, .3);
+	border-radius:40px;
+}
+#statue-nose-frame {
+	width:125px;
+	clear:both;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:-70px;
+	margin-top:20px;
+	height:90px;
+	position:relative;
+	z-index:999999
+}
+#statue-bridge-r {
+	width:0;
+	height:0;
+	border-bottom:66px solid #eee;
+	border-right:25px solid transparent;
+	float:right;
+	margin-right:36px;
+}
+#statue-bridge-l {
+	width:0;
+	height:0;
+	border-bottom:66px solid #eee;
+	border-left:25px solid transparent;
+	margin-left:36px;
+	float:left;
+}
+#statue-nose {
+	width:6px;
+	height:78px;
+	margin-top:36px;
+	margin-left:61px;
+	background: #fff;
+	position:relative;
+	z-index:99;
+	filter:blur(2px)
+}
+#statue-nose-l {
+	width:0;
+	height:0;
+	border-top:12px solid #eee;
+	border-left:25px solid transparent;
+	margin-left:36px;
+	float:left;
+	margin-top:-12px;
+	filter:blur(2px)
+}
+#statue-nose-r {
+	width:0;
+	height:0;
+	border-top:12px solid #eee;
+	border-right:25px solid transparent;
+	float:right;
+	margin-right:35px;
+	filter:blur(2px);
+}
+#statue-cheeks {
+	width:184px;
+	margin-top:-80px;
+	margin-left:6px;
+	background:#fff;
+	padding:32px 0;
+	box-shadow:inset 0 20px 25px rgba(0, 0, 0, .3);
+	border-top-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	filter:blur(4px)
+}
+#statue-lower-face {
+	padding-top:10px;
+	clear:both;
+	height:100px;
+	margin-top:-20px;
+	margin-bottom:-50px;
+	background: #eee;
+	border-top-left-radius:60px;
+	border-top-right-radius:60px;
+	border-bottom-left-radius:90px;
+	border-bottom-right-radius:90px;
+	box-shadow: 0 4px 29px rgba(0, 0, 0, .1);
+	opacity:.5
+}
+#statue-lower-face-outer {
+	clear:both;
+	margin-left:40px;
+	margin-right:40px;
+	border-top-left-radius:60px;
+	border-top-right-radius:60px;
+	border-bottom-left-radius:90px;
+	border-bottom-right-radius:90px;
+}
+#statue-mouth {
+	width:10px;
+	background:#ccc;
+	clear:both;
+	margin-top:25px;
+	margin-left:38px;
+	margin-bottom:-5px;
+	border-radius:160px;
+	padding:1px 16px;
+	border-bottom:1px solid #eee;
+	box-shadow:0 25px 10px rgba(0, 0, 0, .4);
+}
+#statue-mouth-r {
+	background:#ccc;
+	float:right;
+	margin-bottom:20px;
+	margin-right:21px;
+	border-bottom:1px solid #eee;
+	padding:1px 8px;
+	transform:rotate(-20deg);
+	border-radius:30px;
+}
+#statue-mouth-l {
+	background:#ccc;
+	float:left;
+	margin-left:23px;
+	border-bottom:1px solid #eee;
+	padding:1px 8px;
+	transform:rotate(20deg);
+	border-radius:30px;
+}
+#statue-chin {
+	width:57px;
+	height:30px;
+	margin:auto;
+	margin-top:0px;
+	background:#eee;
+	position:relative;
+	z-index:999;
+	border-top-left-radius:60%;
+	border-top-right-radius:60%;
+	border-bottom-left-radius:80%;
+	border-bottom-right-radius:80%;
+	box-shadow: 0 24px 20px rgba(0, 0, 0, .2);
+}
+#statue-neck {
+	height:60px;
+	width:120px;
+	margin-top:-60px;
+	margin-bottom:-30px;
+	margin-left:auto;
+	margin-right:auto;
+	background:#fff;
+	border:1px solid #ccc;
+	background: linear-gradient(left, #4c4c4c 0%,#131313 100%);
+	z-index:222;
+	clear:both;
+	filter:blur(4px);
+	position:relative;
+	box-shadow:inset 0 20px 45px rgba(0, 0, 0, .5);
+	border-radius:600px/235px;
+}
+#statue-traps {
+	height:50px;
+	margin-top:-70px;
+	margin-bottom:-30px;
+	margin-left:auto;
+	margin-right:auto;
+	z-index:22;
+	clear:both;
+	position:relative;
+	width:0;
+	height:0;
+	border-bottom:85px solid #fff;
+	border-left:128px solid transparent;
+	border-right:128px solid transparent;
+	box-shadow:inset 0 20px 45px rgba(0, 0, 0, .5);
+	border-radius:600px/235px;
+	filter:blur(2px)
+}
+#statue-shoulders {
+	width:300px;
+	height:90px;
+	margin-left:-10px;
+	background:#fff;
+	background:radial-gradient(center, ellipse cover, #fff 0%,#eee 100%);
+	border-top-left-radius:75px;
+	border-top-right-radius:75px;
+	box-shadow:inset 0 20px 45px rgba(0, 0, 0, .3);
+}
+#statue-cleavage {
+	width:50px;
+	height:60px;
+	margin-left:auto;
+	margin-right:auto;
+	background:#ccc;
+	border-top-left-radius:175px;
+	border-top-right-radius:175px;
+	filter:blur(19px);
+}
+#statue-chest {
+	margin-top:-30px;
+	margin-left: -10px;
+	width: 300px;
+	height: 30px;
+	border-bottom:24px solid #fff;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+}
+#statue-chest:after {
+	content:"Lord CSS";
+	display:block;
+	padding:5px;
+	text-transform:uppercase;
+	margin: -30px auto 0;
+	width: 100px;
+	font-size:.8em;
+	letter-spacing:1px;
+	color:yellow;
+	line-height:1.6em;
+	height: 20px;
+	border-radius:5px;
+	border-bottom:3px solid #444;
+	border-top:3px solid yellow;
+	position:relative;
+	background:var(--gold);
+	box-shadow:4px 10px 20px rgba(0,0,0,.8)
+}
+.floor {
+	width: 100vw;
+	display:block;
+	background:#111;
+	overflow:hidden;
+	height: 200px;
+	position:relative;
+	z-index:-1;
+	
+}
+.floor-in {
+	width: 180vw;
+	display:block;
+	margin-top:-110px;
+	margin-left:-40vw ;
+	perspective: 400px;
+	overflow:hidden;
+	height:400px;
+}
+.panel {
+	width: 55px;
+	height: 355px;
+	float: left;
+	margin: 1px;
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	transform: rotateX(55deg);
+}
+.chandelier-holder {
+	position: relative;
+	height: 500px;
+	padding: 0 .5em;
+	margin-top: -1680px;
+	z-index:999999;
+}
+.chain {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 12px;
+	height: 13px;
+	width: 6px;
+	transform-origin: top center;
+	animation: fall-n-swing 7s 1 forwards;
+	animation-timing-function: ease-in-out;	
+}
+
+.very-first-chain {
+	left: 50%
+}
+.chandelier {
+	top: 129px;
+	left: -147px;
+	width: 235px;
+	height: 195px;
+	padding:30px;
+	margin:-200px auto 00px;
+	filter: drop-shadow( 20px 50px 4px rgba(0,0,0,.3 ));
+}
+
+@keyframes fall-n-swing {
+	0% {
+		transform: rotateZ(7deg) translate(-2px, -9px);
+	}
+	14% {
+		transform: rotateZ(-2.5deg);
+	}
+	28% {
+		transform: rotateZ(1.75deg);
+	}
+	42% {
+		transform: rotateZ(-1.25deg);
+	}
+	56% {
+		transform: rotateZ(.75deg);
+	}
+	70% {
+		transform: rotateZ(-.25deg);
+	}
+	84% {
+		transform: rotateZ(.15deg);
+	}
+	100% {
+		transform: rotateZ(0deg);
+	}
+}
+.rip {
+	top:0;
+	position:absolute;
+}
+.rip-one {
+	background:rgba(0,0,0,.2);
+	height:150px;
+	width:150px;
+	margin-left:10%;
+	-webkit-clip-path: polygon(28% 0%, 33% 13%, 34% 23%, 39% 30%, 41% 38%, 40% 46%, 43% 54%, 45% 66%, 45% 80%, 45% 87%, 45% 96%, 48% 85%, 48% 74%, 51% 60%, 47% 48%, 48% 33%, 51% 21%, 53% 15%, 55% 3%, 58% 0%);
+	clip-path: polygon(28% 0%, 33% 13%, 34% 23%, 39% 30%, 41% 38%, 40% 46%, 43% 54%, 45% 66%, 45% 80%, 45% 87%, 45% 96%, 48% 85%, 48% 74%, 51% 60%, 47% 48%, 48% 33%, 51% 21%, 53% 15%, 55% 3%, 58% 0%);
+}
+.rip-one:after {
+	content:"";
+	display:block;
+	background-color: #e2dacd;
+	background: linear-gradient(to bottom, rgba(226,218,205,1) 0%,rgba(132,129,120,1) 100%);
+	height:150px;
+	width:150px;
+	margin-left:-1px;
+	-webkit-clip-path: polygon(28% 0%, 33% 13%, 34% 23%, 39% 30%, 41% 38%, 40% 46%, 43% 54%, 45% 66%, 45% 80%, 45% 87%, 45% 96%, 48% 85%, 48% 74%, 51% 60%, 47% 48%, 48% 33%, 51% 21%, 53% 15%, 55% 3%, 58% 0%);
+	clip-path: polygon(28% 0%, 33% 13%, 34% 23%, 39% 30%, 41% 38%, 40% 46%, 43% 54%, 45% 66%, 45% 80%, 45% 87%, 45% 96%, 48% 85%, 48% 74%, 51% 60%, 47% 48%, 48% 33%, 51% 21%, 53% 15%, 55% 3%, 58% 0%);
+}
+.rip-two {
+	background:rgba(0,0,0,.2);
+	height:180px;
+	width:80px;
+	margin-left:30%;
+	-webkit-clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+	clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+}
+.rip-two:after {
+	content:"";
+	display:block;
+	background: linear-gradient(to bottom, rgba(226,218,205,1) 0%,rgba(132,129,120,1) 100%);
+	height:180px;
+	width:80px;
+	margin-left:-1px;
+	-webkit-clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+	clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+}
+.rip-three {
+	background:rgba(0,0,0,.2);
+	height:270px;
+	width:180px;
+	margin-left:60%;
+	transform:scaleX(-1);
+	-webkit-clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+	clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+}
+.rip-three:after {
+	content:"";
+	display:block;
+	background: linear-gradient(to bottom, rgba(226,218,205,1) 0%,rgba(132,129,120,1) 100%);
+	height:270px;
+	width:180px;
+	margin-left:-1px;
+	-webkit-clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+	clip-path: polygon(8% 0%, 8% 8%, 10% 14%, 8% 19%, 12% 25%, 15% 32%, 17% 40%, 19% 27%, 18% 17%, 19% 10%, 23% 14%, 26% 20%, 31% 23%, 29% 29%, 29% 35%, 32% 41%, 33% 54%, 33% 62%, 34% 77%, 40% 83%, 42% 90%, 46% 73%, 51% 56%, 53% 38%, 52% 22%, 53% 9%, 56% 1%, 59% 3%, 66% 6%, 74% 19%, 82% 11%, 86% 1%);
+}
+.wheel {
+	fill-rule:evenodd;
+	stroke-width:1;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:4;
+	stroke-opacity:1;
+}
+
+svg#Capa_1.castle path {	fill: silver}  
+
+.watch-case-frame {margin:0 auto;width:290px}
+
+@keyframes clockwise {100% {	 transform: rotate(360deg)}}
+
+.dial {
+	transform:scale(.7);
+	margin:-250px auto 0;
+	width:230px;
+	height:230px;
+	position:relative;
+	border-radius:50%;
+	z-index:4;
+	box-shadow:0 0 0 3px  #111, 0 0 0 3px  #a4643d ,0 0 0 5px  #ebc18d, 0 0 0 9px  #dfb178, 0 0 0 14px  #967430, 0 0 0 16px  #dfb178, 0 0 0 17px  #ebc18d, 0 0 0 19px #111, 0 0 0 20px yellow, 0 0 0 22px #967430, 0 2px 35px rgba(0,0,0,1);
+	text-align:center;
+	border:6px solid var(--edge-color);
+}
+
+.dial-edge{width:228px;height:228px;	border-radius:50%}
+
+.dial-in{
+	border-radius:50%;
+ 	width:228px;
+	height:228px;
+	border:1px solid #111;
+	z-index:4
+}
+
+.dial-center{
+	width:200px;
+	height:200px;
+	margin-left:11px;
+	margin-top:11px;
+	border-radius:50%;
+	border:2px solid #dfb178;
+	background:linear-gradient(30deg, #000 0%, #191919 28%, #333 54%, #000 100%) #141516;
+	box-shadow:0 10px 10px rgba(0,0,0,.6),inset 0 10px 30px rgba(0,0,0,.6)
+}
+
+.case-shine {
+	position:relative;
+	height:240px;
+	width:250px;	
+	margin-top:-415px auto -190px;
+	border-radius:50%;
+	transform:rotate(160deg); 
+	border-top:10px solid #fff;
+	border-bottom:10px solid #fff;
+	opacity:.8;	
+	z-index:20
+}
+
+.case-reflect {
+	position:relative;
+	z-index:21;
+	width:240px;
+	height:240px;
+	margin:-260px auto 150px;
+	border-radius:50%;
+	background:none;
+	opacity:.3;
+	border-top:10px solid var(--gold);
+	border-bottom:10px solid 	var(--gold);
+	box-shadow: -2px -3px 3px rgba(255,255,255,1)
+}
+
+
+/* Hands  */
+
+.time {
+	width:220px;
+	height:220px;
+	position:relative;
+	z-index:10;
+	margin:-120px 0 0 -6px;
+	transform:scale(.7)
+}
+
+.sec-needle {
+	width:220px;
+	height:220px;
+	width:14px;
+	margin:-211px auto;
+	animation:clockwise 60s linear infinite;
+	animation-timing-function:steps(60)
+}
+
+.sec-t {
+	width:2px;
+	height:120px;
+	margin:0 auto;
+	background:var(--gold);
+}
+
+.sec-m {
+	width:10px;
+	height:70px;
+	margin:-53px auto 0;
+	-webkit-clip-path:polygon(50% 0%, 0% 100%, 100% 100%);
+	clip-path:polygon(50% 0%, 0% 100%, 100% 100%);
+	background:var(--gold);
+}
+
+.sec-disk {
+	width:14px;
+	height:14px;
+	margin:-34px auto 0;
+	border-radius:50%;
+	position:relative;	
+	background:var(--gold);
+}
+
+.sec-b {
+	width:10px;
+	height:6px;
+	margin:20px auto 0;
+	background:var(--gold);
+	transform:rotate(-180deg); 
+	-webkit-clip-path:polygon(50% 0%, 0% 100%, 100% 100%);
+	clip-path:polygon(50% 0%, 0% 100%, 100% 100%)
+}
+
+.min-needle {
+	width:201px;
+	height:201px;
+	position:relative;
+	z-index:10;
+	width:30px;
+	margin:-224px auto 0;
+	animation:clockwise 3600s linear infinite
+}
+
+.min-t{
+	width:10px;
+	height:106px;
+	margin:0 10px;
+	position:relative;
+	z-index:10;
+	-webkit-clip-path:polygon(50% 100%, 
+	30% 75%, 25% 60%,40% 25%, 50% 0%,60% 25%, 
+	75% 60%,70% 75%);
+	clip-path:polygon(50% 100%, 
+	30% 75%, 25% 60%,40% 25%, 50% 0%,60% 25%, 
+	75% 60%,70% 75%);
+	background:var(--gold);
+}
+
+.min-disk {
+	width:2px;
+	height:2px;
+	background:red;
+	margin:-12px auto 0;
+	border-radius:50%;
+	position:relative;	
+	border:6px solid;	 
+    background:var(--gold);
+}
+
+.hr-needle {
+	width:40px;
+	height:180px;
+	width:30px;
+	position: relative;
+	z-index:1;
+	margin: 34px auto;
+	animation:clockwise 43200s linear infinite	
+}
+
+.hr-t {
+	width:14px;
+	height:94px;
+	margin:0 0 0 8px;
+	background:var(--gold);
+	-webkit-clip-path:polygon(50% 100%, 30% 75%, 25% 60%,40% 25%, 50% 8%,60% 25%, 75% 60%,70% 75%);
+	clip-path:polygon(50% 100%, 30% 75%, 25% 60%,40% 25%, 50% 8%,60% 25%, 75% 60%,70% 75%)
+}
+
+.hr-disk {
+	width:3px;
+	height:3px;
+	margin:-13px auto 0;
+	border-radius:50%;
+	position:relative;	
+	border:8px solid var(--gold);
+	position: relative;
+	z-index:3
+}
+
+.hr-shadow {
+	width:20px;
+	height:20px;
+	margin:-19px auto 0;
+	border-radius:50%;
+	background:#111;
+	opacity:.7;
+	filter:blur(7px);
+	position: relative;
+	z-index:1
+}
+
+.watch-case-city, .watch-case-brand, .swiss-made  {text-transform:uppercase;font-family:sans-serif;color:#eee}
+.watch-case-brand {padding-top:0;margin-top:10px;height:9px;font-size:8px;font-weight:300;text-shadow:0 1px 1px rgba(0,0,0,1)}
+.watch-case-city {font-size:5px;letter-spacing:1px;padding-bottom:2px}
+
+.watch-numerals-top, .watch-numerals-mid, .numerals-btm {
+	position:relative;
+	font-weight:bold;
+	color:#eac18a;
+	text-shadow:0 2px 2px rgba(0,0,0,.2);
+	font-size:18px;
+	z-index:9
+}
+
+.watch-numerals-top {width:126px;margin:auto;padding-top:34px;height:24px}
+.watch-numerals-mid {width:188px;margin:0 auto -33px;height:28px}
+.numerals-btm{width:180px;height:27px;margin:-160px auto 0;}
+.watch-numerals-eleven {width:14px;float:left;margin-top:-3px;margin-left:6px}
+.watch-numerals-twelve {width:26px;float:left;margin-top:-20px;margin-left:30px}
+.watch-numerals-one {width:14px;float:right;margin-top:-3px;margin-right:12px}
+.watch-numerals-ten {width:14px;float:left;margin-left:13px}
+.watch-numerals-two {width:19px;float:right;margin-right:13px}
+.watch-numerals-nine {width:14px;margin-top:-51px;margin-left:3px}
+.watch-numerals-eight {width:14px;margin-top:18px;margin-left:13px;}
+.watch-numerals-seven {width:14px;margin-left:45px;margin-top:13px}
+.watch-numerals-six {width:14px;margin: 0px auto 0}
+.watch-numerals-five {width:14px;margin-left:126px;margin-top:-19px}
+.watch-numerals-three {width:14px;margin-left:163px;margin-top:32px}
+.watch-numerals-four {width:14px;margin-left:153px;margin-top:16px}
+
+.overflow {
+	width:100%;
+	position:relative;
+	z-index:9;	
+	box-shadow:inset 0 250px 330px rgba(0,0,0,1),inset 0 30px 70px rgba(0,0,0,1),inset 0 -250px 330px rgba(0,0,0,1),inset 0 -130px 70px rgba(0,0,0,1);
+	overflow:hidden;
+	z-index:9999999999999999
+}
+
+.l-one, .l-three {
+	height:1400px;
+}
+
+.window-shelf {
+	width:320px;
+	background-color: var(--dark-color);
+	background-image:var(--wood-bg);
+	height:30px;
+	top:730px;
+	border-top:#a37971 3px solid;
+	border-bottom:3px solid #65311b;
+	position:absolute;
+	margin-left:140px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	box-shadow:10px 20px 40px rgba(0,0,0,1)
+}
+
+.window-shelf:before {
+	display:block;
+	content:"";
+	width:320px;
+	background: #a37971;
+	z-index:99;
+	top:-9px;
+	position:absolute;
+	height:6px;
+	-webkit-clip-path: polygon(4% 0, 96% 0, 100% 100%, 0% 100%);
+	clip-path: polygon(4% 0, 96% 0, 100% 100%, 0% 100%);
+}
+
+.chandelier-light-in::before {
+	content:"";
+	display:block;
+	margin-top:-12px;
+	background:rgba(0,0,0,.4);
+	height:20px;
+		border-radius:50%;	
+	filter:blur(5px);
+}
+
+.chandelier-light-in::after {
+	content:"";
+	display:block;
+	margin-top:38px;
+	background:rgba(0,0,0,.4);
+	height:20px;
+	border-radius:50%;
+	filter:blur(5px);
+}
+
+.chandelier-light-in {
+	background: linear-gradient(to right, rgba(234,232,218,1) 0%,rgba(230,234,208,1) 35%,rgba(219,203,146,1) 100%); 
+	height:60px;
+	margin:auto;
+	width:100px;	
+	border-top:1px solid #999;
+	border-bottom:1px solid #fff;
+	-webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+	clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+	border-radius:20%;
+	padding-top:10px;
+}
+
+.chandelier-bulb {
+	height:30px;
+	margin:-20px auto;
+	background:yellow;
+	width:50px;
+	position:relative;
+	z-index:-1;
+	border-radius:50%;
+	background: radial-gradient(ellipse at center, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%);
+	box-shadow: 0 250px 330px rgba(12,24,24,1);
+	filter:blur(5px);
+	opacity:.9
+}
+
+.chandelier-light:after {
+	content:"";
+	display:block;
+	background: yellow; 
+	background: radial-gradient(ellipse at center, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%);
+	width:100px;
+	height:50px;
+	margin:22px 0 0 60px;
+	border-radius:50%;
+	overflow:visible;
+	filter:blur(13px);
+	opacity:.2
+}
+
+@media (max-width:1200px) {
+.rip-three, .window-shelf,.window, .statue-frame {
+        display: none;
+    }
+ .frame {
+	transform:scale(.9);
+	margin-top:-180px;
+	margin-bottom:80px;
+ }
+.wallpaper-strip {
+	margin-top:-200px;
+}
+	.spider-grid, .light {
+			transform:scale(.6);
+		
+	}
+ .chandelier {
+	width:150px;
+	margin-left:44px;
+}
+.overflow {
+	box-shadow:inset 0 250px 330px rgba(0,0,0,1),inset 0 30px 70px rgba(0,0,0,1),inset 0 -250px 130px rgba(0,0,0,1),inset 0 -230px 70px rgba(0,0,0,1);
+}
+
+}
+	
+	@media (max-width:700px) {
+	.wallpaper-strip {
+		margin-top:-300px;
+	}
+	 .frame {
+		transform:scale(.8);
+			margin-top:1200px;
+	 	height:1200px;
+	 	margin-bottom:-140px;
+		
+	 }
+	
+	.l-one, .l-three {
+	display:none;
+	}
+	
+	.overflow {
+		box-shadow:inset 0 250px 330px rgba(0,0,0,1),inset 0 30px 70px rgba(0,0,0,1),inset 0 -250px 130px rgba(0,0,0,1),inset 0 -230px 70px rgba(0,0,0,1);
+		padding-bottom:150px
+	}
+}
+
+
+@media all and (min--moz-device-pixel-ratio:0) and (max-width: 2680px){
+.fleur {
+	display:none
+} /*too ugly in ff */
+}
+
+/* Diagnosis: Chronic, severe divites */
+
+
+    </style>
+</head>
+<body>
+    <div class="overflow">
+
+        <div class="candles lights">
+          <div class="l-one"><div class="light WarpShadow"><div class="flame"></div></div><div class="fleur">&#9884;</div>
+          </div>
+          <div class="l-two">
+          </div>
+          <div class="l-three"><div class="light WarpShadow"><div class="flame"></div></div><div class="fleur">&#9884;</div>
+          </div>
+        </div>
+        
+        <div class="wrapper">
+          <div class="chandelier-holder">
+            <div class="chain first-chains very-first-chain">
+              <div class="chain first-chains">
+                <div class="chain first-chains">
+                  <div class="chain first-chains">
+                    <div class="chain first-chains">
+                      <div class="chain first-chains">
+                        <div class="chain first-chains">
+                          <div class="chain first-chains">
+                            <div class="chain first-chains">
+                              <div class="chain first-chains">
+                                <div class="chain first-chains">
+                                  <div class="chain first-chains">
+                                    <div class="chain first-chains">
+                                      <div class="chain first-chains">
+                                        <div class="chain">
+                                          <div class="chain">
+                                            <div class="chain">
+                                              <div class="chain">
+                                                <div class="chain">
+                                                  <div class="chain">
+                                                    <div class="chain">
+                                                      <div class="chain">
+                                                        <div class="chain">
+                                                          <div class="chain">
+                                                            <div class="chain">
+                                                              <div class="chain">
+                                                                <div class="chain">
+                                                                  <div class="chain">
+                                                                    <div class="chain">
+                                                                      <div class="chain">
+                                                                        <div class="chain">
+                                                                          <div class="chain chandelier">
+        <div class="chandelier-light">
+        <div class="chandelier-light-in"></div>
+        <div class="chandelier-bulb"></div>
+        </div>
+        </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        <div class="frame">
+        
+        <div class="clock-box">
+        
+        <div class="roof"><div class="fleur">&#9884;&#9884;&#9884;</div>
+        </div>
+        
+        <div class="cuckoo-sm"></div>
+        
+        <div class="mechanism">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+             height="100%" width="100%" viewBox="0 0 250 230" preserveAspectRatio="xMidYMid meet">
+        <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:rgb(173,135,61);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(98,82,44);stop-opacity:1" />
+            </linearGradient>
+          </defs>
+        <g>
+            <title>Animated SVG - Gear wheels</title>
+            <desc> Animated SVG - Gear wheels.</desc>
+        </g>
+        <!-- xxx -->
+        <!-- Copyright by Frido Verweij. Licence: Creative Commons Attribution-ShareAlike 4.0 International (http://creativecommons.org/licenses/by-sa/4.0/) -->
+        
+        <g id="container" transform="translate(85,85)" >
+              <g id="big" transform="rotate(0)">	
+                    <path
+                       d="M 14.829996,-1.2500001e-7 C 14.829996,8.0415035 8.3110667,14.560431 0.26956232,14.560431 -7.7719413,14.560431 -14.290866,8.0415035 -14.290866,-1.2500001e-7 -14.290866,-8.0415038 -7.7719413,-14.560431 0.26956232,-14.560431 8.3110667,-14.560431 14.829996,-8.0415038 14.829996,-1.2500001e-7 z M 69.800565,-5.621 l 1.754,-0.1409997 4.675,0.7659995 6.498,2.7189999 0,4.5540004 -6.498,2.7189998 -4.675,0.7660005 -1.754,-0.1410006 -0.923,7.0160002 1.73,0.317 4.317,1.95 5.574,4.308 -1.179,4.4 -6.981,0.944 -4.714,-0.47 -1.657,-0.59 -2.708,6.537 1.589,0.755 3.666,3 4.268,5.604 -2.277,3.945 -6.987,-0.895 -4.432,-1.674 -1.448,-0.999 -4.308,5.614 1.34,1.14 2.764,3.847 2.673,6.518 -3.221,3.221 -6.518,-2.673 -3.847,-2.764 -1.14,-1.34 -5.614,4.308 0.999,1.448 1.674,4.432 0.895,6.987 -3.945,2.277 -5.604,-4.268 -3,-3.666 -0.755,-1.589 -6.537,2.708 0.59,1.657 0.47,4.714 -0.944,6.981 -4.4,1.179 -4.308,-5.574 -1.95,-4.317 -0.317,-1.73 -7.0160023,0.923 0.141,1.754 -0.766,4.675 -2.719,6.498 -4.554,0 -2.719,-6.498 -0.766,-4.675 0.141,-1.754 -7.0159977,-0.923 -0.317,1.73 -1.95,4.317 -4.308,5.574 -4.4,-1.179 -0.943999,-6.981 0.469998,-4.714 0.590001,-1.657 -6.537,-2.708 -0.754999,1.589 -3,3.666 -5.603998,4.268 -3.945002,-2.277 0.895,-6.987 1.674,-4.432 0.999003,-1.448 -5.614004,-4.308 -1.140004,1.34 -3.846997,2.764 -6.518001,2.673 -3.220994,-3.221 2.672994,-6.518 2.764002,-3.847 1.339996,-1.14 -4.307997,-5.614 -1.447999,0.999 -4.432003,1.674 -6.986998,0.895 -2.277001,-3.945 4.268001,-5.604 3.665999,-3 1.588999,-0.755 -2.708001,-6.537 -1.656996,0.59 -4.713997,0.47 -6.981,-0.944 -1.179001,-4.4 5.573998,-4.308 4.317003,-1.95 1.730001,-0.317 -0.923,-7.0160002 -1.754002,0.1410006 -4.675,-0.7660005 -6.497998,-2.7189998 0,-4.5540004 6.497998,-2.7189999 4.675,-0.7659995 1.754002,0.1409997 0.923,-7.016 -1.730001,-0.317 -4.317003,-1.95 -5.573998,-4.308 1.179001,-4.4 6.981,-0.944 4.713997,0.47 1.656996,0.59 2.708001,-6.537 -1.588999,-0.755 -3.665999,-3 -4.268001,-5.604 2.277001,-3.945 6.986998,0.895 4.432003,1.674 1.447999,0.999 4.307997,-5.614 -1.339996,-1.14 -2.764002,-3.847 -2.672994,-6.518 3.220994,-3.221 6.518001,2.673 3.846997,2.764 1.140004,1.34 5.614004,-4.308 -0.999003,-1.448002 -1.674,-4.432001 -0.895,-6.986998 3.945002,-2.277001 5.603998,4.268004 3,3.665996 0.754999,1.589003 6.537,-2.708004 -0.590001,-1.656998 -0.469998,-4.713998 0.943999,-6.981004 4.4,-1.178994 4.308,5.573996 1.95,4.317005 0.317,1.729997 7.0159977,-0.923003 -0.141,-1.753996 0.766,-4.674999 2.719,-6.498004 4.554,0 2.719,6.498004 0.766,4.674999 -0.141,1.753996 7.0160023,0.923003 0.317,-1.729997 1.95,-4.317005 4.308,-5.573996 4.4,1.178994 0.944,6.981004 -0.47,4.713998 -0.59,1.656998 6.537,2.708004 0.755,-1.589003 3,-3.665996 5.604,-4.268004 3.945,2.277001 -0.895,6.986998 -1.674,4.432001 -0.999,1.448002 5.614,4.308 1.14,-1.34 3.847,-2.764 6.518,-2.673 3.221,3.221 -2.673,6.518 -2.764,3.847 -1.34,1.14 4.308,5.614 1.448,-0.999 4.432,-1.674 6.987,-0.895 2.277,3.945 -4.268,5.604 -3.666,3 -1.589,0.755 2.708,6.537 1.657,-0.59 4.714,-0.47 6.981,0.944 1.179,4.4 -5.574,4.308 -4.317,1.95 -1.73,0.317 z" class="wheel"  fill="url(#grad1)"/>
+                    <path
+                       d="m 0.00192228,-64.072706 0,12.503269"
+                       class="mark" />
+              </g>
+              <g id="small" transform="translate(116.4,0)rotate(0)">	   
+                    <path
+                       d="M 14.930004,-1.2500001e-7 C 14.930004,8.0415035 8.4110734,14.560431 0.36957328,14.560431 -7.6719266,14.560431 -14.190856,8.0415035 -14.190856,-1.2500001e-7 -14.190856,-8.0415038 -7.6719266,-14.560431 0.36957328,-14.560431 8.4110734,-14.560431 14.930004,-8.0415038 14.930004,-1.2500001e-7 z M 29.489874,-12.618395 l 3.73032,-1.610349 2.33596,-0.38884 7.20245,1.186291 1.02285,3.8173386 -5.64436,4.6285827 -2.21741,0.8312341 -4.03573,0.4705559 0,7.3680621 4.03504,0.4696561 2.2187,0.8310768 5.6434,4.6291147 -1.02299,3.816824 -7.20135,1.186269 -2.33715,-0.388335 -3.72896,-1.61076 -3.68402,6.38092 3.25944,2.423992 1.50488,1.829859 2.57333,6.829687 -2.79397,2.794348 -6.83063,-2.572768 -1.82908,-1.505911 -2.42426,-3.259625 -6.38092,3.684036 1.61034,3.730319 0.38884,2.335956 -1.18629,7.202452 -3.8173302,1.022854 -4.6285904,-5.644362 -0.83123,-2.217418 -0.47056,-4.035725 -7.36806,-5e-6 -0.46966,4.035047 -0.83107,2.218699 -4.62912,5.643397 -3.8168194,-1.022991 -1.18627,-7.201351 0.38833,-2.337145 1.61076,-3.728957 -6.380915,-3.684026 -2.42399,3.259438 -1.82986,1.50488 -6.82969,2.573337 -2.79434,-2.793971 2.57277,-6.83063 1.50591,-1.829083 3.25962,-2.424257 -3.68403,-6.380926 -3.73032,1.610348 -2.33596,0.38884 -7.20245,-1.18629 -1.02286,-3.817339 5.64437,-4.6285836 2.21742,-0.8312341 4.03572,-0.4705558 0,-7.3680622 -4.03504,-0.469656 -2.2187,-0.8310768 -5.64339,-4.6291148 1.02298,-3.8168247 7.20135,-1.186267 2.33715,0.388334 3.72896,1.61076 3.68403,-6.380921 -3.25945,-2.423991 -1.50487,-1.829859 -2.57335,-6.829687 2.79398,-2.794348 6.83063,2.572768 1.82908,1.505911 2.42426,3.259625 6.380915,-3.684036 -1.61034,-3.730319 -0.38884,-2.335956 1.18629,-7.202452 3.8173294,-1.022854 4.62859,5.644362 0.83123,2.217418 0.47056,4.035725 7.36806,5e-6 0.46966,-4.035047 0.83107,-2.218699 4.6291204,-5.643397 3.8168202,1.022991 1.18627,7.201351 -0.38833,2.337145 -1.61076,3.728956 6.38092,3.684026 2.42399,-3.259437 1.82986,-1.50488 6.82968,-2.573337 2.79435,2.793972 -2.57277,6.830629 -1.50591,1.829083 -3.25962,2.424257 z" class="wheel"  fill="url(#grad1)"/>
+                    <path d="m 0.27455328,-28.735781 0,12.521683"
+                       class="mark" />
+              </g>
+        </g>
+    
+            
+        </svg>
+        </div>
+        
+         <div class="dial">
+                    <div class="dial-edge">
+                       <div class="dial-in">
+                          <div class="dial-center">
+                             <div class="watch-numerals-top">
+                                <div class="watch-numerals-eleven">11</div>
+                                <div class="watch-numerals-twelve">12</div>
+                                <div class="watch-numerals-one">1</div>
+                                <div class="clear"></div>
+                             </div>
+                             <div class="watch-numerals-mid">
+                                <div class="watch-numerals-ten">10 </div>
+                                <div class="watch-numerals-two">2</div>
+                                <div class="clear"></div>
+                             </div>
+                             <div class="watch-case-brand">
+                                Hand Crafted
+                             </div>
+                             <div class="watch-case-city">
+                               Vuild
+                             </div>
+                             <div class="time">
+                                <div class="hr">
+                                   <div class="hr-needle">
+                                      <div class="hr-t"></div>
+                                      <div class="hr-disk"></div>
+                                      <div class="hr-shadow"></div>
+                                   </div>
+                                </div>
+                                <div class="min">
+                                   <div class="min-needle">
+                                      <div class="min-t"></div>
+                                      <div class="min-disk"></div>
+                                   </div>
+                                </div>
+                                <div class="sec">
+                                   <div class="sec-needle">
+                                      <div class="sec-t"></div>
+                                      <div class="sec-m"></div>
+                                      <div class="sec-disk"></div>
+                                      <div class="sec-b"></div>
+                                   </div>
+                                </div>
+                             </div>
+                                                
+                             <div class="numerals-btm">
+                                <div class="numerals-btm-top">
+                                   <div class="watch-numerals-three">3</div>
+                                   <div class="watch-numerals-four">4</div>
+                                   <div class="watch-numerals-nine">9</div>
+                                   <div class="watch-numerals-eight">8</div>
+                                   <div class="watch-numerals-seven">7</div>
+                                   <div class="watch-numerals-five">5</div>
+                                </div>
+                                <div class="watch-numerals-six">6</div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+        
+        <div class="clock-in">
+        <div class="fleur fleur-mid"><span>&#9884;</span><span>&#9884;</span><span>&#9884;</span></div>
+        </div> 
+        
+        </div> 
+        
+        <div class="cuckoo">
+        
+        <div class="cabinet-strip"><div class="project">Codepen</div> <span>Grandmaster Chime</span></div> </div>
+        
+        <div class="cabinet">
+        <div class="main-cabinet">
+          <div class="cabinet-one"><div class="cabinet-l"></div></div>
+          <div class="cabinet-two"><div class="glass"></div></div>
+          <div class="cabinet-three"><div class="cabinet-r"></div></div>
+        </div>
+        </div>
+        
+        <div class="pendulum-top"></div>
+        <div class="weights"><div class="weight weight-l"></div><div class="weight weight-r"></div><div class="clear"></div></div>
+        <div class="pendulum"><div class="rod"></div>
+        <div class="massive-bob"></div>
+        </div>
+        <div class="shadow"></div>
+        
+        </div>  
+        
+        </div>      
+                                                                                     
+                             
+        
+        <div class="window">
+        <div class="dark-light"><div class="lightning"></div></div>
+        <svg   class="castle" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 489.664 489.664" style="enable-background:new 0 0 489.664 489.664;" xml:space="preserve">
+        <path d="M487.919,270.104L410.36,76.363c-0.829-2.056-2.822-3.412-5.046-3.412c-2.224,0-4.217,1.356-5.047,3.412l-77.565,193.741
+            c-0.67,1.674-0.463,3.57,0.541,5.07c1.013,1.49,2.702,2.383,4.504,2.383h15.394v34.104h-36.121V204.606h15.377
+            c1.802,0,3.492-0.893,4.505-2.383c1.005-1.499,1.211-3.395,0.542-5.07L249.886,3.413C249.057,1.355,247.065,0,244.84,0
+            V369.45h-36.129v-51.73h15.378c1.801,0,3.491-0.893,4.504-2.383c1.005-1.5,1.212-3.396,0.542-5.07L89.404,116.525
+            c-0.829-2.057-2.822-3.412-5.046-3.412c-2.224,0-4.217,1.355-5.045,3.412L1.746,310.266c-0.67,1.674-0.462,3.57,0.55,5.07
+            c1.004,1.49,2.695,2.383,4.496,2.383h15.394v171.945h445.31V277.557h15.378c1.801,0,3.491-0.893,4.504-2.383
+            C488.381,273.674,488.588,271.778,487.919,270.104z M105.101,411.908c0,3.276-2.646,5.923-5.923,5.923H69.539
+            c-3.276,0-5.923-2.646-5.923-5.923v-59.096c0-11.456,9.287-20.743,20.742-20.743s20.743,9.287,20.743,20.743V411.908z
+             M265.575,354.677c0,3.276-2.646,5.923-5.923,5.923h-29.64c-3.276,0-5.923-2.646-5.923-5.923v-59.096
+            c0-11.456,9.287-20.743,20.743-20.743c11.456,0,20.743,9.287,20.743,20.743V354.677z M426.057,440.438
+            c0,3.277-2.646,5.924-5.923,5.924h-29.64c-3.277,0-5.923-2.646-5.923-5.924v-59.096c0-11.455,9.288-20.742,20.743-20.742
+            c11.456,0,20.743,9.287,20.743,20.742V440.438z"/>
+        </svg>
+        <svg class="hills" height="511.99999pt" viewBox="1 1 511.99999 511.99999" width="511.99999pt" xmlns="http://www.w3.org/2000/svg"><path d="m309.320312 26.835938-112.765624 180.089843-58.3125-100.996093-137.605469 238.347656h-.636719v167.722656h512v-161.324219zm0 0" fill="#49824d"/><path d="m317.792969 282.484375h17.65625v70.621094h-17.65625zm0 0" fill="#917966"/><path d="m326.621094 220.6875c14.625 0 26.480468 11.859375 26.480468 26.484375v17.65625c0 14.625-11.855468 26.480469-26.480468 26.480469s-26.484375-11.855469-26.484375-26.480469v-17.65625c0-14.625 11.859375-26.484375 26.484375-26.484375zm0 0" fill="#92bc6d"/><path d="m0 382.367188c164.933594-62.5625 347.066406-62.5625 512 0v129.632812h-511.363281zm0 0" fill="#92bc6d"/><path d="m17.65625 397.242188h17.652344v88.273437h-17.652344zm0 0" fill="#917966"/><path d="m441.378906 308.964844h17.65625v123.585937h-17.65625zm0 0" fill="#917966"/><g fill="#49824d"><path d="m150.070312 512-6.851562-3.046875c-44.761719-21.230469-93.679688-32.25-143.21875-32.261719v35.308594zm0 0"/><path d="m105.929688 406.070312h17.65625v17.652344h-17.65625zm0 0"/><path d="m123.585938 388.414062h17.65625v17.65625h-17.65625zm0 0"/><path d="m141.242188 406.070312h17.652343v17.652344h-17.652343zm0 0"/><path d="m317.792969 476.691406c51.488281-40.046875 114.855469-61.792968 180.082031-61.792968h14.125v97.101562h-194.207031zm0 0"/><path d="m476.691406 459.035156h17.652344v17.65625h-17.652344zm0 0"/><path d="m459.035156 476.691406h17.65625v17.652344h-17.65625zm0 0"/></g><path d="m17.65625 35.308594h8.828125c0-19.5 15.808594-35.308594 35.308594-35.308594s35.308593 15.808594 35.308593 35.308594h44.140626c9.75 0 17.652343 7.90625 17.652343 17.65625s-7.902343 17.65625-17.652343 17.65625h-123.585938c-9.75 0-17.65625-7.90625-17.65625-17.65625s7.90625-17.65625 17.65625-17.65625zm0 0" fill="#c1dce5"/><path d="m423.722656 44.136719h70.621094c9.75 0 17.65625 7.90625 17.65625 17.65625s-7.90625 17.65625-17.65625 17.65625h-70.621094c-9.75 0-17.652344-7.90625-17.652344-17.65625s7.902344-17.65625 17.652344-17.65625zm0 0" fill="#c1dce5"/><path d="m361.929688 114.757812h70.621093c9.75 0 17.65625 7.90625 17.65625 17.65625s-7.90625 17.65625-17.65625 17.65625h-70.621093c-9.75 0-17.652344-7.90625-17.652344-17.65625s7.902344-17.65625 17.652344-17.65625zm0 0" fill="#c1dce5"/><path d="m26.484375 264.828125c14.625 0 26.480469 11.855469 26.480469 26.480469v88.277344c0 14.625-11.855469 26.484374-26.480469 26.484374-14.628906 0-26.484375-11.859374-26.484375-26.484374v-88.277344c0-14.625 11.855469-26.480469 26.484375-26.480469zm0 0" fill="#92bc6d"/><path d="m450.207031 229.515625c14.625 0 26.480469 11.859375 26.480469 26.484375v35.308594c0 14.628906-11.855469 26.484375-26.480469 26.484375s-26.484375-11.855469-26.484375-26.484375v-35.308594c0-14.625 11.859375-26.484375 26.484375-26.484375zm0 0" fill="#92bc6d"/><path d="m280.265625 335.855469 46.355469 176.144531h-141.242188l46.355469-176.144531" fill="#a9bfd1"/><path d="m247.171875 450.207031h17.65625v35.308594h-17.65625zm0 0" fill="#ffd884"/><path d="m247.171875 406.070312h17.65625v26.480469h-17.65625zm0 0" fill="#ffd884"/><path d="m247.171875 370.757812h17.65625v17.65625h-17.65625zm0 0" fill="#ffd884"/></svg>
+        <div class="window-divide"></div>
+        </div>
+        <div class="window-shelf"></div>
+        
+        <div class="wallpaper-strip"></div>
+        
+        <div class="spider">
+        <div class="spider-grid">
+        <div class="l">
+        <div class="spider-leg leg-one">
+        <div class="top-leg"></div>
+        <div class="btm-leg"></div>
+        </div>
+        <div class="spider-leg leg-two"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        <div class="spider-leg leg-three"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        <div class="spider-leg leg-four"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        </div>
+        <div class="m">
+        <div class="spider-thread"></div>
+        <div class="spider-body"></div>
+        <div class="spider-head"><div class="spider-eye spider-eye-l"></div><div class="spider-eye spider-eye-r"></div>
+        </div>
+        </div>
+        <div class="r"><div class="spider-leg leg-five"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        <div class="spider-leg leg-six"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        <div class="spider-leg leg-seven"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        <div class="spider-leg leg-eight"><div class="top-leg"></div>
+        <div class="btm-leg"></div></div>
+        </div>
+        </div>
+        </div>
+        
+        <div class="statue-frame">
+        <div id="statue">
+        <div id="statue-ear-l"></div>
+        <div id="statue-ear-lshading"></div>
+        <div id="statue-ear-r"></div>
+        <div id="statue-ear-rshading"></div>
+        <div id="statue-head">
+        <div id="statue-forehead"></div>
+        <div id="statue-eye-box-l">
+        <div id="statue-eye-ridge-l"></div>
+        <div id="statue-eye-l">
+        <div id="statue-sclera-l">
+        <div class="statue-iris">
+        <div class="statue-pupil"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div id="statue-eye-box-r">
+        <div id="statue-eye-ridge-r"></div>
+        <div id="statue-eye-r">
+        <div id="statue-sclera-r">
+        <div class="statue-iris"><div class="statue-pupil"></div></div>
+        </div>
+        </div>
+        </div>
+        <div id="statue-nose-frame">
+        <div id="statue-bridge-r"></div>
+        <div id="statue-bridge"></div>
+        <div id="statue-bridge-l"></div>
+        <div id="statue-nose-r"></div>
+        <div id="statue-nose"></div>
+        <div id="statue-nose-l"></div>
+        </div>
+        <div id="statue-cheeks"></div>
+        <div id="statue-lower-face-outer">
+        <div id="statue-lower-face">
+        <div id="statue-mouth"></div>
+        <div id="statue-mouth-l"></div>
+        <div id="statue-mouth-r"></div>
+        </div>
+        <div id="statue-chin"></div>
+        </div>
+        </div>
+        <div id="statue-neck"></div>
+        <div id="statue-traps"></div>
+        <div id="statue-shoulders"></div>
+        <div id="statue-chest">
+        <div id="statue-cleavage"></div>
+        <div id="statue-sign">
+        <div id="statue-sign-ear-l"></div>
+        <div id="statue-sign-ear-r"></div>
+        </div>
+        </div>
+        <div id="statue-stand"></div>
+        </div>
+        </div>
+        
+        <div class="skirt"><div class="mouse"></div></div>
+        <div class="floor">
+        <div class="floor-in">
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+        <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+          <div class="panel"></div>  
+        <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+        
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+        <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div>  
+          <div class="panel"></div>  
+        <div class="panel"></div>  
+          <div class="panel"></div>
+          <div class="panel"></div>
+          <div class="panel"></div> 
+        
+        </div>
+        </div>
+        </div>
+        
+        <div class="rip rip-one"></div>
+        <div class="rip rip-two"></div>
+        <div class="rip rip-three"></div>
+        
+          
+        <!-- <script type="application/ecmascript"> [CDATA[
+        
+            var a = 1; // default angle step
+        
+            var bigWheel = document.querySelector("#big");
+            var smallWheel = document.querySelector("#small");
+            
+            var i = 0;
+            var loop = 0;
+        
+            animate();
+            
+            function animate() {
+                bigWheel.transform.baseVal.getItem(0).setRotate(a*i,0,0);
+                smallWheel.transform.baseVal.getItem(1).setRotate(-2*a*i,0,0); // <g transform="translate(20,10)scale(1)"> -> getItem(0) = translate, getItem(1) = scale
+                i++;
+                loop = requestAnimationFrame(animate);		
+            }
+            
+            function fast() {
+                cancelAnimationFrame(loop);
+                loop = 0;
+                a = 1;
+                animate();
+            }
+            
+            function slow() {
+                cancelAnimationFrame(loop);
+                loop = 0;
+                a = 0.5;
+                animate();
+            }
+            
+            function verySlow() {
+                cancelAnimationFrame(loop);
+                loop = 0;
+                a = 0.1;
+                animate();
+            }	
+        
+        /* ***** Polyfill for cross-browser support for requestAnimationFrame(): https://gist.github.com/paulirish/1579671 ***** */	
+        // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+        // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+         
+        // requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+         
+        // MIT license
+         
+        (function() {
+            var lastTime = 0;
+            var vendors = ['ms', 'moz', 'webkit', 'o'];
+            for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
+                                           || window[vendors[x]+'CancelRequestAnimationFrame'];
+            }
+         
+            if (!window.requestAnimationFrame)
+                window.requestAnimationFrame = function(callback, element) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                    var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+                      timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+         
+            if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function(id) {
+                    clearTimeout(id);
+                };
+        }());	
+            
+        ]] </script> -->
+
+        <script>
+                  // JS is  used to get the current time (modified from https://codepen.io/kowlor/pen/bdRzML) and trigger animations. This is the most complex thing in my profile
+      
+      function setTime() {
+        var d = new Date;
+      
+        function ct(v) {
+          return v * 360 / 60;
+        };
+      
+        function ctm(v) {
+          return v * 360 / 60 + 6 * ct(d.getSeconds()) / 360; // 1min = 6 deg
+        };
+      
+        function cth(v) {
+          return v * 360 / 12 + 30 * ct(d.getMinutes()) / 360; // 1h = 30 deg
+        };
+      
+        document.getElementsByClassName('sec')[0].style.transform = 'rotateZ(' + ct(d.getSeconds()) + 'deg)';
+        document.getElementsByClassName('min')[0].style.transform = 'rotateZ(' + ctm(d.getMinutes()) + 'deg)';
+        document.getElementsByClassName('hr')[0].style.transform = 'rotateZ(' + cth(d.getHours()) + 'deg)';
+      }
+                 
+      setTime();
+
+        </script>
+</body>
+</html>

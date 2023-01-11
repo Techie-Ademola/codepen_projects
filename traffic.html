@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #333;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid whitesmoke;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #000090, lightblue, #000090);
+        }
+        .indicator {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .indicator:before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 35px;
+            background-color: transparent;
+            border-radius: 50%;
+            border: none;
+            border-top: 25px solid black;
+        }
+        .indicator.red {
+            background-color: #f00;
+        }
+        .indicator.yellow {
+            background-color: yellow;
+        }
+        .indicator.green {
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="indicator red"></div>
+        <div class="indicator yellow"></div>
+        <div class="indicator green"></div>
+    </section>
+</body>
+</html>

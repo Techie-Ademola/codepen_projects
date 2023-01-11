@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Story</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+            text-align: center;
+        }
+        .text-bg {
+            background: linear-gradient(to bottom, #fff 30%, cornflowerblue 15%, midnightblue);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .heading h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 120px;
+            color: transparent;
+        }
+        .heading:first-child {
+            background: url(./tree-736885__480.jpg);
+            background-size: cover;
+        }
+        .heading.bottom {
+            background: url(./Upcoming-events\ 5.jpg);
+            background-size: cover;
+        }
+        section {
+            height: auto;
+            display: flex;
+        }
+        section .imgBx {
+            position: sticky;
+            top: 0;
+            min-width: 50%;
+            background: #000;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        section .storyBx {
+            padding: 60px;
+        }
+        section .storyBx h2 {
+            margin: 0 0 20px;
+            padding: 0;
+            font-size: 60px;
+            color: purple;
+        }
+        section .storyBx p {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            text-align: justify;
+            color: #555;
+        }
+        section .imgBx img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            transition: .5s;
+            transform: scaleY(1.2);
+        }
+        section .imgBx:hover img {
+            /* transform: scale(1.12); */
+            transition: .5s ease-out;
+            filter: brightness(50%);
+        }
+        ::-webkit-scrollbar {
+          background: #222;
+          box-shadow: 0px 0px 10px pink inset;
+        }
+        ::-webkit-scrollbar-thumb {
+          /* box-shadow: 0px 0px 10px #fff inset; */
+          border-radius: 5px;
+          background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <section class="heading">
+        <div class="text-bg"><h1>Sticky Sections <br> in HTML</h1></div>
+    </section>
+    <section>
+        <div class="imgBx">
+            <img src="./fintech-financial 5.webp" alt="">
+        </div>
+        <div class="storyBx">
+            <h2>Heading One</h2>
+            <p>⇧ SCROLL TO TOP
+                Javatpoint Logo
+                Home
+                JSON
+                C
+                Java
+                PHP
+                HTML
+                CSS
+                JavaScript
+                XML
+                Ajax
+                Node.js
+                SQL
+                Python
+                Web Services
+                Projects
+                Interview Q
+                
+                JSON Tutorial
+                Introduction to JSONWhat is JSONJSON vs XMLJSON ExampleJSON ObjectJSON ArrayJSON CommentsJSON CompareJSON BeautifierJSON Server open linkJSON vs BSONJSON Placeholder
+                PHP JSON
+                PHP JSON Example
+                Java JSON
+                Java JSON Example
+                AJAX JSON
+                AJAX JSON ExampleJavaTpoint
+                Next →← Prev
+                JSON Server
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays. JSON is a very common data format having different applications. For example, a web application communicating with a server uses JSON.
+                
+                In the similar sense, JSON Server is no different. JSON Server is a Node Module that you can use to create demo REST JSON services within a short span of minutes. All we need to do is have a JSON file as sample data. Let's learn more about how to install and set up a JSON server in our system and alongside we'll try to create a REST API. Let's learn more about it.
+                
+                Installation
+                To get started with the installation of the JSON server, all we need to do is to open the Terminal of our system and type the following command.
+                
+                npm install -g json-server  
+                The next step involves the creation of a database with JSON. For the sake of learning, we have created an example database as shown below.
+                
+                //db.json  
+                  
+                  
+                "posts": [  
+                  { "id": 1, "title": "json-server", "author": "typicode" }  
+                ],  
+                "comments": [  
+                  { "id": 1, "body": "some comment", "postId": 1 }  
+                ],  
+                "profile": { "name": "typicode" }  
+                We are almost done. The next step is to start the JSON Server and to do that use the below command.
+                
+                json server --watch db.json  
+                Now, if we move to http://localhost:3000/posts/1, we'll get something like this.
+                
+                { "id": 1, "title": "json-server", "author": "typicode" }  
+                This output signifies that our JSON server is working fine for the above attributes and is having some values in them. We can now easily create a request for the JSON Server. But, before moving further, it is good to take some key factors into account. Those key factors are:
+                
+                1. If we make some requests like POST, DELETE, PUT, or PATCH, the changes are directly reflected and safely stored in the db.json file.
+                
+                2. The requested JSON body should be object enclosed, just like the GET For example:
+                
+                {"name": Foobar}  
+                3. The ID values are not generally mutable. Any value of the ID present in the body of the PUT and PATCH request is usually ignored by default. The value set in a POST request is only taken into consideration if not already taken.
+                
+                4. The PATCH, POST and PUT request should always include a Content-Type: application/json header to be used in the JSON request body. Else, it will return the 2XX status code without updating the changes made to the data.
+                
+                Routes
+                Routes are nothing but the pathways through which the requests are processed in a pipeline. A specific route serves a specific request so that dependencies are not disturbed.
+                
+                Therefore, based on the previous db.json file various default routes can be added with the command --routes at the terminal. Some default routes are shown below.
+                
+                Singular Routes
+                GET    /profile  
+                POST   /profile  
+                PUT    /profile  
+                PATCH  /profile  
+                Plural Routes
+                GET    /posts  
+                GET    /posts/1  
+                POST   /posts  
+                PUT    /posts/1  
+                PATCH  /posts/1  
+                DELETE /posts/1  
+                Creating REST API
+                Representational State Transfer (REST) is a software architectural style that uses a subset of HTTP. It is generally used to create an interactive application based on the available services offered by the web. All those applications that follow these web services guidelines are thereby termed RESTful.
+                
+                Now let's create a new JSON file with the name db.json. This file would contain the sample data that should be exposed by the REST API. For all the objects contained inside the JSON structure, CRUD (Create Read Update Delete) endpoints are automatically created. Let's take a look at the sample db.json file.
+                
+                "employees": [  
+                    {  
+                      "id": 1,  
+                      "first_name": "Sebastian",  
+                      "last_name": "Eschweiler",  
+                      "email": "sebastian@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 2,  
+                      "first_name": "Steve",  
+                      "last_name": "Palmer",  
+                      "email": "steve@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 3,  
+                      "first_name": "Ann",  
+                      "last_name": "Smith",  
+                      "email": "ann@javatpoint.com"  
+                    }  
+                  ]  
+                }  
+                The above sample db.json structure consists of an objecting employee which has 3 assigned data sets. Each of the employee objects consists of four properties like id, first_name, last_name, and email.
+                
+                After this step, all we need to do is to run the server through the Terminal command.
+                
+                json server --watch db.json  
+                The next step is to pass a parameter over the file containing the JSON structure. Also, we are making use of the watch parameter because this makes us sure that the server is being started in watch mode and the changes and updates are accordingly exposed to the API. The following console shoots after we start the server.
+                
+                JSON Server
+                Now, if we run the URL http://localhost:3000/employees in the browser environment, we might see the following results.
+                
+                JSON Server
+                From the above image, we can see that the correct recognition of the resource employees. Now, when we click on the employees link and use the HTTP GET request to the http://localhost:3000/employees , it will show us the following JSON result.
+                
+                [  
+                   {  
+                     "id": 1,  
+                     "first_name": "Sebastian",  
+                     "last_name": "Eschweiler",  
+                     "email": "sebastian@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 2,  
+                     "first_name": "Steve",  
+                     "last_name": "Palmer",  
+                     "email": "steve@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 3,  
+                     "first_name": "Ann",  
+                     "last_name": "Smith",  
+                     "email": "ann@javatpoint.com"  
+                   }  
+                This action would create various routed endpoints like we discussed previously and on inspection, we would find the following results.
+                
+                GET    /employees  
+                GET    /employees/{id}  
+                POST   /employees  
+                PUT    /employees/{id}  
+                PATCH  /employees/{id}  
+                DELETE /employees/{id}  
+                The above endpoints signify that we can now make DELETE, PATCH, GET, POST, and PUT requests and any changes would certainly be automatically saved to the db.json file. Meanwhile, while creating a PATCH, PUT or POST request, never forget to include a Content-Type: application/json header because the JSON would seek content in the requested body. Else, it might result in the 200 OK without changes being made to the data.
+                
+                Furthermore, there's another instance of extending our URL with more parameters like filtering the parameters by modifying the existing URL with the following set of the parameter using http://localhost:3000/employees?first_name=Sebastian. In the similar sense, other requests can also be filtered easily and would be automatically reflected and saved to the db.json file. This is how we successfully created a RESTful API. We can test it, deploy it with ease using various tools like Netlify, Heroku, or Postman. Let's learn some extra actions that can be carried out with the temporary API we have created.
+                
+                Extra Options
+                Static file server
+                
+                The JSON server that we have created can be used to serve our HTML. CSS and JS compatibility but simply creating a ./public directory or use the command --static so that a different static file directory is set.
+                
+                mkdir public  
+                echo 'hello world' > public/index.html  
+                json-server db.json  
+                json-server db.json --static ./some-other-dir  
+                Port Switch/ Alternative Port
+                
+                The request processing through the localhost can be shifted or switched to another port using the below command to our existing JSON Server. We just need to use the --port number flag. For example:
+                
+                json-server --watch db.json --port 3004  
+                Middleware Module
+                
+                If we want any validation, authentication, or behavioral changes for the API or the project you want to create by creating a module in combination with other Express middleware. Consider the below instance.
+                
+                npm install json-server --save-dev  
+                // server.js  
+                const jsonServer = require('json-server')  
+                const server = jsonServer.create()  
+                const router = jsonServer.router('db.json')  
+                const middlewares = jsonServer.defaults()  
+                   
+                server.use(middlewares)  
+                server.use(router)  
+                server.listen(3000, () => {  
+                  console.log('JSON Server is running')  
+                })  
+                Run the above file using,
+                
+                node server.js  
+                The path provided by us for the json.Server.router function in the above code snippet is relative to the directory from where we would be launching the node process. If we run the above code snippet from another directory, it is highly recommended to use an absolute path:
+                
+                const path = require('path')  
+                const router = jsonServer.router(path.join(__dirname, 'db.json'))  
+                For any other in-memory database, we simply need to pass an object to jsonServer.router() function in the existing Express project.
+                
+                Data Mocking of JSON Server
+                As of now, we learned to expose data by creating a fake API manually in a JSON file. However, if we need large data sets, this manual way can result in hectic and absurd. Therefore, to cope with this issue, we can use Faker.js because it can handle large amounts of data for JSON Server. It does that by generating fake data when integrating with JSON and API. This can be done by using the following steps.
+                
+                npm init  
+                Next, install Faker.js by using the command:
+                
+                npm install faker  
+                Faker.js will successfully be installed in the node_modules folder. Now, create another file in the employees.js and insert the below given sample JavaScript code.
+                
+                // employees.js  
+                var faker = require('faker')  
+                function generateEmployees () {  
+                  var employees = []  
+                  for (var id = 0; id < 50; id++) {  
+                    var firstName = faker.name.firstName()  
+                    var lastName = faker.name.lastName()  
+                    var email = faker.internet.email()  
+                    employees.push({  
+                      "id": id,  
+                      "first_name": firstName,  
+                      "last_name": lastName,  
+                      "email": email  
+                    })  
+                  }  
+                  return { "employees": employees }  
+                }  
+                In the above code snippet, we are implementing the function generateEmployees() to generate JSON-based object containing the data of 50 employees. Thus, to obtain fake data for the first name, last name, and the email that we are using, we would be using the methods faker.name.firstName(), faker.name.lastName() and faker.internet.email().
+                
+                Moreover, the JSON Server requires exporting the general employees() function in the above code which is done by using the method.
+                
+                module.exports = generateEmployees  
+                Having added that export, we would now be able to pass the employees.js file directly to the json-server command by
+                
+                Json-server employees.js  
+                The work is done. We have successfully exposed REST API that will give us the access to all the 50 employees data sets by the means of Faker.js.
+                
+                Summary
+                In this tutorial, we learned about the JSON Server from scratch to advance. We tried to blend in the use cases of it and eventually learned its implementation along with setting up the local environment, creating requests, etc. We also learned about routes that are quite important because we can use them to create pathways for data to move to our files and then trace back the requests like POST, DELETE, etc. In the later section, we learned to set up middleware with Express environment followed by mocking up the JSON Server with Faker.js. We can therefore jump to conclusion that JSON Server covers tremendous application in the development since most of the developers use this format for establishing data manipulation, access, and storage mechanism and carrying out overall data-driven paradigms.
+                
+                Next TopicPHP JSON Example
+                
+                
+                ← PrevNext →
+                
+                Youtube For Videos Join Our Youtube Channel: Join Now
+                Feedback
+                Send your Feedback to feedback@javatpoint.com
+                Help Others, Please Share
+                facebook twitter pinterest
+                
+                Learn Latest Tutorials
+                Splunk tutorial
+                Splunk
+                
+                SPSS tutorial
+                SPSS
+                
+                Swagger tutorial
+                Swagger
+                
+                T-SQL tutorial
+                Transact-SQL
+                
+                Tumblr tutorial
+                Tumblr
+                
+                React tutorial
+                ReactJS
+                
+                Regex tutorial
+                Regex
+                
+                Reinforcement learning tutorial
+                Reinforcement Learning
+                
+                R Programming tutorial
+                R Programming
+                
+                RxJS tutorial
+                RxJS
+                
+                React Native tutorial
+                React Native
+                
+                Python Design Patterns
+                Python Design Patterns
+                
+                Python Pillow tutorial
+                Python Pillow
+                
+                Python Turtle tutorial
+                Python Turtle
+                
+                Keras tutorial
+                Keras
+                
+                
+                Preparation
+                Aptitude
+                Aptitude
+                
+                Logical Reasoning
+                Reasoning
+                
+                Verbal Ability
+                Verbal Ability
+                
+                Interview Questions
+                Interview Questions
+                
+                Company Interview Questions
+                Company Questions
+                
+                
+                Trending Technologies
+                Artificial Intelligence Tutorial
+                Artificial Intelligence
+                
+                AWS Tutorial
+                AWS
+                
+                Selenium tutorial
+                Selenium
+                
+                Cloud Computing tutorial
+                Cloud Computing
+                
+                Hadoop tutorial
+                Hadoop
+                
+                ReactJS Tutorial
+                ReactJS
+                
+                Data Science Tutorial
+                Data Science
+                
+                Angular 7 Tutorial
+                Angular 7
+                
+                Blockchain Tutorial
+                Blockchain
+                
+                Git Tutorial
+                Git
+                
+                Machine Learning Tutorial
+                Machine Learning
+                
+                DevOps Tutorial
+                DevOps
+                
+                
+                B.Tech / MCA
+                DBMS tutorial
+                DBMS
+                
+                Data Structures tutorial
+                Data Structures
+                
+                DAA tutorial
+                DAA
+                
+                Operating System tutorial
+                Operating System
+                
+                Computer Network tutorial
+                Computer Network
+                
+                Compiler Design tutorial
+                Compiler Design
+                
+                Computer Organization and Architecture
+                Computer Organization
+                
+                Discrete Mathematics Tutorial
+                Discrete Mathematics
+                
+                Ethical Hacking Tutorial
+                Ethical Hacking
+                
+                Computer Graphics Tutorial
+                Computer Graphics
+                
+                Software Engineering Tutorial
+                Software Engineering
+                
+                html tutorial
+                Web Technology
+                
+                Cyber Security tutorial
+                Cyber Security
+                
+                Automata Tutorial
+                Automata
+                
+                C Language tutorial
+                C Programming
+                
+                C++ tutorial
+                C++
+                
+                Java tutorial
+                Java
+                
+                .Net Framework tutorial
+                .Net
+                
+                Python tutorial
+                Python
+                
+                List of Programs
+                Programs
+                
+                Control Systems tutorial
+                Control System
+                
+                Data Mining Tutorial
+                Data Mining
+                
+                Data Warehouse Tutorial
+                Data Warehouse
+                
+                
+                
+                
+                Javatpoint Services
+                JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.
+                
+                Website Designing
+                Website Development
+                Java Development
+                PHP Development
+                WordPress
+                Graphic Designing
+                Logo
+                Digital Marketing
+                On Page and Off Page SEO
+                PPC
+                Content Development
+                Corporate Training
+                Classroom and Online Training
+                Data Entry
+                Training For College Campus
+                JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.
+                Duration: 1 week to 2 week
+                
+                Like/Subscribe us for latest updates or newsletter RSS Feed Subscribe to Get Email Alerts Facebook Page Twitter Page YouTube Blog Page
+                LEARN TUTORIALS
+                Learn Java
+                Learn Data Structures
+                Learn C Programming
+                Learn C++ Tutorial
+                Learn C# Tutorial
+                Learn PHP Tutorial
+                Learn HTML Tutorial
+                Learn JavaScript Tutorial
+                Learn jQuery Tutorial
+                Learn Spring Tutorial
+                OUR WEBSITES
+                Javatpoint.com
+                Hindi100.com
+                Lyricsia.com
+                Quoteperson.com
+                Jobandplacement.com
+                OUR SERVICES
+                Website Development
+                
+                Android Development
+                
+                Website Designing
+                
+                Digital Marketing
+                
+                Summer Training
+                
+                Industrial Training
+                
+                College Campus Training
+                
+                CONTACT
+                Address: G-13, 2nd Floor, Sec-3
+                
+                Noida, UP, 201301, India
+                
+                Contact No: 0120-4256464, 9990449935
+                
+                Contact Us
+                Subscribe Us
+                Privacy Policy
+                Sitemap
+                
+                About Me
+                © Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p>
+        </div>
+    </section>
+    <section>
+        <div class="storyBx">
+            <h2>Heading Two</h2>
+            <p>⇧ SCROLL TO TOP
+                Javatpoint Logo
+                Home
+                JSON
+                C
+                Java
+                PHP
+                HTML
+                CSS
+                JavaScript
+                XML
+                Ajax
+                Node.js
+                SQL
+                Python
+                Web Services
+                Projects
+                Interview Q
+                
+                JSON Tutorial
+                Introduction to JSONWhat is JSONJSON vs XMLJSON ExampleJSON ObjectJSON ArrayJSON CommentsJSON CompareJSON BeautifierJSON Server open linkJSON vs BSONJSON Placeholder
+                PHP JSON
+                PHP JSON Example
+                Java JSON
+                Java JSON Example
+                AJAX JSON
+                AJAX JSON ExampleJavaTpoint
+                Next →← Prev
+                JSON Server
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays. JSON is a very common data format having different applications. For example, a web application communicating with a server uses JSON.
+                
+                In the similar sense, JSON Server is no different. JSON Server is a Node Module that you can use to create demo REST JSON services within a short span of minutes. All we need to do is have a JSON file as sample data. Let's learn more about how to install and set up a JSON server in our system and alongside we'll try to create a REST API. Let's learn more about it.
+                
+                Installation
+                To get started with the installation of the JSON server, all we need to do is to open the Terminal of our system and type the following command.
+                
+                npm install -g json-server  
+                The next step involves the creation of a database with JSON. For the sake of learning, we have created an example database as shown below.
+                
+                //db.json  
+                  
+                  
+                "posts": [  
+                  { "id": 1, "title": "json-server", "author": "typicode" }  
+                ],  
+                "comments": [  
+                  { "id": 1, "body": "some comment", "postId": 1 }  
+                ],  
+                "profile": { "name": "typicode" }  
+                We are almost done. The next step is to start the JSON Server and to do that use the below command.
+                
+                json server --watch db.json  
+                Now, if we move to http://localhost:3000/posts/1, we'll get something like this.
+                
+                { "id": 1, "title": "json-server", "author": "typicode" }  
+                This output signifies that our JSON server is working fine for the above attributes and is having some values in them. We can now easily create a request for the JSON Server. But, before moving further, it is good to take some key factors into account. Those key factors are:
+                
+                1. If we make some requests like POST, DELETE, PUT, or PATCH, the changes are directly reflected and safely stored in the db.json file.
+                
+                2. The requested JSON body should be object enclosed, just like the GET For example:
+                
+                {"name": Foobar}  
+                3. The ID values are not generally mutable. Any value of the ID present in the body of the PUT and PATCH request is usually ignored by default. The value set in a POST request is only taken into consideration if not already taken.
+                
+                4. The PATCH, POST and PUT request should always include a Content-Type: application/json header to be used in the JSON request body. Else, it will return the 2XX status code without updating the changes made to the data.
+                
+                Routes
+                Routes are nothing but the pathways through which the requests are processed in a pipeline. A specific route serves a specific request so that dependencies are not disturbed.
+                
+                Therefore, based on the previous db.json file various default routes can be added with the command --routes at the terminal. Some default routes are shown below.
+                
+                Singular Routes
+                GET    /profile  
+                POST   /profile  
+                PUT    /profile  
+                PATCH  /profile  
+                Plural Routes
+                GET    /posts  
+                GET    /posts/1  
+                POST   /posts  
+                PUT    /posts/1  
+                PATCH  /posts/1  
+                DELETE /posts/1  
+                Creating REST API
+                Representational State Transfer (REST) is a software architectural style that uses a subset of HTTP. It is generally used to create an interactive application based on the available services offered by the web. All those applications that follow these web services guidelines are thereby termed RESTful.
+                
+                Now let's create a new JSON file with the name db.json. This file would contain the sample data that should be exposed by the REST API. For all the objects contained inside the JSON structure, CRUD (Create Read Update Delete) endpoints are automatically created. Let's take a look at the sample db.json file.
+                
+                "employees": [  
+                    {  
+                      "id": 1,  
+                      "first_name": "Sebastian",  
+                      "last_name": "Eschweiler",  
+                      "email": "sebastian@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 2,  
+                      "first_name": "Steve",  
+                      "last_name": "Palmer",  
+                      "email": "steve@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 3,  
+                      "first_name": "Ann",  
+                      "last_name": "Smith",  
+                      "email": "ann@javatpoint.com"  
+                    }  
+                  ]  
+                }  
+                The above sample db.json structure consists of an objecting employee which has 3 assigned data sets. Each of the employee objects consists of four properties like id, first_name, last_name, and email.
+                
+                After this step, all we need to do is to run the server through the Terminal command.
+                
+                json server --watch db.json  
+                The next step is to pass a parameter over the file containing the JSON structure. Also, we are making use of the watch parameter because this makes us sure that the server is being started in watch mode and the changes and updates are accordingly exposed to the API. The following console shoots after we start the server.
+                
+                JSON Server
+                Now, if we run the URL http://localhost:3000/employees in the browser environment, we might see the following results.
+                
+                JSON Server
+                From the above image, we can see that the correct recognition of the resource employees. Now, when we click on the employees link and use the HTTP GET request to the http://localhost:3000/employees , it will show us the following JSON result.
+                
+                [  
+                   {  
+                     "id": 1,  
+                     "first_name": "Sebastian",  
+                     "last_name": "Eschweiler",  
+                     "email": "sebastian@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 2,  
+                     "first_name": "Steve",  
+                     "last_name": "Palmer",  
+                     "email": "steve@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 3,  
+                     "first_name": "Ann",  
+                     "last_name": "Smith",  
+                     "email": "ann@javatpoint.com"  
+                   }  
+                This action would create various routed endpoints like we discussed previously and on inspection, we would find the following results.
+                
+                GET    /employees  
+                GET    /employees/{id}  
+                POST   /employees  
+                PUT    /employees/{id}  
+                PATCH  /employees/{id}  
+                DELETE /employees/{id}  
+                The above endpoints signify that we can now make DELETE, PATCH, GET, POST, and PUT requests and any changes would certainly be automatically saved to the db.json file. Meanwhile, while creating a PATCH, PUT or POST request, never forget to include a Content-Type: application/json header because the JSON would seek content in the requested body. Else, it might result in the 200 OK without changes being made to the data.
+                
+                Furthermore, there's another instance of extending our URL with more parameters like filtering the parameters by modifying the existing URL with the following set of the parameter using http://localhost:3000/employees?first_name=Sebastian. In the similar sense, other requests can also be filtered easily and would be automatically reflected and saved to the db.json file. This is how we successfully created a RESTful API. We can test it, deploy it with ease using various tools like Netlify, Heroku, or Postman. Let's learn some extra actions that can be carried out with the temporary API we have created.
+                
+                Extra Options
+                Static file server
+                
+                The JSON server that we have created can be used to serve our HTML. CSS and JS compatibility but simply creating a ./public directory or use the command --static so that a different static file directory is set.
+                
+                mkdir public  
+                echo 'hello world' > public/index.html  
+                json-server db.json  
+                json-server db.json --static ./some-other-dir  
+                Port Switch/ Alternative Port
+                
+                The request processing through the localhost can be shifted or switched to another port using the below command to our existing JSON Server. We just need to use the --port number flag. For example:
+                
+                json-server --watch db.json --port 3004  
+                Middleware Module
+                
+                If we want any validation, authentication, or behavioral changes for the API or the project you want to create by creating a module in combination with other Express middleware. Consider the below instance.
+                
+                npm install json-server --save-dev  
+                // server.js  
+                const jsonServer = require('json-server')  
+                const server = jsonServer.create()  
+                const router = jsonServer.router('db.json')  
+                const middlewares = jsonServer.defaults()  
+                   
+                server.use(middlewares)  
+                server.use(router)  
+                server.listen(3000, () => {  
+                  console.log('JSON Server is running')  
+                })  
+                Run the above file using,
+                
+                node server.js  
+                The path provided by us for the json.Server.router function in the above code snippet is relative to the directory from where we would be launching the node process. If we run the above code snippet from another directory, it is highly recommended to use an absolute path:
+                
+                const path = require('path')  
+                const router = jsonServer.router(path.join(__dirname, 'db.json'))  
+                For any other in-memory database, we simply need to pass an object to jsonServer.router() function in the existing Express project.
+                
+                Data Mocking of JSON Server
+                As of now, we learned to expose data by creating a fake API manually in a JSON file. However, if we need large data sets, this manual way can result in hectic and absurd. Therefore, to cope with this issue, we can use Faker.js because it can handle large amounts of data for JSON Server. It does that by generating fake data when integrating with JSON and API. This can be done by using the following steps.
+                
+                npm init  
+                Next, install Faker.js by using the command:
+                
+                npm install faker  
+                Faker.js will successfully be installed in the node_modules folder. Now, create another file in the employees.js and insert the below given sample JavaScript code.
+                
+                // employees.js  
+                var faker = require('faker')  
+                function generateEmployees () {  
+                  var employees = []  
+                  for (var id = 0; id < 50; id++) {  
+                    var firstName = faker.name.firstName()  
+                    var lastName = faker.name.lastName()  
+                    var email = faker.internet.email()  
+                    employees.push({  
+                      "id": id,  
+                      "first_name": firstName,  
+                      "last_name": lastName,  
+                      "email": email  
+                    })  
+                  }  
+                  return { "employees": employees }  
+                }  
+                In the above code snippet, we are implementing the function generateEmployees() to generate JSON-based object containing the data of 50 employees. Thus, to obtain fake data for the first name, last name, and the email that we are using, we would be using the methods faker.name.firstName(), faker.name.lastName() and faker.internet.email().
+                
+                Moreover, the JSON Server requires exporting the general employees() function in the above code which is done by using the method.
+                
+                module.exports = generateEmployees  
+                Having added that export, we would now be able to pass the employees.js file directly to the json-server command by
+                
+                Json-server employees.js  
+                The work is done. We have successfully exposed REST API that will give us the access to all the 50 employees data sets by the means of Faker.js.
+                
+                Summary
+                In this tutorial, we learned about the JSON Server from scratch to advance. We tried to blend in the use cases of it and eventually learned its implementation along with setting up the local environment, creating requests, etc. We also learned about routes that are quite important because we can use them to create pathways for data to move to our files and then trace back the requests like POST, DELETE, etc. In the later section, we learned to set up middleware with Express environment followed by mocking up the JSON Server with Faker.js. We can therefore jump to conclusion that JSON Server covers tremendous application in the development since most of the developers use this format for establishing data manipulation, access, and storage mechanism and carrying out overall data-driven paradigms.
+                
+                Next TopicPHP JSON Example
+                
+                
+                ← PrevNext →
+                
+                Youtube For Videos Join Our Youtube Channel: Join Now
+                Feedback
+                Send your Feedback to feedback@javatpoint.com
+                Help Others, Please Share
+                facebook twitter pinterest
+                
+                Learn Latest Tutorials
+                Splunk tutorial
+                Splunk
+                
+                SPSS tutorial
+                SPSS
+                
+                Swagger tutorial
+                Swagger
+                
+                T-SQL tutorial
+                Transact-SQL
+                
+                Tumblr tutorial
+                Tumblr
+                
+                React tutorial
+                ReactJS
+                
+                Regex tutorial
+                Regex
+                
+                Reinforcement learning tutorial
+                Reinforcement Learning
+                
+                R Programming tutorial
+                R Programming
+                
+                RxJS tutorial
+                RxJS
+                
+                React Native tutorial
+                React Native
+                
+                Python Design Patterns
+                Python Design Patterns
+                
+                Python Pillow tutorial
+                Python Pillow
+                
+                Python Turtle tutorial
+                Python Turtle
+                
+                Keras tutorial
+                Keras
+                
+                
+                Preparation
+                Aptitude
+                Aptitude
+                
+                Logical Reasoning
+                Reasoning
+                
+                Verbal Ability
+                Verbal Ability
+                
+                Interview Questions
+                Interview Questions
+                
+                Company Interview Questions
+                Company Questions
+                
+                
+                Trending Technologies
+                Artificial Intelligence Tutorial
+                Artificial Intelligence
+                
+                AWS Tutorial
+                AWS
+                
+                Selenium tutorial
+                Selenium
+                
+                Cloud Computing tutorial
+                Cloud Computing
+                
+                Hadoop tutorial
+                Hadoop
+                
+                ReactJS Tutorial
+                ReactJS
+                
+                Data Science Tutorial
+                Data Science
+                
+                Angular 7 Tutorial
+                Angular 7
+                
+                Blockchain Tutorial
+                Blockchain
+                
+                Git Tutorial
+                Git
+                
+                Machine Learning Tutorial
+                Machine Learning
+                
+                DevOps Tutorial
+                DevOps
+                
+                
+                B.Tech / MCA
+                DBMS tutorial
+                DBMS
+                
+                Data Structures tutorial
+                Data Structures
+                
+                DAA tutorial
+                DAA
+                
+                Operating System tutorial
+                Operating System
+                
+                Computer Network tutorial
+                Computer Network
+                
+                Compiler Design tutorial
+                Compiler Design
+                
+                Computer Organization and Architecture
+                Computer Organization
+                
+                Discrete Mathematics Tutorial
+                Discrete Mathematics
+                
+                Ethical Hacking Tutorial
+                Ethical Hacking
+                
+                Computer Graphics Tutorial
+                Computer Graphics
+                
+                Software Engineering Tutorial
+                Software Engineering
+                
+                html tutorial
+                Web Technology
+                
+                Cyber Security tutorial
+                Cyber Security
+                
+                Automata Tutorial
+                Automata
+                
+                C Language tutorial
+                C Programming
+                
+                C++ tutorial
+                C++
+                
+                Java tutorial
+                Java
+                
+                .Net Framework tutorial
+                .Net
+                
+                Python tutorial
+                Python
+                
+                List of Programs
+                Programs
+                
+                Control Systems tutorial
+                Control System
+                
+                Data Mining Tutorial
+                Data Mining
+                
+                Data Warehouse Tutorial
+                Data Warehouse
+                
+                
+                
+                
+                Javatpoint Services
+                JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.
+                
+                Website Designing
+                Website Development
+                Java Development
+                PHP Development
+                WordPress
+                Graphic Designing
+                Logo
+                Digital Marketing
+                On Page and Off Page SEO
+                PPC
+                Content Development
+                Corporate Training
+                Classroom and Online Training
+                Data Entry
+                Training For College Campus
+                JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.
+                Duration: 1 week to 2 week
+                
+                Like/Subscribe us for latest updates or newsletter RSS Feed Subscribe to Get Email Alerts Facebook Page Twitter Page YouTube Blog Page
+                LEARN TUTORIALS
+                Learn Java
+                Learn Data Structures
+                Learn C Programming
+                Learn C++ Tutorial
+                Learn C# Tutorial
+                Learn PHP Tutorial
+                Learn HTML Tutorial
+                Learn JavaScript Tutorial
+                Learn jQuery Tutorial
+                Learn Spring Tutorial
+                OUR WEBSITES
+                Javatpoint.com
+                Hindi100.com
+                Lyricsia.com
+                Quoteperson.com
+                Jobandplacement.com
+                OUR SERVICES
+                Website Development
+                
+                Android Development
+                
+                Website Designing
+                
+                Digital Marketing
+                
+                Summer Training
+                
+                Industrial Training
+                
+                College Campus Training
+                
+                CONTACT
+                Address: G-13, 2nd Floor, Sec-3
+                
+                Noida, UP, 201301, India
+                
+                Contact No: 0120-4256464, 9990449935
+                
+                Contact Us
+                Subscribe Us
+                Privacy Policy
+                Sitemap
+                
+                About Me
+                © Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p>
+        </div>
+        <div class="imgBx">
+            <img src="./blog 3.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div class="imgBx">
+            <img style="margin-top: 30px;" src="./fintech-financial 3.webp" alt="">
+        </div>
+        <div class="storyBx">
+            <h2>Heading Three</h2>
+            <p>⇧ SCROLL TO TOP
+                Javatpoint Logo
+                Home
+                JSON
+                C
+                Java
+                PHP
+                HTML
+                CSS
+                JavaScript
+                XML
+                Ajax
+                Node.js
+                SQL
+                Python
+                Web Services
+                Projects
+                Interview Q
+                
+                JSON Tutorial
+                Introduction to JSONWhat is JSONJSON vs XMLJSON ExampleJSON ObjectJSON ArrayJSON CommentsJSON CompareJSON BeautifierJSON Server open linkJSON vs BSONJSON Placeholder
+                PHP JSON
+                PHP JSON Example
+                Java JSON
+                Java JSON Example
+                AJAX JSON
+                AJAX JSON ExampleJavaTpoint
+                Next →← Prev
+                JSON Server
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays. JSON is a very common data format having different applications. For example, a web application communicating with a server uses JSON.
+                
+                In the similar sense, JSON Server is no different. JSON Server is a Node Module that you can use to create demo REST JSON services within a short span of minutes. All we need to do is have a JSON file as sample data. Let's learn more about how to install and set up a JSON server in our system and alongside we'll try to create a REST API. Let's learn more about it.
+                
+                Installation
+                To get started with the installation of the JSON server, all we need to do is to open the Terminal of our system and type the following command.
+                
+                npm install -g json-server  
+                The next step involves the creation of a database with JSON. For the sake of learning, we have created an example database as shown below.
+                
+                //db.json  
+                  
+                  
+                "posts": [  
+                  { "id": 1, "title": "json-server", "author": "typicode" }  
+                ],  
+                "comments": [  
+                  { "id": 1, "body": "some comment", "postId": 1 }  
+                ],  
+                "profile": { "name": "typicode" }  
+                We are almost done. The next step is to start the JSON Server and to do that use the below command.
+                
+                json server --watch db.json  
+                Now, if we move to http://localhost:3000/posts/1, we'll get something like this.
+                
+                { "id": 1, "title": "json-server", "author": "typicode" }  
+                This output signifies that our JSON server is working fine for the above attributes and is having some values in them. We can now easily create a request for the JSON Server. But, before moving further, it is good to take some key factors into account. Those key factors are:
+                
+                1. If we make some requests like POST, DELETE, PUT, or PATCH, the changes are directly reflected and safely stored in the db.json file.
+                
+                2. The requested JSON body should be object enclosed, just like the GET For example:
+                
+                {"name": Foobar}  
+                3. The ID values are not generally mutable. Any value of the ID present in the body of the PUT and PATCH request is usually ignored by default. The value set in a POST request is only taken into consideration if not already taken.
+                
+                4. The PATCH, POST and PUT request should always include a Content-Type: application/json header to be used in the JSON request body. Else, it will return the 2XX status code without updating the changes made to the data.
+                
+                Routes
+                Routes are nothing but the pathways through which the requests are processed in a pipeline. A specific route serves a specific request so that dependencies are not disturbed.
+                
+                Therefore, based on the previous db.json file various default routes can be added with the command --routes at the terminal. Some default routes are shown below.
+                
+                Singular Routes
+                GET    /profile  
+                POST   /profile  
+                PUT    /profile  
+                PATCH  /profile  
+                Plural Routes
+                GET    /posts  
+                GET    /posts/1  
+                POST   /posts  
+                PUT    /posts/1  
+                PATCH  /posts/1  
+                DELETE /posts/1  
+                Creating REST API
+                Representational State Transfer (REST) is a software architectural style that uses a subset of HTTP. It is generally used to create an interactive application based on the available services offered by the web. All those applications that follow these web services guidelines are thereby termed RESTful.
+                
+                Now let's create a new JSON file with the name db.json. This file would contain the sample data that should be exposed by the REST API. For all the objects contained inside the JSON structure, CRUD (Create Read Update Delete) endpoints are automatically created. Let's take a look at the sample db.json file.
+                
+                "employees": [  
+                    {  
+                      "id": 1,  
+                      "first_name": "Sebastian",  
+                      "last_name": "Eschweiler",  
+                      "email": "sebastian@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 2,  
+                      "first_name": "Steve",  
+                      "last_name": "Palmer",  
+                      "email": "steve@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 3,  
+                      "first_name": "Ann",  
+                      "last_name": "Smith",  
+                      "email": "ann@javatpoint.com"  
+                    }  
+                  ]  
+                }  
+                The above sample db.json structure consists of an objecting employee which has 3 assigned data sets. Each of the employee objects consists of four properties like id, first_name, last_name, and email.
+                
+                After this step, all we need to do is to run the server through the Terminal command.
+                
+                json server --watch db.json  
+                The next step is to pass a parameter over the file containing the JSON structure. Also, we are making use of the watch parameter because this makes us sure that the server is being started in watch mode and the changes and updates are accordingly exposed to the API. The following console shoots after we start the server.
+                
+                JSON Server
+                Now, if we run the URL http://localhost:3000/employees in the browser environment, we might see the following results.
+                
+                JSON Server
+                From the above image, we can see that the correct recognition of the resource employees. Now, when we click on the employees link and use the HTTP GET request to the http://localhost:3000/employees , it will show us the following JSON result.
+                
+                [  
+                   {  
+                     "id": 1,  
+                     "first_name": "Sebastian",  
+                     "last_name": "Eschweiler",  
+                     "email": "sebastian@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 2,  
+                     "first_name": "Steve",  
+                     "last_name": "Palmer",  
+                     "email": "steve@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 3,  
+                     "first_name": "Ann",  
+                     "last_name": "Smith",  
+                     "email": "ann@javatpoint.com"  
+                   }  
+                This action would create various routed endpoints like we discussed previously and on inspection, we would find the following results.
+                
+                GET    /employees  
+                GET    /employees/{id}  
+                POST   /employees  
+                PUT    /employees/{id}  
+                PATCH  /employees/{id}  
+                DELETE /employees/{id}  
+                The above endpoints signify that we can now make DELETE, PATCH, GET, POST, and PUT requests and any changes would certainly be automatically saved to the db.json file. Meanwhile, while creating a PATCH, PUT or POST request, never forget to include a Content-Type: application/json header because the JSON would seek content in the requested body. Else, it might result in the 200 OK without changes being made to the data.
+                
+                Furthermore, there's another instance of extending our URL with more parameters like filtering the parameters by modifying the existing URL with the following set of the parameter using http://localhost:3000/employees?first_name=Sebastian. In the similar sense, other requests can also be filtered easily and would be automatically reflected and saved to the db.json file. This is how we successfully created a RESTful API. We can test it, deploy it with ease using various tools like Netlify, Heroku, or Postman. Let's learn some extra actions that can be carried out with the temporary API we have created.
+                
+                Extra Options
+                Static file server
+                
+                The JSON server that we have created can be used to serve our HTML. CSS and JS compatibility but simply creating a ./public directory or use the command --static so that a different static file directory is set.
+                
+                mkdir public  
+                echo 'hello world' > public/index.html  
+                json-server db.json  
+                json-server db.json --static ./some-other-dir  
+                Port Switch/ Alternative Port
+                
+                The request processing through the localhost can be shifted or switched to another port using the below command to our existing JSON Server. We just need to use the --port number flag. For example:
+                
+                json-server --watch db.json --port 3004  
+                Middleware Module
+                
+                If we want any validation, authentication, or behavioral changes for the API or the project you want to create by creating a module in combination with other Express middleware. Consider the below instance.
+                
+                npm install json-server --save-dev  
+                // server.js  
+                const jsonServer = require('json-server')  
+                const server = jsonServer.create()  
+                const router = jsonServer.router('db.json')  
+                const middlewares = jsonServer.defaults()  
+                   
+                server.use(middlewares)  
+                server.use(router)  
+                server.listen(3000, () => {  
+                  console.log('JSON Server is running')  
+                })  
+                Run the above file using,
+                
+                node server.js  
+                The path provided by us for the json.Server.router function in the above code snippet is relative to the directory from where we would be launching the node process. If we run the above code snippet from another directory, it is highly recommended to use an absolute path:
+                
+                const path = require('path')  
+                const router = jsonServer.router(path.join(__dirname, 'db.json'))  
+                For any other in-memory database, we simply need to pass an object to jsonServer.router() function in the existing Express project.
+                
+                Data Mocking of JSON Server
+                As of now, we learned to expose data by creating a fake API manually in a JSON file. However, if we need large data sets, this manual way can result in hectic and absurd. Therefore, to cope with this issue, we can use Faker.js because it can handle large amounts of data for JSON Server. It does that by generating fake data when integrating with JSON and API. This can be done by using the following steps.
+                
+                npm init  
+                Next, install Faker.js by using the command:
+                
+                npm install faker  
+                Faker.js will successfully be installed in the node_modules folder. Now, create another file in the employees.js and insert the below given sample JavaScript code.
+                
+                // employees.js  
+                var faker = require('faker')  
+                function generateEmployees () {  
+                  var employees = []  
+                  for (var id = 0; id < 50; id++) {  
+                    var firstName = faker.name.firstName()  
+                    var lastName = faker.name.lastName()  
+                    var email = faker.internet.email()  
+                    employees.push({  
+                      "id": id,  
+                      "first_name": firstName,  
+                      "last_name": lastName,  
+                      "email": email  
+                    })  
+                  }  
+                  return { "employees": employees }  
+                }  
+                In the above code snippet, we are implementing the function generateEmployees() to generate JSON-based object containing the data of 50 employees. Thus, to obtain fake data for the first name, last name, and the email that we are using, we would be using the methods faker.name.firstName(), faker.name.lastName() and faker.internet.email().
+                
+                Moreover, the JSON Server requires exporting the general employees() function in the above code which is done by using the method.
+                
+                module.exports = generateEmployees  
+                Having added that export, we would now be able to pass the employees.js file directly to the json-server command by
+                
+                Json-server employees.js  
+                The work is done. We have successfully exposed REST API that will give us the access to all the 50 employees data sets by the means of Faker.js.
+                
+                Summary
+                In this tutorial, we learned about the JSON Server from scratch to advance. We tried to blend in the use cases of it and eventually learned its implementation along with setting up the local environment, creating requests, etc. We also learned about routes that are quite important because we can use them to create pathways for data to move to our files and then trace back the requests like POST, DELETE, etc. In the later section, we learned to set up middleware with Express environment followed by mocking up the JSON Server with Faker.js. We can therefore jump to conclusion that JSON Server covers tremendous application in the development since most of the developers use this format for establishing data manipulation, access, and storage mechanism and carrying out overall data-driven paradigms.
+                
+                Next TopicPHP JSON Example
+                
+                
+                ← PrevNext →
+                
+                Youtube For Videos Join Our Youtube Channel: Join Now
+                Feedback
+                Send your Feedback to feedback@javatpoint.com
+                Help Others, Please Share
+                facebook twitter pinterest
+                
+                Learn Latest Tutorials
+                Splunk tutorial
+                Splunk
+                
+                SPSS tutorial
+                SPSS
+                
+                Swagger tutorial
+                Swagger
+                
+                T-SQL tutorial
+                Transact-SQL
+                
+                Tumblr tutorial
+                Tumblr
+                
+                React tutorial
+                ReactJS
+                
+                Regex tutorial
+                Regex
+                
+                Reinforcement learning tutorial
+                Reinforcement Learning
+                
+                R Programming tutorial
+                R Programming
+                
+                RxJS tutorial
+                RxJS
+                
+                React Native tutorial
+                React Native
+                
+                Python Design Patterns
+                Python Design Patterns
+                
+                Python Pillow tutorial
+                Python Pillow
+                
+                Python Turtle tutorial
+                Python Turtle
+                
+                Keras tutorial
+                Keras
+                
+                
+                Preparation
+                Aptitude
+                Aptitude
+                
+                Logical Reasoning
+                Reasoning
+                
+                Verbal Ability
+                Verbal Ability
+                
+                Interview Questions
+                Interview Questions
+                
+                Company Interview Questions
+                Company Questions
+                
+                
+                Trending Technologies
+                Artificial Intelligence Tutorial
+                Artificial Intelligence
+                
+                AWS Tutorial
+                AWS
+                
+                Selenium tutorial
+                Selenium
+                
+                Cloud Computing tutorial
+                Cloud Computing
+                
+                Hadoop tutorial
+                Hadoop
+                
+                ReactJS Tutorial
+                ReactJS
+                
+                Data Science Tutorial
+                Data Science
+                
+                Angular 7 Tutorial
+                Angular 7
+                
+                Blockchain Tutorial
+                Blockchain
+                
+                Git Tutorial
+                Git
+                
+                Machine Learning Tutorial
+                Machine Learning
+                
+                DevOps Tutorial
+                DevOps
+                
+                
+                B.Tech / MCA
+                DBMS tutorial
+                DBMS
+                
+                Data Structures tutorial
+                Data Structures
+                
+                DAA tutorial
+                DAA
+                
+                Operating System tutorial
+                Operating System
+                
+                Computer Network tutorial
+                Computer Network
+                
+                Compiler Design tutorial
+                Compiler Design
+                
+                Computer Organization and Architecture
+                Computer Organization
+                
+                Discrete Mathematics Tutorial
+                Discrete Mathematics
+                
+                Ethical Hacking Tutorial
+                Ethical Hacking
+                
+                Computer Graphics Tutorial
+                Computer Graphics
+                
+                Software Engineering Tutorial
+                Software Engineering
+                
+                html tutorial
+                Web Technology
+                
+                Cyber Security tutorial
+                Cyber Security
+                
+                Automata Tutorial
+                Automata
+                
+                C Language tutorial
+                C Programming
+                
+                C++ tutorial
+                C++
+                
+                Java tutorial
+                Java
+                
+                .Net Framework tutorial
+                .Net
+                
+                Python tutorial
+                Python
+                
+                List of Programs
+                Programs
+                
+                Control Systems tutorial
+                Control System
+                
+                Data Mining Tutorial
+                Data Mining
+                
+                Data Warehouse Tutorial
+                Data Warehouse
+                
+                
+                
+                
+                Javatpoint Services
+                JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.
+                
+                Website Designing
+                Website Development
+                Java Development
+                PHP Development
+                WordPress
+                Graphic Designing
+                Logo
+                Digital Marketing
+                On Page and Off Page SEO
+                PPC
+                Content Development
+                Corporate Training
+                Classroom and Online Training
+                Data Entry
+                Training For College Campus
+                JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.
+                Duration: 1 week to 2 week
+                
+                Like/Subscribe us for latest updates or newsletter RSS Feed Subscribe to Get Email Alerts Facebook Page Twitter Page YouTube Blog Page
+                LEARN TUTORIALS
+                Learn Java
+                Learn Data Structures
+                Learn C Programming
+                Learn C++ Tutorial
+                Learn C# Tutorial
+                Learn PHP Tutorial
+                Learn HTML Tutorial
+                Learn JavaScript Tutorial
+                Learn jQuery Tutorial
+                Learn Spring Tutorial
+                OUR WEBSITES
+                Javatpoint.com
+                Hindi100.com
+                Lyricsia.com
+                Quoteperson.com
+                Jobandplacement.com
+                OUR SERVICES
+                Website Development
+                
+                Android Development
+                
+                Website Designing
+                
+                Digital Marketing
+                
+                Summer Training
+                
+                Industrial Training
+                
+                College Campus Training
+                
+                CONTACT
+                Address: G-13, 2nd Floor, Sec-3
+                
+                Noida, UP, 201301, India
+                
+                Contact No: 0120-4256464, 9990449935
+                
+                Contact Us
+                Subscribe Us
+                Privacy Policy
+                Sitemap
+                
+                About Me
+                © Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p>
+        </div>
+    </section>
+    <section>
+        <div class="storyBx">
+            <h2>Heading Four</h2>
+            <p>⇧ SCROLL TO TOP
+                Javatpoint Logo
+                Home
+                JSON
+                C
+                Java
+                PHP
+                HTML
+                CSS
+                JavaScript
+                XML
+                Ajax
+                Node.js
+                SQL
+                Python
+                Web Services
+                Projects
+                Interview Q
+                
+                JSON Tutorial
+                Introduction to JSONWhat is JSONJSON vs XMLJSON ExampleJSON ObjectJSON ArrayJSON CommentsJSON CompareJSON BeautifierJSON Server open linkJSON vs BSONJSON Placeholder
+                PHP JSON
+                PHP JSON Example
+                Java JSON
+                Java JSON Example
+                AJAX JSON
+                AJAX JSON ExampleJavaTpoint
+                Next →← Prev
+                JSON Server
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays. JSON is a very common data format having different applications. For example, a web application communicating with a server uses JSON.
+                
+                In the similar sense, JSON Server is no different. JSON Server is a Node Module that you can use to create demo REST JSON services within a short span of minutes. All we need to do is have a JSON file as sample data. Let's learn more about how to install and set up a JSON server in our system and alongside we'll try to create a REST API. Let's learn more about it.
+                
+                Installation
+                To get started with the installation of the JSON server, all we need to do is to open the Terminal of our system and type the following command.
+                
+                npm install -g json-server  
+                The next step involves the creation of a database with JSON. For the sake of learning, we have created an example database as shown below.
+                
+                //db.json  
+                  
+                  
+                "posts": [  
+                  { "id": 1, "title": "json-server", "author": "typicode" }  
+                ],  
+                "comments": [  
+                  { "id": 1, "body": "some comment", "postId": 1 }  
+                ],  
+                "profile": { "name": "typicode" }  
+                We are almost done. The next step is to start the JSON Server and to do that use the below command.
+                
+                json server --watch db.json  
+                Now, if we move to http://localhost:3000/posts/1, we'll get something like this.
+                
+                { "id": 1, "title": "json-server", "author": "typicode" }  
+                This output signifies that our JSON server is working fine for the above attributes and is having some values in them. We can now easily create a request for the JSON Server. But, before moving further, it is good to take some key factors into account. Those key factors are:
+                
+                1. If we make some requests like POST, DELETE, PUT, or PATCH, the changes are directly reflected and safely stored in the db.json file.
+                
+                2. The requested JSON body should be object enclosed, just like the GET For example:
+                
+                {"name": Foobar}  
+                3. The ID values are not generally mutable. Any value of the ID present in the body of the PUT and PATCH request is usually ignored by default. The value set in a POST request is only taken into consideration if not already taken.
+                
+                4. The PATCH, POST and PUT request should always include a Content-Type: application/json header to be used in the JSON request body. Else, it will return the 2XX status code without updating the changes made to the data.
+                
+                Routes
+                Routes are nothing but the pathways through which the requests are processed in a pipeline. A specific route serves a specific request so that dependencies are not disturbed.
+                
+                Therefore, based on the previous db.json file various default routes can be added with the command --routes at the terminal. Some default routes are shown below.
+                
+                Singular Routes
+                GET    /profile  
+                POST   /profile  
+                PUT    /profile  
+                PATCH  /profile  
+                Plural Routes
+                GET    /posts  
+                GET    /posts/1  
+                POST   /posts  
+                PUT    /posts/1  
+                PATCH  /posts/1  
+                DELETE /posts/1  
+                Creating REST API
+                Representational State Transfer (REST) is a software architectural style that uses a subset of HTTP. It is generally used to create an interactive application based on the available services offered by the web. All those applications that follow these web services guidelines are thereby termed RESTful.
+                
+                Now let's create a new JSON file with the name db.json. This file would contain the sample data that should be exposed by the REST API. For all the objects contained inside the JSON structure, CRUD (Create Read Update Delete) endpoints are automatically created. Let's take a look at the sample db.json file.
+                
+                "employees": [  
+                    {  
+                      "id": 1,  
+                      "first_name": "Sebastian",  
+                      "last_name": "Eschweiler",  
+                      "email": "sebastian@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 2,  
+                      "first_name": "Steve",  
+                      "last_name": "Palmer",  
+                      "email": "steve@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 3,  
+                      "first_name": "Ann",  
+                      "last_name": "Smith",  
+                      "email": "ann@javatpoint.com"  
+                    }  
+                  ]  
+                }  
+                The above sample db.json structure consists of an objecting employee which has 3 assigned data sets. Each of the employee objects consists of four properties like id, first_name, last_name, and email.
+                
+                After this step, all we need to do is to run the server through the Terminal command.
+                
+                json server --watch db.json  
+                The next step is to pass a parameter over the file containing the JSON structure. Also, we are making use of the watch parameter because this makes us sure that the server is being started in watch mode and the changes and updates are accordingly exposed to the API. The following console shoots after we start the server.
+                
+                JSON Server
+                Now, if we run the URL http://localhost:3000/employees in the browser environment, we might see the following results.
+                
+                JSON Server
+                From the above image, we can see that the correct recognition of the resource employees. Now, when we click on the employees link and use the HTTP GET request to the http://localhost:3000/employees , it will show us the following JSON result.
+                
+                [  
+                   {  
+                     "id": 1,  
+                     "first_name": "Sebastian",  
+                     "last_name": "Eschweiler",  
+                     "email": "sebastian@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 2,  
+                     "first_name": "Steve",  
+                     "last_name": "Palmer",  
+                     "email": "steve@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 3,  
+                     "first_name": "Ann",  
+                     "last_name": "Smith",  
+                     "email": "ann@javatpoint.com"  
+                   }  
+                This action would create various routed endpoints like we discussed previously and on inspection, we would find the following results.
+                
+                GET    /employees  
+                GET    /employees/{id}  
+                POST   /employees  
+                PUT    /employees/{id}  
+                PATCH  /employees/{id}  
+                DELETE /employees/{id}  
+                The above endpoints signify that we can now make DELETE, PATCH, GET, POST, and PUT requests and any changes would certainly be automatically saved to the db.json file. Meanwhile, while creating a PATCH, PUT or POST request, never forget to include a Content-Type: application/json header because the JSON would seek content in the requested body. Else, it might result in the 200 OK without changes being made to the data.
+                
+                Furthermore, there's another instance of extending our URL with more parameters like filtering the parameters by modifying the existing URL with the following set of the parameter using http://localhost:3000/employees?first_name=Sebastian. In the similar sense, other requests can also be filtered easily and would be automatically reflected and saved to the db.json file. This is how we successfully created a RESTful API. We can test it, deploy it with ease using various tools like Netlify, Heroku, or Postman. Let's learn some extra actions that can be carried out with the temporary API we have created.
+                
+                Extra Options
+                Static file server
+                
+                The JSON server that we have created can be used to serve our HTML. CSS and JS compatibility but simply creating a ./public directory or use the command --static so that a different static file directory is set.
+                
+                mkdir public  
+                echo 'hello world' > public/index.html  
+                json-server db.json  
+                json-server db.json --static ./some-other-dir  
+                Port Switch/ Alternative Port
+                
+                The request processing through the localhost can be shifted or switched to another port using the below command to our existing JSON Server. We just need to use the --port number flag. For example:
+                
+                json-server --watch db.json --port 3004  
+                Middleware Module
+                
+                If we want any validation, authentication, or behavioral changes for the API or the project you want to create by creating a module in combination with other Express middleware. Consider the below instance.
+                
+                npm install json-server --save-dev  
+                // server.js  
+                const jsonServer = require('json-server')  
+                const server = jsonServer.create()  
+                const router = jsonServer.router('db.json')  
+                const middlewares = jsonServer.defaults()  
+                   
+                server.use(middlewares)  
+                server.use(router)  
+                server.listen(3000, () => {  
+                  console.log('JSON Server is running')  
+                })  
+                Run the above file using,
+                
+                node server.js  
+                The path provided by us for the json.Server.router function in the above code snippet is relative to the directory from where we would be launching the node process. If we run the above code snippet from another directory, it is highly recommended to use an absolute path:
+                
+                const path = require('path')  
+                const router = jsonServer.router(path.join(__dirname, 'db.json'))  
+                For any other in-memory database, we simply need to pass an object to jsonServer.router() function in the existing Express project.
+                
+                Data Mocking of JSON Server
+                As of now, we learned to expose data by creating a fake API manually in a JSON file. However, if we need large data sets, this manual way can result in hectic and absurd. Therefore, to cope with this issue, we can use Faker.js because it can handle large amounts of data for JSON Server. It does that by generating fake data when integrating with JSON and API. This can be done by using the following steps.
+                
+                npm init  
+                Next, install Faker.js by using the command:
+                
+                npm install faker  
+                Faker.js will successfully be installed in the node_modules folder. Now, create another file in the employees.js and insert the below given sample JavaScript code.
+                
+                // employees.js  
+                var faker = require('faker')  
+                function generateEmployees () {  
+                  var employees = []  
+                  for (var id = 0; id < 50; id++) {  
+                    var firstName = faker.name.firstName()  
+                    var lastName = faker.name.lastName()  
+                    var email = faker.internet.email()  
+                    employees.push({  
+                      "id": id,  
+                      "first_name": firstName,  
+                      "last_name": lastName,  
+                      "email": email  
+                    })  
+                  }  
+                  return { "employees": employees }  
+                }  
+                In the above code snippet, we are implementing the function generateEmployees() to generate JSON-based object containing the data of 50 employees. Thus, to obtain fake data for the first name, last name, and the email that we are using, we would be using the methods faker.name.firstName(), faker.name.lastName() and faker.internet.email().
+                
+                Moreover, the JSON Server requires exporting the general employees() function in the above code which is done by using the method.
+                
+                module.exports = generateEmployees  
+                Having added that export, we would now be able to pass the employees.js file directly to the json-server command by
+                
+                Json-server employees.js  
+                The work is done. We have successfully exposed REST API that will give us the access to all the 50 employees data sets by the means of Faker.js.
+                
+                Summary
+                In this tutorial, we learned about the JSON Server from scratch to advance. We tried to blend in the use cases of it and eventually learned its implementation along with setting up the local environment, creating requests, etc. We also learned about routes that are quite important because we can use them to create pathways for data to move to our files and then trace back the requests like POST, DELETE, etc. In the later section, we learned to set up middleware with Express environment followed by mocking up the JSON Server with Faker.js. We can therefore jump to conclusion that JSON Server covers tremendous application in the development since most of the developers use this format for establishing data manipulation, access, and storage mechanism and carrying out overall data-driven paradigms.
+                
+                Next TopicPHP JSON Example
+                
+                
+                ← PrevNext →
+                
+                Youtube For Videos Join Our Youtube Channel: Join Now
+                Feedback
+                Send your Feedback to feedback@javatpoint.com
+                Help Others, Please Share
+                facebook twitter pinterest
+                
+                Learn Latest Tutorials
+                Splunk tutorial
+                Splunk
+                
+                SPSS tutorial
+                SPSS
+                
+                Swagger tutorial
+                Swagger
+                
+                T-SQL tutorial
+                Transact-SQL
+                
+                Tumblr tutorial
+                Tumblr
+                
+                React tutorial
+                ReactJS
+                
+                Regex tutorial
+                Regex
+                
+                Reinforcement learning tutorial
+                Reinforcement Learning
+                
+                R Programming tutorial
+                R Programming
+                
+                RxJS tutorial
+                RxJS
+                
+                React Native tutorial
+                React Native
+                
+                Python Design Patterns
+                Python Design Patterns
+                
+                Python Pillow tutorial
+                Python Pillow
+                
+                Python Turtle tutorial
+                Python Turtle
+                
+                Keras tutorial
+                Keras
+                
+                
+                Preparation
+                Aptitude
+                Aptitude
+                
+                Logical Reasoning
+                Reasoning
+                
+                Verbal Ability
+                Verbal Ability
+                
+                Interview Questions
+                Interview Questions
+                
+                Company Interview Questions
+                Company Questions
+                
+                
+                Trending Technologies
+                Artificial Intelligence Tutorial
+                Artificial Intelligence
+                
+                AWS Tutorial
+                AWS
+                
+                Selenium tutorial
+                Selenium
+                
+                Cloud Computing tutorial
+                Cloud Computing
+                
+                Hadoop tutorial
+                Hadoop
+                
+                ReactJS Tutorial
+                ReactJS
+                
+                Data Science Tutorial
+                Data Science
+                
+                Angular 7 Tutorial
+                Angular 7
+                
+                Blockchain Tutorial
+                Blockchain
+                
+                Git Tutorial
+                Git
+                
+                Machine Learning Tutorial
+                Machine Learning
+                
+                DevOps Tutorial
+                DevOps
+                
+                
+                B.Tech / MCA
+                DBMS tutorial
+                DBMS
+                
+                Data Structures tutorial
+                Data Structures
+                
+                DAA tutorial
+                DAA
+                
+                Operating System tutorial
+                Operating System
+                
+                Computer Network tutorial
+                Computer Network
+                
+                Compiler Design tutorial
+                Compiler Design
+                
+                Computer Organization and Architecture
+                Computer Organization
+                
+                Discrete Mathematics Tutorial
+                Discrete Mathematics
+                
+                Ethical Hacking Tutorial
+                Ethical Hacking
+                
+                Computer Graphics Tutorial
+                Computer Graphics
+                
+                Software Engineering Tutorial
+                Software Engineering
+                
+                html tutorial
+                Web Technology
+                
+                Cyber Security tutorial
+                Cyber Security
+                
+                Automata Tutorial
+                Automata
+                
+                C Language tutorial
+                C Programming
+                
+                C++ tutorial
+                C++
+                
+                Java tutorial
+                Java
+                
+                .Net Framework tutorial
+                .Net
+                
+                Python tutorial
+                Python
+                
+                List of Programs
+                Programs
+                
+                Control Systems tutorial
+                Control System
+                
+                Data Mining Tutorial
+                Data Mining
+                
+                Data Warehouse Tutorial
+                Data Warehouse
+                
+                
+                
+                
+                Javatpoint Services
+                JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.
+                
+                Website Designing
+                Website Development
+                Java Development
+                PHP Development
+                WordPress
+                Graphic Designing
+                Logo
+                Digital Marketing
+                On Page and Off Page SEO
+                PPC
+                Content Development
+                Corporate Training
+                Classroom and Online Training
+                Data Entry
+                Training For College Campus
+                JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.
+                Duration: 1 week to 2 week
+                
+                Like/Subscribe us for latest updates or newsletter RSS Feed Subscribe to Get Email Alerts Facebook Page Twitter Page YouTube Blog Page
+                LEARN TUTORIALS
+                Learn Java
+                Learn Data Structures
+                Learn C Programming
+                Learn C++ Tutorial
+                Learn C# Tutorial
+                Learn PHP Tutorial
+                Learn HTML Tutorial
+                Learn JavaScript Tutorial
+                Learn jQuery Tutorial
+                Learn Spring Tutorial
+                OUR WEBSITES
+                Javatpoint.com
+                Hindi100.com
+                Lyricsia.com
+                Quoteperson.com
+                Jobandplacement.com
+                OUR SERVICES
+                Website Development
+                
+                Android Development
+                
+                Website Designing
+                
+                Digital Marketing
+                
+                Summer Training
+                
+                Industrial Training
+                
+                College Campus Training
+                
+                CONTACT
+                Address: G-13, 2nd Floor, Sec-3
+                
+                Noida, UP, 201301, India
+                
+                Contact No: 0120-4256464, 9990449935
+                
+                Contact Us
+                Subscribe Us
+                Privacy Policy
+                Sitemap
+                
+                About Me
+                © Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p>
+        </div>
+        <div class="imgBx">
+            <img src="./blog 4.png" alt="">
+        </div>
+    </section>
+    <section>
+        <div class="imgBx">
+            <img src="./blog 6.png" alt="">
+        </div>
+        <div class="storyBx">
+            <h2>Heading Five</h2>
+            <p>⇧ SCROLL TO TOP
+                Javatpoint Logo
+                Home
+                JSON
+                C
+                Java
+                PHP
+                HTML
+                CSS
+                JavaScript
+                XML
+                Ajax
+                Node.js
+                SQL
+                Python
+                Web Services
+                Projects
+                Interview Q
+                
+                JSON Tutorial
+                Introduction to JSONWhat is JSONJSON vs XMLJSON ExampleJSON ObjectJSON ArrayJSON CommentsJSON CompareJSON BeautifierJSON Server open linkJSON vs BSONJSON Placeholder
+                PHP JSON
+                PHP JSON Example
+                Java JSON
+                Java JSON Example
+                AJAX JSON
+                AJAX JSON ExampleJavaTpoint
+                Next →← Prev
+                JSON Server
+                Most developers have heard of the term JSON. It abbreviates for "JavaScript Object Notation". JSON is nothing but an open standard file format and data interchange format. It uses human-readable text to store and transfer data objects. It generally consists of two human-readable attributes i.e. value pairs and arrays. JSON is a very common data format having different applications. For example, a web application communicating with a server uses JSON.
+                
+                In the similar sense, JSON Server is no different. JSON Server is a Node Module that you can use to create demo REST JSON services within a short span of minutes. All we need to do is have a JSON file as sample data. Let's learn more about how to install and set up a JSON server in our system and alongside we'll try to create a REST API. Let's learn more about it.
+                
+                Installation
+                To get started with the installation of the JSON server, all we need to do is to open the Terminal of our system and type the following command.
+                
+                npm install -g json-server  
+                The next step involves the creation of a database with JSON. For the sake of learning, we have created an example database as shown below.
+                
+                //db.json  
+                  
+                  
+                "posts": [  
+                  { "id": 1, "title": "json-server", "author": "typicode" }  
+                ],  
+                "comments": [  
+                  { "id": 1, "body": "some comment", "postId": 1 }  
+                ],  
+                "profile": { "name": "typicode" }  
+                We are almost done. The next step is to start the JSON Server and to do that use the below command.
+                
+                json server --watch db.json  
+                Now, if we move to http://localhost:3000/posts/1, we'll get something like this.
+                
+                { "id": 1, "title": "json-server", "author": "typicode" }  
+                This output signifies that our JSON server is working fine for the above attributes and is having some values in them. We can now easily create a request for the JSON Server. But, before moving further, it is good to take some key factors into account. Those key factors are:
+                
+                1. If we make some requests like POST, DELETE, PUT, or PATCH, the changes are directly reflected and safely stored in the db.json file.
+                
+                2. The requested JSON body should be object enclosed, just like the GET For example:
+                
+                {"name": Foobar}  
+                3. The ID values are not generally mutable. Any value of the ID present in the body of the PUT and PATCH request is usually ignored by default. The value set in a POST request is only taken into consideration if not already taken.
+                
+                4. The PATCH, POST and PUT request should always include a Content-Type: application/json header to be used in the JSON request body. Else, it will return the 2XX status code without updating the changes made to the data.
+                
+                Routes
+                Routes are nothing but the pathways through which the requests are processed in a pipeline. A specific route serves a specific request so that dependencies are not disturbed.
+                
+                Therefore, based on the previous db.json file various default routes can be added with the command --routes at the terminal. Some default routes are shown below.
+                
+                Singular Routes
+                GET    /profile  
+                POST   /profile  
+                PUT    /profile  
+                PATCH  /profile  
+                Plural Routes
+                GET    /posts  
+                GET    /posts/1  
+                POST   /posts  
+                PUT    /posts/1  
+                PATCH  /posts/1  
+                DELETE /posts/1  
+                Creating REST API
+                Representational State Transfer (REST) is a software architectural style that uses a subset of HTTP. It is generally used to create an interactive application based on the available services offered by the web. All those applications that follow these web services guidelines are thereby termed RESTful.
+                
+                Now let's create a new JSON file with the name db.json. This file would contain the sample data that should be exposed by the REST API. For all the objects contained inside the JSON structure, CRUD (Create Read Update Delete) endpoints are automatically created. Let's take a look at the sample db.json file.
+                
+                "employees": [  
+                    {  
+                      "id": 1,  
+                      "first_name": "Sebastian",  
+                      "last_name": "Eschweiler",  
+                      "email": "sebastian@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 2,  
+                      "first_name": "Steve",  
+                      "last_name": "Palmer",  
+                      "email": "steve@javatpoint.com"  
+                    },  
+                    {  
+                      "id": 3,  
+                      "first_name": "Ann",  
+                      "last_name": "Smith",  
+                      "email": "ann@javatpoint.com"  
+                    }  
+                  ]  
+                }  
+                The above sample db.json structure consists of an objecting employee which has 3 assigned data sets. Each of the employee objects consists of four properties like id, first_name, last_name, and email.
+                
+                After this step, all we need to do is to run the server through the Terminal command.
+                
+                json server --watch db.json  
+                The next step is to pass a parameter over the file containing the JSON structure. Also, we are making use of the watch parameter because this makes us sure that the server is being started in watch mode and the changes and updates are accordingly exposed to the API. The following console shoots after we start the server.
+                
+                JSON Server
+                Now, if we run the URL http://localhost:3000/employees in the browser environment, we might see the following results.
+                
+                JSON Server
+                From the above image, we can see that the correct recognition of the resource employees. Now, when we click on the employees link and use the HTTP GET request to the http://localhost:3000/employees , it will show us the following JSON result.
+                
+                [  
+                   {  
+                     "id": 1,  
+                     "first_name": "Sebastian",  
+                     "last_name": "Eschweiler",  
+                     "email": "sebastian@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 2,  
+                     "first_name": "Steve",  
+                     "last_name": "Palmer",  
+                     "email": "steve@javatpoint.com"  
+                   },  
+                   {  
+                     "id": 3,  
+                     "first_name": "Ann",  
+                     "last_name": "Smith",  
+                     "email": "ann@javatpoint.com"  
+                   }  
+                This action would create various routed endpoints like we discussed previously and on inspection, we would find the following results.
+                
+                GET    /employees  
+                GET    /employees/{id}  
+                POST   /employees  
+                PUT    /employees/{id}  
+                PATCH  /employees/{id}  
+                DELETE /employees/{id}  
+                The above endpoints signify that we can now make DELETE, PATCH, GET, POST, and PUT requests and any changes would certainly be automatically saved to the db.json file. Meanwhile, while creating a PATCH, PUT or POST request, never forget to include a Content-Type: application/json header because the JSON would seek content in the requested body. Else, it might result in the 200 OK without changes being made to the data.
+                
+                Furthermore, there's another instance of extending our URL with more parameters like filtering the parameters by modifying the existing URL with the following set of the parameter using http://localhost:3000/employees?first_name=Sebastian. In the similar sense, other requests can also be filtered easily and would be automatically reflected and saved to the db.json file. This is how we successfully created a RESTful API. We can test it, deploy it with ease using various tools like Netlify, Heroku, or Postman. Let's learn some extra actions that can be carried out with the temporary API we have created.
+                
+                Extra Options
+                Static file server
+                
+                The JSON server that we have created can be used to serve our HTML. CSS and JS compatibility but simply creating a ./public directory or use the command --static so that a different static file directory is set.
+                
+                mkdir public  
+                echo 'hello world' > public/index.html  
+                json-server db.json  
+                json-server db.json --static ./some-other-dir  
+                Port Switch/ Alternative Port
+                
+                The request processing through the localhost can be shifted or switched to another port using the below command to our existing JSON Server. We just need to use the --port number flag. For example:
+                
+                json-server --watch db.json --port 3004  
+                Middleware Module
+                
+                If we want any validation, authentication, or behavioral changes for the API or the project you want to create by creating a module in combination with other Express middleware. Consider the below instance.
+                
+                npm install json-server --save-dev  
+                // server.js  
+                const jsonServer = require('json-server')  
+                const server = jsonServer.create()  
+                const router = jsonServer.router('db.json')  
+                const middlewares = jsonServer.defaults()  
+                   
+                server.use(middlewares)  
+                server.use(router)  
+                server.listen(3000, () => {  
+                  console.log('JSON Server is running')  
+                })  
+                Run the above file using,
+                
+                node server.js  
+                The path provided by us for the json.Server.router function in the above code snippet is relative to the directory from where we would be launching the node process. If we run the above code snippet from another directory, it is highly recommended to use an absolute path:
+                
+                const path = require('path')  
+                const router = jsonServer.router(path.join(__dirname, 'db.json'))  
+                For any other in-memory database, we simply need to pass an object to jsonServer.router() function in the existing Express project.
+                
+                Data Mocking of JSON Server
+                As of now, we learned to expose data by creating a fake API manually in a JSON file. However, if we need large data sets, this manual way can result in hectic and absurd. Therefore, to cope with this issue, we can use Faker.js because it can handle large amounts of data for JSON Server. It does that by generating fake data when integrating with JSON and API. This can be done by using the following steps.
+                
+                npm init  
+                Next, install Faker.js by using the command:
+                
+                npm install faker  
+                Faker.js will successfully be installed in the node_modules folder. Now, create another file in the employees.js and insert the below given sample JavaScript code.
+                
+                // employees.js  
+                var faker = require('faker')  
+                function generateEmployees () {  
+                  var employees = []  
+                  for (var id = 0; id < 50; id++) {  
+                    var firstName = faker.name.firstName()  
+                    var lastName = faker.name.lastName()  
+                    var email = faker.internet.email()  
+                    employees.push({  
+                      "id": id,  
+                      "first_name": firstName,  
+                      "last_name": lastName,  
+                      "email": email  
+                    })  
+                  }  
+                  return { "employees": employees }  
+                }  
+                In the above code snippet, we are implementing the function generateEmployees() to generate JSON-based object containing the data of 50 employees. Thus, to obtain fake data for the first name, last name, and the email that we are using, we would be using the methods faker.name.firstName(), faker.name.lastName() and faker.internet.email().
+                
+                Moreover, the JSON Server requires exporting the general employees() function in the above code which is done by using the method.
+                
+                module.exports = generateEmployees  
+                Having added that export, we would now be able to pass the employees.js file directly to the json-server command by
+                
+                Json-server employees.js  
+                The work is done. We have successfully exposed REST API that will give us the access to all the 50 employees data sets by the means of Faker.js.
+                
+                Summary
+                In this tutorial, we learned about the JSON Server from scratch to advance. We tried to blend in the use cases of it and eventually learned its implementation along with setting up the local environment, creating requests, etc. We also learned about routes that are quite important because we can use them to create pathways for data to move to our files and then trace back the requests like POST, DELETE, etc. In the later section, we learned to set up middleware with Express environment followed by mocking up the JSON Server with Faker.js. We can therefore jump to conclusion that JSON Server covers tremendous application in the development since most of the developers use this format for establishing data manipulation, access, and storage mechanism and carrying out overall data-driven paradigms.
+                
+                Next TopicPHP JSON Example
+                
+                
+                ← PrevNext →
+                
+                Youtube For Videos Join Our Youtube Channel: Join Now
+                Feedback
+                Send your Feedback to feedback@javatpoint.com
+                Help Others, Please Share
+                facebook twitter pinterest
+                
+                Learn Latest Tutorials
+                Splunk tutorial
+                Splunk
+                
+                SPSS tutorial
+                SPSS
+                
+                Swagger tutorial
+                Swagger
+                
+                T-SQL tutorial
+                Transact-SQL
+                
+                Tumblr tutorial
+                Tumblr
+                
+                React tutorial
+                ReactJS
+                
+                Regex tutorial
+                Regex
+                
+                Reinforcement learning tutorial
+                Reinforcement Learning
+                
+                R Programming tutorial
+                R Programming
+                
+                RxJS tutorial
+                RxJS
+                
+                React Native tutorial
+                React Native
+                
+                Python Design Patterns
+                Python Design Patterns
+                
+                Python Pillow tutorial
+                Python Pillow
+                
+                Python Turtle tutorial
+                Python Turtle
+                
+                Keras tutorial
+                Keras
+                
+                
+                Preparation
+                Aptitude
+                Aptitude
+                
+                Logical Reasoning
+                Reasoning
+                
+                Verbal Ability
+                Verbal Ability
+                
+                Interview Questions
+                Interview Questions
+                
+                Company Interview Questions
+                Company Questions
+                
+                
+                Trending Technologies
+                Artificial Intelligence Tutorial
+                Artificial Intelligence
+                
+                AWS Tutorial
+                AWS
+                
+                Selenium tutorial
+                Selenium
+                
+                Cloud Computing tutorial
+                Cloud Computing
+                
+                Hadoop tutorial
+                Hadoop
+                
+                ReactJS Tutorial
+                ReactJS
+                
+                Data Science Tutorial
+                Data Science
+                
+                Angular 7 Tutorial
+                Angular 7
+                
+                Blockchain Tutorial
+                Blockchain
+                
+                Git Tutorial
+                Git
+                
+                Machine Learning Tutorial
+                Machine Learning
+                
+                DevOps Tutorial
+                DevOps
+                
+                
+                B.Tech / MCA
+                DBMS tutorial
+                DBMS
+                
+                Data Structures tutorial
+                Data Structures
+                
+                DAA tutorial
+                DAA
+                
+                Operating System tutorial
+                Operating System
+                
+                Computer Network tutorial
+                Computer Network
+                
+                Compiler Design tutorial
+                Compiler Design
+                
+                Computer Organization and Architecture
+                Computer Organization
+                
+                Discrete Mathematics Tutorial
+                Discrete Mathematics
+                
+                Ethical Hacking Tutorial
+                Ethical Hacking
+                
+                Computer Graphics Tutorial
+                Computer Graphics
+                
+                Software Engineering Tutorial
+                Software Engineering
+                
+                html tutorial
+                Web Technology
+                
+                Cyber Security tutorial
+                Cyber Security
+                
+                Automata Tutorial
+                Automata
+                
+                C Language tutorial
+                C Programming
+                
+                C++ tutorial
+                C++
+                
+                Java tutorial
+                Java
+                
+                .Net Framework tutorial
+                .Net
+                
+                Python tutorial
+                Python
+                
+                List of Programs
+                Programs
+                
+                Control Systems tutorial
+                Control System
+                
+                Data Mining Tutorial
+                Data Mining
+                
+                Data Warehouse Tutorial
+                Data Warehouse
+                
+                
+                
+                
+                Javatpoint Services
+                JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.
+                
+                Website Designing
+                Website Development
+                Java Development
+                PHP Development
+                WordPress
+                Graphic Designing
+                Logo
+                Digital Marketing
+                On Page and Off Page SEO
+                PPC
+                Content Development
+                Corporate Training
+                Classroom and Online Training
+                Data Entry
+                Training For College Campus
+                JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.
+                Duration: 1 week to 2 week
+                
+                Like/Subscribe us for latest updates or newsletter RSS Feed Subscribe to Get Email Alerts Facebook Page Twitter Page YouTube Blog Page
+                LEARN TUTORIALS
+                Learn Java
+                Learn Data Structures
+                Learn C Programming
+                Learn C++ Tutorial
+                Learn C# Tutorial
+                Learn PHP Tutorial
+                Learn HTML Tutorial
+                Learn JavaScript Tutorial
+                Learn jQuery Tutorial
+                Learn Spring Tutorial
+                OUR WEBSITES
+                Javatpoint.com
+                Hindi100.com
+                Lyricsia.com
+                Quoteperson.com
+                Jobandplacement.com
+                OUR SERVICES
+                Website Development
+                
+                Android Development
+                
+                Website Designing
+                
+                Digital Marketing
+                
+                Summer Training
+                
+                Industrial Training
+                
+                College Campus Training
+                
+                CONTACT
+                Address: G-13, 2nd Floor, Sec-3
+                
+                Noida, UP, 201301, India
+                
+                Contact No: 0120-4256464, 9990449935
+                
+                Contact Us
+                Subscribe Us
+                Privacy Policy
+                Sitemap
+                
+                About Me
+                © Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p>
+        </div>
+    </section>
+    <section class="heading bottom">
+        <div class="text-bg"><h1>The End</h1></div>
+    </section>
+    
+</body>
+</html>

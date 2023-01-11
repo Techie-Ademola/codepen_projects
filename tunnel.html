@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* margin: auto; */
+            display: flex;
+            justify-content: center;
+        }
+        canvas {
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="cvs"></canvas>
+    
+
+    <script>
+        // Geometry options
+        const N = 10;		// number of sides
+        const A = 225; 	// side length of polygon (px)
+        const V = 50;		// velocity of points (px/s)
+
+        // Canvas options
+        const R = 330;		// updates/second (Hz)
+        const W = 650;	// canvas width (px)
+        const H = 650;  // canvas height (px)
+
+        const cvs = document.querySelector("#cvs");
+        const ctx = cvs.getContext("2d");
+        cvs.width = W;
+        cvs.height = H;
+        const tau = 2 * Math.PI;
+
+        // Converts polar to rectangular coordinates.
+        const polarToRect = (r, theta) => ({
+            x: r * Math.cos(theta),
+        y: r * Math.sin(theta),
+        });
+
+        // Generates vertices of a regular polygon with `numVertices`
+        // vertices and side length `sideLength` in rectangular coordinates.
+        const generateRegularPolygon = (numVertices, sideLength) => {
+            const points = [];
+        for (let i = 0; i < sideLength; ++i) {
+            points.push(polarToRect(sideLength, i*tau/numVertices));
+        }
+        return points;
+        };
+
+        // Generates `numColors` grayscale values evenly spaced
+        // in range [0, 255].
+        const generateColors = numColors => {
+            const colors = [];
+        for (let i = 0; i < numColors; ++i) {
+            const value = Math.round(i*255/numColors);
+            colors.push(`rgb(${value}, ${value}, ${value})`);
+        }
+        return colors;
+        };
+
+        // Difference between two points/vectors.
+        const diff = (v1, v2) => ({
+            x: v1.x - v2.x,
+        y: v1.y - v2.y,
+        });
+
+        // Normalizes a 2-D vector.
+        const normalize = vec => {
+            const abs = Math.sqrt(vec.x**2 + vec.y**2);
+        // Prevent /0.
+        if (abs == 0) {
+            return vec;
+        }
+        return {
+            x: vec.x / abs,
+            y: vec.y / abs,
+        };
+        };
+
+        let points = generateRegularPolygon(N, A);
+        const colors = generateColors(N);
+
+        // Compute how far we have to move each point to get the
+        // desired movement speed (V) considering update rate (R).
+        const movementSpeed = V / R;
+
+        const draw = () => {
+            // ctx.clearRect(0, 0, w, h);
+        
+        for (let i = 0; i < N; ++i) {
+            ctx.fillStyle = colors[i];
+            ctx.fillRect(points[i].x+W/2, points[i].y+H/2, 2, 2);
+        }
+
+            requestAnimationFrame(draw);
+        };
+
+        let iteration = 0;
+        const timeStep = () => {
+            ++iteration;
+        // const time = iteration / R;
+
+            // Don't want to overwrite points just yet -- have to update
+        // them simultaneously.
+            const newPoints = new Array(N);
+        
+            // For each point...
+        for (let i = 0; i < N; ++i) {
+            // Grab the next point.
+            const curr = points[i], next = points[(i+1)%N];
+            // Get direction vector between the points.
+            const dir = normalize(diff(next, curr));
+            // Move the current point toward the next point.
+            newPoints[i] = {
+                x: curr.x + movementSpeed * dir.x,
+            y: curr.y + movementSpeed * dir.y,
+            };
+        }
+        
+        // Update points
+        points = newPoints;
+        };
+
+        const setup = () => {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0, 0, W, H);
+
+            draw();
+            setInterval(timeStep, 1000/R);
+        };
+        setup();
+    </script>
+</body>
+</html>

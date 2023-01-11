@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+    /* add some styling to the clock */
+    #clock {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <script>
+    // define a function to update the clock every second
+    function updateClock() {
+        // get the current time
+        var date = new Date();
+
+        // extract the hours, minutes, and seconds
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+
+        // format the time as a string
+        var timeString = hours + ":" + minutes + ":" + seconds;
+
+        // get the clock div and update its contents
+        var clockDiv = document.getElementById("clock");
+        clockDiv.innerHTML = timeString;
+    }
+
+    // run the updateClock function every second
+    setInterval(updateClock);
+    </script>
+</body>
+</html>

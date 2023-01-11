@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOMO Sunglasses</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap'); 
+
+        @import url(css/owl.carousel.css);
+        @import url(css/owl.carousel.min.css);
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Jost', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: white;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #fff;
+            height: 70px;    
+        }
+
+        li{
+            list-style: none;
+        }
+        ul li i {
+            font-size: 10px;
+        }
+        ol li i {
+            font-size: 20px;
+        }
+
+        .navbar li a {
+            text-transform: uppercase;
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .navbar li a:hover {
+            color: #111;
+        }
+
+        .navbar{
+            min-height: fit-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 100px 0px;
+        }
+
+        .nav-menu{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu-icon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0px;
+        }
+
+        .nav-branding{
+            font-size: 0rem;
+            margin-top: 0px;
+        }
+
+        .nav-link{
+            transition: 0.7s ease;
+        }
+
+        .nav-link:hover{
+            color: #333;
+        }
+
+        .hamburger{
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger{
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar{
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px;
+            -webkit-transition: 0.3s ease;
+            transition: 0.3s ease;
+            background-color: black;
+        }
+        .bar:nth-child(2) {
+            width: 20px;
+            height: 2px;
+            margin-right: auto;
+        }
+        .hamburger:hover .bar:nth-child(2) {
+            width: 25px;
+        }
+
+        @media(max-width: 900px) {
+            .hamburger{
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2){
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1){
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3){
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .nav-menu{
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: #c5d32c;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                z-index: 999;
+            }
+
+            .nav-item{
+                margin: 16px 0;
+            }
+
+            .nav-menu.active{
+                left: 0;
+            }
+        }
+
+        .general {
+            /* border: 2px solid black; */
+            padding: 0px 50px;
+            margin-top: 5px;
+        }
+
+        .hero_border {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #f5e6e1;
+            padding: 8px;
+        }
+
+        .hero_1 {
+            background-image: url(./IMG/slider-bg.jpg);
+            width: 100%;
+            height: 100vh;
+            padding: 100px 20px 0px;
+        }
+        .hero_details_wrap {
+            margin-top: 100px;
+        }
+        .hero_details_wrap .new_trend {
+            position: relative;
+            color: #C22A2B;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.3em;
+            padding-left: 50px;
+        }
+        .hero_details_wrap .new_trend::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background-color: #C22A2B;
+            position: absolute;
+            left: 0;
+            top: 14px;
+        }
+        .hero_details_wrap .summer_ {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            color: rgba(34, 34, 34, 0.9);
+            font-size: 65px;
+            line-height: 70px;
+        }
+        .hero_details_wrap .womens_ {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            color: rgba(34, 34, 34, 0.9);
+            font-size: 70px;
+            font-weight: bold;
+        }
+        .hero_details_wrap .discover_more {
+            display: inline-block;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 0.9);
+            background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.9)) no-repeat;
+            background-size: 65% 2px;
+            background-position: bottom left;
+            transition: .3s ease;
+        }
+        .hero_details_wrap .discover_more:hover {
+            background-size: 100% 2px;
+            transition: .3s ease;
+        }
+        .discover_more a, .discover_more a:hover {
+            color: rgba(34, 34, 34, 0.9);
+            text-decoration: none;
+        }
+        .img_wrap {
+            width: 400px;
+        }
+        .follow_us {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 0%;
+            width: 50px;
+            color: #777;
+        }
+        .follow_us p i {
+            font-size: 16px;
+            color: #777;
+            transition: .3s;
+        }
+        .follow_us p:nth-of-type(5) {
+            transition: .2s;
+            font-size: 14px;
+            transform: rotate(-90deg);
+            margin-top: 30px;
+            font-weight: 600;
+        }
+        .follow_us p:hover i {
+            color: #222;
+            transition: .2s;
+        }
+        .coll_columns {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .scnd_seg {
+            /* border: 2px solid black; */
+            padding: 100px;
+            margin-top: 0px;
+        }
+        @media screen and (max-width: 1000px) {
+            .scnd_seg {
+                padding: 0px;
+            }
+        }
+        .banner_1_img {
+            background: url(./IMG/banner-1.jpg) no-repeat;
+            background-size: 100% 100%;
+            min-height: 80vh;
+            position: relative;
+            transition: .3s ease;
+        }
+        .banner_2_img {
+            background: url(./IMG/banner-2.png) no-repeat;
+            background-size: 100% 100%;
+            min-height: 38vh;
+            position: relative;
+            transition: .3s ease;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 30px 20px;
+        }
+        .caption .hot_list {
+            font-weight: 600;
+            font-size: 16px;
+            color: rgba(34, 34, 34, 0.9);
+        }
+        .caption h2, .caption h2:hover {
+            font-size: 1.6rem;
+            line-height: .5em;
+            text-decoration: none;
+            color: rgba(34, 34, 34, 0.9);
+            font-weight: 100;
+        }
+        .caption h2 span {
+            font-weight: 900 !important;
+        }
+        .caption .shop_now {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 0.9);
+            background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.9)) no-repeat;
+            background-size: 65% 2px;
+            background-position: bottom left;
+            transition: .4s ease;
+        }
+        .scnd_seg_link1:hover .banner_1_img, .scnd_seg_link2:hover .banner_2_img, .scnd_seg_link3:hover .banner_3_img {
+            background-size: 101% 100%;
+            transform: scale(1.05);
+            transition: .3s ease;
+        }
+        .scnd_seg_link1_inner {
+            margin: 0px;
+        }
+        .scnd_seg_link1:hover .shop_now, .scnd_seg_link2:hover .shop_now, .scnd_seg_link3:hover .shop_now, .scnd_seg_link4:hover .shop_now, .scnd_seg_link1:hover .shop_now2 {
+            background-size: 100% 2px;
+        }
+        .scnd_seg_link2 {
+            position: relative;
+            background-color: #e5e3dc !important;
+            margin: 0px;
+        }
+        .scnd_seg_link3 {
+            position: relative;
+            background-color: #e5e3dc !important;
+            margin: 0px;
+        }
+        .scnd_seg_link4 {
+            position: relative;
+            background-color: #e5e3dc !important;
+            margin: 0px;
+        }
+        .coll_flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media screen and (max-width: 800px) {
+            .coll_flex {
+                flex-direction: column;
+            }
+            .coll_flex_child {
+                width: 100% !important;
+            }
+        }
+        .coll_flex_child {
+            width: 48%;
+        }
+        .banner_3_img {
+            background: url(./IMG/banner-3.png) no-repeat;
+            background-size: 100% 100%;
+            min-height: 38vh;
+            position: relative;
+            transition: .3s ease;
+        }
+        .banner_4_img {
+            background: #F5E6E0 no-repeat;
+            background-size: 100% 100%;
+            min-height: 38vh;
+            position: relative;
+            transition: .3s ease;
+        }
+        .arrivals_tab {
+            width: 100%;
+        }
+        .arrivals_tab .arrivals_tab_lists, .arrivals_tab .arrivals_tab_lists li {
+            display: inline-block;
+            list-style: none;
+        }
+        .arrivals_tab .arrivals_tab_lists li .nav-link {
+            margin: 20px 30px;
+            font-weight: 600;
+            color: rgba(34, 34, 34, 0.5);
+            background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.9)) no-repeat;
+            background-size: 0% 2px;
+            background-position: bottom left;
+            transition: .3s ease;
+            cursor: pointer;
+            border: none !important;
+            border-radius: 0px !important;
+            padding: 7px 0px !important;
+        }
+        .arrivals_tab .arrivals_tab_lists li .nav-link.active {
+            background-size: 65% 2px;   
+            color: rgba(34, 34, 34, 1);
+        }
+        .arrivals_tab .arrivals_tab_lists li .nav-link:hover {
+            background-size: 65% 2px; 
+            color: rgba(34, 34, 34, 1);
+        }
+        .scnd_seg_2 {
+            /* border: 2px solid black; */
+            padding: 0px 100px;
+            margin-top: 0px;
+            width: 100%;
+        }
+        @media screen and (max-width: 1000px) {
+            .scnd_seg_2 {
+                padding: 0px;
+            }
+        }
+        .card {
+            border-radius: 0px !important;
+            border: none;
+        }
+        .show_box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            /* border: 1px solid black; */
+            overflow: hidden;
+        }
+        .show_box .top_tag {
+            position: absolute;
+            top: 10px;
+            left: 3%;
+            background-color: blue;
+            text-align: center;
+            background-color: #d62a28;
+            padding: 3px 10px;
+            display: block;
+            width: 94%;
+            color: whitesmoke;
+            font-weight: 300;
+            font-size: 14px;
+            transition: .3s ease;
+            z-index: 999 !important;
+        }
+        .show_box .add_cart {
+            position: absolute;
+            bottom: 10px;
+            left: 3%;
+            text-align: center;
+            background-color: white;
+            padding: 15px;
+            display: block;
+            width: 94%;
+            color: rgba(34, 34, 34, 1);
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0;
+            transition: .3s ease;
+        }
+        .show_box .add_cart:hover {
+            text-decoration: none;
+            color: rgba(34, 34, 34, 1);
+            font-weight: 600;
+        }
+        .show_box_div {
+            display: flex;
+            flex-direction: column;
+            /* border: 2px solid black; */
+        }
+        .show_box_div p {
+            width: 100%;
+            text-align: left !important;
+        }
+        .show_box_div img {
+            transition: .6s ease;
+        }
+        .add_cart:hover {
+            color: crimson !important;
+        }
+        .show_box_div img, .show_box_div .add_cart {
+            transition: 500ms ease;
+        }
+        .show_box_div:hover img, .show_box_div:hover .add_cart {
+            opacity: 1;
+            transition: 500ms ease;
+        }
+        .show_box_div:hover img {
+            transform: scale(1.1);
+            transition: .6s ease;
+        }
+        .show_box_div .dress_neck:hover {
+            color: crimson !important;
+            text-decoration: none;
+            transition: 500ms ease;
+        }
+        .show_box_div .dresses_ {
+            color: rgba(34, 34, 34, 0.5) !important;
+            transition: 500ms ease;
+            text-decoration: none;
+        }
+        .show_box_div p i {
+            float: right;
+            font-size: 20px;
+            color: rgb(34, 34, 34);
+            cursor: pointer;
+        }
+        .show_box_div .dresses_:hover {
+            color: rgb(34, 34, 34) !important;
+            transition: 500ms ease;
+        }
+        .show_box_div .dress_neck, .show_box_div span {
+            color: rgb(34, 34, 34);
+            text-decoration: none;
+            width: fit-content !important;
+        }
+        .show_box_div .dresses_, .show_box_div .dress_neck, .show_box_div span {
+            text-align: left;
+        }
+        .arrivals_tab .discover_more {
+            display: inline-block;
+            font-weight: 500;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 0.9);
+            background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.9)) no-repeat;
+            background-size: 65% 2px;
+            background-position: bottom left;
+            transition: .3s ease;
+        }
+        .arrivals_tab .discover_more:hover {
+            background-size: 100% 2px;
+            transition: .3s ease;
+        }
+        .arrivals_tab .discover_more a, .arrivals_tab .discover_more a:hover {
+            color: rgba(34, 34, 34, 0.9);
+            text-decoration: none;
+        }
+        .hero_section {
+            background-image: url(./IMG/segment-3bg.jpg);
+            background-position: center top;
+            width: 100%;
+            height: 59vh;
+            padding: 100px 20px 0px;
+            margin: 60px 0px 100px;
+        }
+        .spring_section {
+            width: 100%;
+            padding: 70px 25px 20px;
+        }
+        .spring_section .hot_list {
+            position: relative;
+            font-weight: 500;
+            font-size: 14px;
+            color: #C22A2B;
+            padding-left: 60px;
+        }
+        .spring_section h2 {
+            font-size: 70px;
+            line-height: 1em;
+            text-decoration: none;
+            color: rgba(34, 34, 34, 0.9);
+            font-weight: 100;
+        }
+        .spring_section h2 span {
+            font-weight: 900 !important;
+        }
+        .spring_section .shop_now a {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 0.9);
+            background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.9)) no-repeat;
+            background-size: 65% 2px;
+            background-position: bottom left;
+            transition: .3s ease;
+        }
+        .spring_section .shop_now a:hover {
+            background-size: 100% 2px;
+            background-image: linear-gradient(to right, #C22A2B, #C22A2B);
+            transition: .3s ease;
+            color: #C22A2B;
+            text-decoration: none;
+        }
+        .spring_section ._deal::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background-color: #C22A2B;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        .third_seg {
+            /* border: 2px solid black; */
+            padding:  0px 100px 80px;
+            margin-top: 0px;
+        }
+
+        .starting_1_img {
+            background: url(./IMG/banner14.jpg) no-repeat;
+            background-size: 100% 100%;
+            min-height: 50vh;
+            position: relative;
+            transition: .7s ease;
+        }
+
+        .starting_2_img {
+            background: url(./IMG/banner15.jpg) no-repeat;
+            background-size: 100% 100%;
+            min-height: 50vh;
+            position: relative;
+            transition: .7s ease;
+        }
+
+        .caption_sec {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 30px 20px;
+        }
+        .caption_sec .hot_list {
+            font-weight: 600;
+            font-size: 16px;
+            color: rgba(34, 34, 34, 0.9);
+        }
+        .caption_sec h2, .caption_sec h2:hover {
+            font-size: 1.6rem;
+            line-height: .5em;
+            text-decoration: none;
+            color: rgba(34, 34, 34, 0.9);
+            font-weight: 100;
+        }
+        .caption_sec h2 span {
+            font-weight: 900 !important;
+        }
+        .caption_sec .shop_now {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 0.9);
+            background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(34, 34, 34, 0.9)) no-repeat;
+            background-size: 65% 2px;
+            background-position: bottom left;
+            transition: .4s ease;
+        }
+        .caption_sec .shop_now2 {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 0.9);
+            background: linear-gradient(to right, white, white) no-repeat;
+            background-size: 65% 2px;
+            background-position: bottom left;
+            transition: .4s ease;
+        }
+        .scnd_seg_link1:hover .starting_1_img, .scnd_seg_link2:hover .starting_2_img {
+            background-size: 101% 100%;
+            transform: scale(1.05);
+            transition: .7s ease;
+        }
+        .uomo_img_div {
+            overflow: hidden;
+            width: 100%;
+            height: 35vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .5s ease;
+        }
+
+        .uomo_img_div img {
+            transition: .5s ease;
+            width: fit-content;
+            height: 100%;
+        }
+
+        .uomo_img_div:hover img {
+            transform: scale(1.07);
+            filter: brightness(80%);
+            transition: .5s ease;
+        }
+
+        .fourth_seg {
+            /* border: 2px solid black; */
+            padding:  100px 100px;
+            margin-top: 0px;
+        }
+
+        .fourth_seg .features-box-content .title {
+            font-size: 18px;
+        }
+
+        .fourth_seg .features-box-content .description {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /*---------------------
+            Footer Starts
+        -----------------------*/
+
+        .footer-section {
+            background: #fff;
+            padding-bottom: 0;
+            border: none;
+            border-top: 1px solid #e5e3dc;
+        }
+
+        .spad_2 {
+            padding: 100px 130px 0px;
+        }
+
+        .footer-nav-branding img {
+            width: 120px;
+        }
+
+        .footer-widget {
+            margin-bottom: 50px;
+        }
+
+        .footer-widget .single-footer-widget h4 {
+            color: #000;
+            font-size: 16px;
+            margin-bottom: 34px;
+        }
+
+        .footer-widget .single-footer-widget ul {
+            list-style-type: none;
+            padding: 0 !important;
+        }
+
+        .footer-widget .single-footer-widget ul li {
+            list-style-type: none;
+            padding: 0 !important;
+        }
+
+        .footer-widget .single-footer-widget ul li a {
+            display: inline-block;
+            font-size: 13px;
+            line-height: 36px;
+            color: #000;
+            background-image: linear-gradient(90deg, black, black);
+            background-size: 0% 2px;
+            background-position: left bottom;
+            background-repeat: no-repeat;
+            transition: .3s ease;
+        }
+
+        .footer-widget .single-footer-widget ul li a:hover {
+            background-size: 70% 2px !important;
+            transition: .3s ease;
+            text-decoration: none;
+        }
+
+        .footer_rule {
+            width: 100%;
+            border: transparent;
+            border-top: 1px solid #e5e3dc;
+        }
+
+        .social-links-wrap {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            text-align: left !important;
+        }
+
+        .social-links a i {
+            font-size: 14px;
+            color: #444;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        .social-links a.instagram:hover i {
+            color: #2F5D84;
+        }
+
+        .social-links a.twitter:hover i {
+            color: #5abed6;
+        }
+
+        .social-links a.pinterest:hover i {
+            color: darkred;
+        }
+
+        .social-links a.facebook:hover i {
+            color: #39599F;
+        }
+
+        .social-links a.youtube:hover i {
+            color: #D12227;
+        }
+
+        .footer-widget-p {
+            color: #222;
+            font-size: 13px;
+        }
+
+        .input-group input {
+            border-radius: 0px !important;
+            border: 1px solid #e5e3dc;
+            border-right: none !important;
+            padding: 22px 15px !important;
+        }
+
+        .input-group input:focus, .input-group input:valid {
+            border: none !important;
+            outline: none !important;
+            outline-offset: none !important;
+        }
+
+        .input-group input::placeholder {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .input-group .join_button {
+            border: 1px solid #e5e3dc;
+            border-left: none !important;
+            background: none !important;
+            text-decoration: none;
+        }
+
+        .input-group .join_button:hover {
+            color: crimson;
+            text-decoration: none;
+        }
+
+        .lang_curr {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            font-size: 13px;
+        }
+
+        .dropbtn {
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            bottom: 130%;
+            right: 0;
+            background-color: #fff;
+            min-width: 80px;
+            z-index: -1;
+            transform: translateY(-20px);
+            transition: .5s ease;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #e5e3dc;
+        }
+
+        .dropdown-content a {
+        color: black;
+        padding: 6px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        }
+
+        .dropdown-content a:hover {color: crimson;}
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-0px);
+            transition: .5s ease;
+            z-index: 1;
+        }
+
+        .dropbtn i, .dropbtn_2 i {
+            transform: rotate(0deg);
+            transition: .2s ease;
+        }
+
+        .dropbtn:hover i, .dropbtn_2:hover i {
+            transform: rotate(180deg);
+            transition: .2s ease;
+        }
+
+
+        .dropbtn_2 {
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .dropdown_2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content_2 {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            bottom: 130%;
+            right: 0;
+            background-color: #fff;
+            min-width: 80px;
+            z-index: -1;
+            transform: translateY(-20px);
+            transition: .5s ease;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #e5e3dc;
+        }
+
+        .dropdown-content_2 a {
+        color: black;
+        padding: 6px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        }
+
+        .dropdown-content_2 a:hover {color: crimson;}
+
+        .dropdown_2:hover .dropdown-content_2 {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-0px);
+            transition: .5s ease;
+            z-index: 1;
+        }
+        /*---------------------
+            Footer Ends waterma
+        -----------------------*/
+
+        .to_top {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 4px 12px;
+            background-color: whitesmoke;
+            font-size: 20px;
+            color: #000;
+            transition: .2s ease;
+        }
+        .to_top:hover {
+            text-decoration: none;
+            background-color: crimson;
+            transition: .2s ease;
+            color: #e5e3dc;
+        }
+    </style>
+</head>
+<body id="pageUp">
+    <header>
+        <nav class="navbar">
+          <a href="#" class="nav-branding">
+            <img src="./IMG/logo.png" alt="">
+          </a>
+  
+          <ul class="nav-menu">
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Home <i class="bi bi-caret-down-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Shop <i class="bi bi-caret-down-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Blog <i class="bi bi-caret-down-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Pages <i class="bi bi-caret-down-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+            </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Contact</a>
+              </li>
+          </ul>
+
+          <div class="d-none d-lg-block">
+            <ol class="nav-menu-icon">
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-person"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-heart"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-handbag"></i></a>
+                </li>
+                <!-- <li class="nav-item">
+                    <div class="hamburger d-block">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>            
+                </li> -->
+              </ol>
+          </div>
+  
+          <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid general">
+        <div class="hero_border">
+            <div class="hero_1 overflow-hidden">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="hero_details_wrap">
+                            <p class="new_trend mb-4">NEW TREND</p>
+                            <h1 class="summer_">SUMMER SALE STYLISH</h1>
+                            <h1 class="womens_">WOMENS</h1>
+                            <p class="discover_more my-4 pb-1"><a href="">DISCOVER MORE</a></p>
+                        </div>
+                    </div>
+                    <div class="col-5 overflow-hidden">
+                        <div class="img_wrap mx-auto">
+
+                            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img src="./IMG/slider-1.png" class="img-fluid img-responsive d-block" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="./IMG/slider-2.png" class="img-fluid img-responsive d-block" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="./IMG/slider-3 (2).png" class="img-fluid img-responsive w-100 h-100 d-block" alt="...">
+                                  </div>
+                                </div>
+                                <button class="d-none carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </button>
+                                <button class="d-none carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="follow_us">
+            <p><a href=""><i class="bi bi-facebook"></i></a></p>
+            <p><a href=""><i class="bi bi-twitter"></i></a></p>
+            <p><a href=""><i class="bi bi-instagram"></i></a></p>
+            <p><a href=""><i class="bi bi-pinterest"></i></a></p>
+            <p>FOLLOW&nbsp;US</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="scnd_seg">
+            <div class="row">
+                <div class="col-lg-6 my-2">
+                    <a href="#" class="scnd_seg_link1">
+                        <div class="row overflow-hidden scnd_seg_link1_inner">
+                            <div class="col-sm-12 banner_1_img">
+                                
+                            </div>
+                            <div class="caption">
+                                <p class="hot_list">HOT LIST</p>
+                                <h2><span class="font-weight-bold">WOMEN</span> COLLECTION</h2>
+                                <p class="shop_now mt-2 py-1">SHOP NOW</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 my-2 coll_columns">
+                    <a href="#" class="">
+                        <div class="row overflow-hidden scnd_seg_link2">
+                            <div class="col-sm-12 banner_2_img">
+                                
+                            </div>
+                            <div class="caption">
+                                <p class="hot_list">HOT LIST</p>
+                                <h2><span class="font-weight-bold">MEN</span> COLLECTION</h2>
+                                <p class="shop_now mt-2 py-1">SHOP NOW</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="coll_flex">
+                        <a href="#" class="coll_flex_child">
+                            <div class="row overflow-hidden scnd_seg_link3">
+                                <div class="col-sm-12 banner_3_img p-0 m-0">
+                                    
+                                </div>
+                                <div class="caption">
+                                    <p class="hot_list">HOT LIST</p>
+                                    <h2><span class="font-weight-bold">KIDS</span> COLLECTION</h2>
+                                    <p class="shop_now mt-2 py-1">SHOP NOW</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="coll_flex_child mt-4 mt-lg-0">
+                            <div class="row overflow-hidden scnd_seg_link4">
+                                <div class="col-sm-12 banner_4_img">
+                                    
+                                </div>
+                                <div class="caption">
+                                    <h2><span class="font-weight-bold">E-GIFT</span> CARDS</h2>
+                                    <p class="hot_list" style="font-size: 0.9rem; font-weight: lighter !important;">Surprise someone with the gift they really want.</p>
+                                    <p class="shop_now mt-2 py-1">DISCOVER MORE</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="seg_3_header text-center">
+        <h1><span style="font-weight: lighter;">OUR TRENDY</span> <span class="font-weight-bold">PRODUCTS</span></h1>
+        <div class="arrivals_tab">
+            <!-- <ul class="arrivals_tab_lists">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul> -->
+            <ul class="nav nav-pills arrivals_tab_lists" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">NEW ARRIVALS</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">BEST SELLER</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">TOP RATING</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="container-fluid">
+                        <div class="scnd_seg_2">
+                            <div class="row">
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-1.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-2.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Long Sleeve Button Welt Jacket</a>
+                                            <span class="pb-1">$85.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-3.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Summer Dress Women Short Sleeve</a>
+                                            <span class="pb-1">$75.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-4.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">T-Shirts <i class="bi bi-heart"></i></a></p>
+                                            <a class="dress_neck pb-1" href="">Women’s Sleeve Fully Beaded Gown</a>
+                                            <span class="pb-1">$60.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-24%</span>
+                                                <a href=""><img src="./IMG/dresses-5.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-6.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-13%</span>
+                                                <a href=""><img src="./IMG/dresses-7.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-8.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="container-fluid">
+                        <div class="scnd_seg_2">
+                            <div class="row">
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-2.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Long Sleeve Button Welt Jacket</a>
+                                            <span class="pb-1">$85.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-1.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-24%</span>
+                                                <a href=""><img src="./IMG/dresses-6.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Jeans</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Men’s 3-Pack V-Neck T-Shirt</a>
+                                            <span class="pb-1"><del class="text-muted">$85.00</del> <span style="color: rgb(173, 4, 4);">$65.00</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-13%</span>
+                                                <a href=""><img src="./IMG/dresses-9.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Jackets <i class="bi bi-heart"></i></a></p>
+                                            <a class="dress_neck pb-1" href="">Women’s High-Waist Jean</a>
+                                            <span class="pb-1"><del class="text-muted">$68.00</del> <span style="color: rgb(173, 4, 4);">$59.00</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-4.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">T-Shirts</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Women’s Sleeve Fully Beaded Gown</a>
+                                            <span class="pb-1">$60.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-3.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Summer Dress Women Short Sleeve</a>
+                                            <span class="pb-1">$75.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-10.png" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Jackets</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Calvin Shorts</a>
+                                            <span class="pb-1">$68.00 -- $98.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-6%</span>
+                                                <a href=""><img src="./IMG/dresses-11.png" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Jumpers & Cardigans</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Colorful Jacket</a>
+                                            <span class="pb-1"><del class="text-muted">$80.00</del> <span style="color: rgb(173, 4, 4);">$75.00</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="container-fluid">
+                        <div class="scnd_seg_2">
+                            <div class="row">
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-12" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-13" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Long Sleeve Button Welt Jacket</a>
+                                            <span class="pb-1">$85.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-14.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Summer Dress Women Short Sleeve</a>
+                                            <span class="pb-1">$75.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-2.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">T-Shirts <i class="bi bi-heart"></i></a></p>
+                                            <a class="dress_neck pb-1" href="">Women’s Sleeve Fully Beaded Gown</a>
+                                            <span class="pb-1">$60.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-10.png" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-24%</span>
+                                                <a href=""><img src="./IMG/dresses-9.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-7.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-18%</span>
+                                                <a href=""><img src="./IMG/dresses-15" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="discover_more my-4 pb-1 text-center"><a href="">SEE ALL PRODUCT</a></p>
+        </div>
+    </div>
+
+    <div class="container-fluid general">
+        <div class="hero_section overflow-hidden">
+            <div class="row">
+                <div class="spring_section">
+                    <p class="hot_list _deal">DEAL OF THE WEEK</p>
+                    <h2><span class="font-weight-bold">SPRING</span> COLLECTION</h2>
+                    <p class="shop_now mt-4"><a href="" class=" py-1">SHOP NOW</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="third_seg">
+            <div class="row">
+                <div class="col-lg-6 my-2">
+                    <a href="#" class="scnd_seg_link1">
+                        <div class="row overflow-hidden scnd_seg_link1_inner">
+                            <div class="col-sm-12 starting_1_img">
+                                
+                            </div>
+                            <div class="caption_sec">
+                                <p class="text-white hot_list">STARTING AT $19</p>
+                                <h2 class="text-white font-weight-bold">Women’s T-Shirts</h2>
+                                <p class="text-white shop_now2 mt-2 py-1">SHOP NOW</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 my-2">
+                    <a href="#" class="scnd_seg_link2">
+                        <div class="row overflow-hidden scnd_seg_link1_inner">
+                            <div class="col-sm-12 starting_2_img">
+                                
+                            </div>
+                            <div class="caption_sec">
+                                <p class="hot_list">STARTİNG AT $39</p>
+                                <h2 class="font-weight-bold">Men’s Sportswear</h2>
+                                <p class="shop_now mt-2 py-1">SHOP NOW</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="seg_3_header text-center">
+        <h1 class="mb-4"><span style="font-weight: lighter;">LIMITED</span> <span class="font-weight-bold">EDITION</span></h1>
+        <div class="arrivals_tab">
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="container-fluid">
+                        <div class="scnd_seg_2">
+                            <div class="row">
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-25%</span>
+                                                <a href=""><img src="./IMG/dresses-1.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Dress Neck Casual Short Dresses</a>
+                                            <span class="pb-1">$110.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <span class="top_tag" href="">-13%</span>
+                                                <a href=""><img src="./IMG/dresses-2.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Long Sleeve Button Welt Jacket</a>
+                                            <span class="pb-1">$85.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-3.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">Dresses</a> <i class="bi bi-heart"></i></p>
+                                            <a class="dress_neck pb-1" href="">Summer Dress Women Short Sleeve</a>
+                                            <span class="pb-1">$75.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 my-2 px-1 px-md-3">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body show_box_div m-0 p-0">
+                                            <div class="show_box">
+                                                <a href=""><img src="./IMG/dresses-4.jpg" class="img-fluid img-responsive w-100" style="height: 21.5rem" alt="..."></a>
+                                                <a class="add_cart" href="">ADD TO CART</a>
+                                            </div>
+                                            <p class="m-0 mt-3"><a class="dresses_ py-1" href="">T-Shirts <i class="bi bi-heart"></i></a></p>
+                                            <a class="dress_neck pb-1" href="">Women’s Sleeve Fully Beaded Gown</a>
+                                            <span class="pb-1">$60.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="fourth_seg">
+            <h1 class="text-center mb-4"><span style="font-weight: lighter;">@UOMO</span></h1>
+            <div class="row px-3">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-1.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-2.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-3.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-4.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-5.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-6.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-7.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-8.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/dresses-9.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-10.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-11.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 p-1">
+                    <div class="uomo_img_div">
+                        <a href=""><img src="./IMG/uomo-12.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 pt-5">
+                <div class="col-md-4">
+                    <div class="features-box-content text-center">
+                        <h6 class="title">FAST AND FREE DELIVERY</h6>
+                        <div class="description">Free delivery for all orders over $140</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features-box-content text-center">
+                        <h6 class="title">24/7 CUSTOMER SUPPORT</h6>
+                        <div class="description">Friendly 24/7 customer support</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features-box-content text-center">
+                        <h6 class="title">MONEY BACK GUARANTEE</h6>
+                        <div class="description">We return money within 30 days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-section overflow-hidden">
+        <div class="spad_2">
+            <div class="footer-widget">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="single-footer-widget">
+                            <h4 class="mb-4">
+                              <a href="#pageUp" class="footer-nav-branding">
+                                <img src="./IMG/footer-logo.png" alt="">
+                              </a>
+                            </h4>
+                            <p class="footer-widget-p pt-3">1418 River Drive, Suite 35 Cottonhall, CA 9622 United States</p>
+                            <p class="footer-widget-p m-0 pt-3">sale@uomo.com</p>
+                            <p class="footer-widget-p mt-2 p-0">+1 246-345-0695</p>
+
+                            <div class="row social-links">
+                                <div class="col-2"><a href="" class="facebook"><i class="bi bi-facebook"></i></a></div>
+                                <div class="col-2"><a href="" class="twitter"><i class="bi bi-twitter"></i></a></div>
+                                <div class="col-2"><a href="" class="instagram"><i class="bi bi-instagram"></i></a></div>
+                                <div class="col-2"><a href="" class="youtube"><i class="bi bi-youtube"></i></a></div>
+                                <div class="col-2"><a href="" class="pinterest"><i class="bi bi-pinterest"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="single-footer-widget sitemap-section">
+                            <h4 class="ml-4">COMPANY</h4>
+                            <ul class="ml-4">
+                                <li><a href="">About Us</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Affiliates</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="single-footer-widget">
+                            <h4>SHOP</h4>
+                            <ul>
+                                <li><a href="">Accessories</a></li>
+                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Shop All</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="single-footer-widget">
+                            <h4>HELP</h4>
+                            <ul>
+                                <li><a href="">Customer Service</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Find a Store</a></li>
+                                <li><a href="#">Legal & Privacy</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Gift Card</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="single-footer-widget">
+                            <h4>SUBSCRIBE</h4>
+                            <p class="footer-widget-p">Be the first to get the latest news about trends, promotions, and much more!</p>
+                            <form action="" method="post">
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Your email address" required aria-label="email" aria-describedby="basic-addon2">
+                                    <div class="input-group-prepend join_box">
+                                        <button type="submit" class="input-group-text join_button"><span id="basic-addon2">JOIN</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer_rule">
+            <div class="social-links-wrap py-3">
+                <p class="footer-widget-p text-muted">&copy;<script>document.write(new Date().getFullYear());</script> Uomo</p>
+                <div class="lang_curr">
+                    <div class="language">Language 
+                        <div class="ml-2 dropdown">
+                            <span class="dropbtn py-3">English <i class="bi bi-chevron-up ml-2"></i></span>
+                            <div class="dropdown-content">
+                                <a href="#" style="border-bottom: 1px solid #e5e3dc;">Deutsch</a>
+                                <a href="#">Italia</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="currency">
+                        <div class="dropdown_2">
+                            <span class="dropbtn_2 py-3">Currency <span class="pl-3">USD, $</span> <i class="bi bi-chevron-up ml-2"></i></span>
+                            <div class="dropdown-content_2">
+                                <a href="#" style="border-bottom: 1px solid #e5e3dc;">USD, $</a>
+                                <a href="#">EUR, €</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </footer>
+    <a href="#pageUp" class="to_top"><span><i class="bi bi-chevron-up"></i></span></a>
+
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        })
+
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+
+        }))
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0c390bb7a0.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+  --darkness: rgb(0 0 0 / 50%);
+  --torch-radius: 250;
+  --position-y: 100px;
+  --position-x: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-shadow: 2px 2px 0 rgb(0 0 0 / 50%), 4px 4px 2px rgb(0 0 0 / 70%)
+}
+
+.container{
+  background: #0e297e;
+  
+  width: 100%;
+  height: 100%;
+}
+
+.container::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--darkness);
+  background-image: radial-gradient( circle closest-side at var(--position-x) var(--position-y), #FFF 0%, #FFF, var(--darkness) var(--torch-radius)px, var(--darkness), var(--darkness));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: animate-torch 10s ease infinite alternate;
+  transition: background-image 2s ease;
+}
+
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 8vw;
+  font-family: sans-serif;
+  letter-spacing: -1.2vw;
+  color: #0c31a7;
+}
+
+.light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 25vw;
+  background: #FFF;
+  z-index: 5;
+  
+  filter: blur(00px);
+  border-radius: 25vw;
+  opacity:1;
+  
+  /* mix-blend-mode: hard-light; */
+  
+  display: none;
+  
+}
+
+@keyframes animate-torch {
+  0%{
+      --position-y: 300px;
+      --position-x: 300px;
+  }
+  100%{
+    --position-x: 900px;
+    --position-Y: 900px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="light"></span>
+      
+        <div class="content">
+          <h1>
+            4 0 4
+          </h1>
+          <button>Back home</button>
+        </div>
+    </div>
+
+    <script>
+        //https://www.superhi.com/video/smooth-movements-with-javascript
+        window.rInterval = function (callback, delay) {
+        var dateNow = Date.now,
+            requestAnimation = window.requestAnimationFrame,
+            start = dateNow(),
+            stop,
+            intervalFunc = function () {
+            dateNow() - start < delay || ((start += delay), callback());
+            stop || requestAnimation(intervalFunc);
+            };
+        requestAnimation(intervalFunc);
+        return {
+            clear: function () {
+            stop = 1;
+            }
+        };
+        };
+        const root = document.querySelector(':root');
+        const ball = document.querySelector(".light");
+        const darkness = getComputedStyle(document.documentElement).getPropertyValue(
+        "--darkness"
+        );
+        const torchRadius = getComputedStyle(document.documentElement).getPropertyValue(
+        "--torch-radius"
+        );
+        const poistionY = getComputedStyle(document.documentElement).getPropertyValue(
+        "--position-y"
+        );
+        const positionX = getComputedStyle(document.documentElement).getPropertyValue(
+        "--position-x"
+        );
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let ballX = 0;
+        let ballY = 0;
+
+        let speed = 0.1;
+
+        let style = document.createElement("style");
+        style.id = "torch-style";
+        const fillStyle = (top, left) =>
+        (style.innerHTML = `.container::after {background-image: radial-gradient(circle closest-side at ${left}px ${top}px, #FFF 0%, #FFF, ${darkness} var(--torch-radius), ${darkness}, ${darkness}); animation: none !important}`);
+
+        function animate() {
+        let distX = mouseX - ballX;
+        let distY = mouseY - ballY;
+
+        ballX = ballX + distX * speed;
+        ballY = ballY + distY * speed;
+
+        fillStyle(ballY, ballX);
+        document.body.appendChild(style);
+
+        requestAnimationFrame(animate);
+        }
+        animate();
+
+        document.addEventListener("mousemove", function (event) {
+        mouseX = event.pageX;
+        mouseY = event.pageY;
+        });
+        document.addEventListener("mouseleave", () => {
+        document.getElementById("torch-style").remove();
+        root.style.setProperty('--torch-radius', torchRadius+'px');
+        });
+        
+        document.addEventListener("click", () => {
+        const radius = String(torchRadius*1.2).replace('px',"");
+        console.log(radius)
+        root.style.setProperty('--torch-radius', radius*2 +"px");
+        });
+
+        // Animate the spotlight randomly when user isn't interacting
+        // or when the user lands on the page
+
+        /*document.addEventListener(
+        "mouseleave",
+        rInterval(() => {
+            fillStyle(
+            // Math.floor(Math.random() * window.innerHeight),
+            // Math.floor(Math.random() * window.innerWidth)
+            100,100
+            );
+            document.body.appendChild(style);
+        }, 3000)
+        );
+        */
+    </script>
+</body>
+</html>
