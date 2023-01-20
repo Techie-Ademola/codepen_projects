@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Waiting for the Sunrise", cursive;
+  background-color: #111;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  perspective: 1800px;
+  overflow: hidden;
+}
+body *:not(:empty) {
+  transform-style: preserve-3d;
+}
+
+.cell {
+  position: absolute;
+  width: 5%;
+  height: 100%;
+  z-index: 2;
+}
+.cell:nth-child(1) {
+  left: 0%;
+}
+.cell:nth-child(1):hover ~ .scene {
+  --rz: 40deg;
+  --rx: 45deg;
+}
+.cell:nth-child(2) {
+  left: 5%;
+}
+.cell:nth-child(2):hover ~ .scene {
+  --rz: 36deg;
+  --rx: 45deg;
+}
+.cell:nth-child(3) {
+  left: 10%;
+}
+.cell:nth-child(3):hover ~ .scene {
+  --rz: 32deg;
+  --rx: 45deg;
+}
+.cell:nth-child(4) {
+  left: 15%;
+}
+.cell:nth-child(4):hover ~ .scene {
+  --rz: 28deg;
+  --rx: 45deg;
+}
+.cell:nth-child(5) {
+  left: 20%;
+}
+.cell:nth-child(5):hover ~ .scene {
+  --rz: 24deg;
+  --rx: 45deg;
+}
+.cell:nth-child(6) {
+  left: 25%;
+}
+.cell:nth-child(6):hover ~ .scene {
+  --rz: 20deg;
+  --rx: 45deg;
+}
+.cell:nth-child(7) {
+  left: 30%;
+}
+.cell:nth-child(7):hover ~ .scene {
+  --rz: 16deg;
+  --rx: 45deg;
+}
+.cell:nth-child(8) {
+  left: 35%;
+}
+.cell:nth-child(8):hover ~ .scene {
+  --rz: 12deg;
+  --rx: 45deg;
+}
+.cell:nth-child(9) {
+  left: 40%;
+}
+.cell:nth-child(9):hover ~ .scene {
+  --rz: 8deg;
+  --rx: 45deg;
+}
+.cell:nth-child(10) {
+  left: 45%;
+}
+.cell:nth-child(10):hover ~ .scene {
+  --rz: 4deg;
+  --rx: 45deg;
+}
+.cell:nth-child(11) {
+  left: 50%;
+}
+.cell:nth-child(11):hover ~ .scene {
+  --rz: 0deg;
+  --rx: 45deg;
+}
+.cell:nth-child(12) {
+  left: 55%;
+}
+.cell:nth-child(12):hover ~ .scene {
+  --rz: -4deg;
+  --rx: 45deg;
+}
+.cell:nth-child(13) {
+  left: 60%;
+}
+.cell:nth-child(13):hover ~ .scene {
+  --rz: -8deg;
+  --rx: 45deg;
+}
+.cell:nth-child(14) {
+  left: 65%;
+}
+.cell:nth-child(14):hover ~ .scene {
+  --rz: -12deg;
+  --rx: 45deg;
+}
+.cell:nth-child(15) {
+  left: 70%;
+}
+.cell:nth-child(15):hover ~ .scene {
+  --rz: -16deg;
+  --rx: 45deg;
+}
+.cell:nth-child(16) {
+  left: 75%;
+}
+.cell:nth-child(16):hover ~ .scene {
+  --rz: -20deg;
+  --rx: 45deg;
+}
+.cell:nth-child(17) {
+  left: 80%;
+}
+.cell:nth-child(17):hover ~ .scene {
+  --rz: -24deg;
+  --rx: 45deg;
+}
+.cell:nth-child(18) {
+  left: 85%;
+}
+.cell:nth-child(18):hover ~ .scene {
+  --rz: -28deg;
+  --rx: 45deg;
+}
+.cell:nth-child(19) {
+  left: 90%;
+}
+.cell:nth-child(19):hover ~ .scene {
+  --rz: -32deg;
+  --rx: 45deg;
+}
+.cell:nth-child(20) {
+  left: 95%;
+}
+.cell:nth-child(20):hover ~ .scene {
+  --rz: -36deg;
+  --rx: 45deg;
+}
+
+.scene {
+  position: relative;
+  transform: rotateX(var(--rx, 15deg)) rotateZ(var(--rz, 0deg));
+  transition: transform 0.25s ease-out;
+}
+
+.pencil {
+  --woodColor: burlywood;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #f0f7;
+  width: 0;
+  height: 15em;
+  transform: translate(-50%, -50%);
+}
+.pencil > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 100%;
+  background-image: linear-gradient(90deg, #0002, 20%, #0000, 80%, #0002), radial-gradient(circle at center -0.5em, var(--woodColor) 1em, var(--inkColor) 0);
+  transform: translateX(-50%) translateZ(1em) rotateY(var(--ry, 0deg)) translateZ(-0.86em);
+  transform-style: preserve-3d;
+}
+.pencil > div:nth-child(1) {
+  --ry: 0deg;
+}
+.pencil > div:nth-child(2) {
+  --ry: 60deg;
+}
+.pencil > div:nth-child(3) {
+  --ry: 120deg;
+}
+.pencil > div:nth-child(4) {
+  --ry: 180deg;
+}
+.pencil > div:nth-child(5) {
+  --ry: 240deg;
+}
+.pencil > div:nth-child(6) {
+  --ry: 300deg;
+}
+.pencil > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 0.86em;
+  background-image: radial-gradient(circle at bottom, var(--inkColor) 40%, var(--woodColor) 40%, #000 400%);
+  transform: rotateX(90deg);
+  transform-origin: top;
+}
+.pencil > div::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3em;
+  background-image: linear-gradient(90deg, #0002, 20%, #0000, 80%, #0002), radial-gradient(circle at bottom, var(--inkColor) 33%, var(--woodColor) 0);
+  transform: rotateX(163.5deg);
+  transform-origin: top;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.pencil:nth-child(2) {
+  --inkColor: dodgerblue;
+  top: 11.5em;
+  left: 10em;
+}
+.pencil:nth-child(3) {
+  --inkColor: hotpink;
+  top: 12em;
+  left: 6em;
+  transform: translate(-50%, -50%) rotateZ(10deg);
+}
+.pencil:nth-child(4) {
+  --inkColor: limegreen;
+  top: 11em;
+  left: 2em;
+  transform: translate(-50%, -50%) rotateZ(-5deg);
+}
+.pencil:nth-child(5) {
+  --inkColor: blueviolet;
+  top: 14em;
+  left: -8em;
+  transform: translate(-50%, -50%) rotateZ(30deg);
+}
+.pencil::after {
+  content: "";
+  position: absolute;
+  top: -3.5em;
+  width: 2em;
+  height: 123%;
+  background-image: conic-gradient(from 160deg at top, #0007 0 40deg, #0000 0);
+  transform: translateX(-50%);
+  filter: blur(1em);
+}
+
+.text {
+  position: absolute;
+  top: -3em;
+  left: 50%;
+  width: 28ch;
+  font-size: 3em;
+  text-align: center;
+  line-height: 1.2;
+  transform: translate(-50%, -50%) rotate(-25deg);
+}
+.text > span:nth-child(1) {
+  color: limegreen;
+}
+.text > span:nth-child(2) {
+  color: dodgerblue;
+}
+.text > span:nth-child(3) {
+  color: limegreen;
+}
+.text > span:nth-child(4) {
+  color: dodgerblue;
+}
+.text > span:nth-child(5) {
+  color: blueviolet;
+}
+.text > span:nth-child(6) {
+  color: limegreen;
+}
+.text > span:nth-child(7) {
+  color: blueviolet;
+}
+.text > span:nth-child(8) {
+  color: limegreen;
+}
+.text > span:nth-child(9) {
+  color: dodgerblue;
+}
+.text > span:nth-child(10) {
+  color: blueviolet;
+}
+.text > span:nth-child(11) {
+  color: hotpink;
+}
+.text > span:nth-child(12) {
+  color: limegreen;
+}
+.text > span:nth-child(13) {
+  color: dodgerblue;
+}
+.text > span:nth-child(14) {
+  color: hotpink;
+}
+.text > span:nth-child(15) {
+  color: blueviolet;
+}
+.text > span:nth-child(16) {
+  color: hotpink;
+}
+.text > span:nth-child(17) {
+  color: limegreen;
+}
+.text > span:nth-child(18) {
+  color: dodgerblue;
+}
+.text > span:nth-child(19) {
+  color: blueviolet;
+}
+.text > span:nth-child(20) {
+  color: limegreen;
+}
+.text > span:nth-child(21) {
+  color: hotpink;
+}
+.text > span:nth-child(22) {
+  color: blueviolet;
+}
+.text > span:nth-child(23) {
+  color: limegreen;
+}
+.text > span:nth-child(24) {
+  color: blueviolet;
+}
+.text > span:nth-child(25) {
+  color: dodgerblue;
+}
+.text > span:nth-child(26) {
+  color: blueviolet;
+}
+.text > span:nth-child(n+15) {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.floor {
+  position: absolute;
+  width: 30.5em;
+  height: 45em;
+  background-color: #fff;
+  background-image: repeating-linear-gradient(#fff 0 1.25em, #0ff7 1.25em calc(1.25em + 1.25px));
+  transform: translate(-50%, -50%);
+  border: solid #fff;
+  border-width: 2em 1em;
+}
+    </style>
+</head>
+<body>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+
+    <div class="scene">
+
+        <div class="floor"></div>
+
+        <div class="pencil">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+        <div class="pencil">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+        <div class="pencil">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+        <div class="pencil">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+
+        <div class="text">
+            <span>5</span><span>0</span><span>0</span><span>0</span>
+            <span>f</span><span>o</span><span>l</span><span>l</span><span>o</span><span>w</span><span>e</span><span>r</span><span>s</span><span>!</span><br>
+            <span>T</span><span>h</span><span>a</span><span>n</span><span>k</span>
+            <span>y</span><span>o</span><span>u</span></span><span>!</span><span>!</span><span>!</span>
+        </div>
+    </div>
+</body>
+</html>

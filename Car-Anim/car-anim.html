@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Car CSS</title>
+
+    <style>
+        * {
+            margin: 0; 
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: url("./IMG/sky-wallpaper-1.webp") no-repeat;
+            background-size: cover;
+            background-position: bottom center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: fit-content;
+            position: absolute;
+            bottom: 20px;
+        }
+        .highway {
+            background-image: url(./IMG/way.jpg);        
+            margin-top: -15px;
+            width: 104000vh;
+            height: 6vh;
+            background-size: contain;
+            background-repeat: repeat;
+            animation: highway 2s linear infinite;
+        }
+        .highway_2 {
+            background-image: url(./IMG/way.jpg);        
+            /* margin-top: -15px; */
+            width: 104000vh;
+            height: 6vh;
+            background-size: contain;
+            background-repeat: repeat;
+            animation: highway 2s linear infinite;
+        }
+        @keyframes highway {
+            100% {
+                transform: translateX(-900px);
+            }
+        }
+        .car {
+            width: 200px;
+            margin-top: -90px;
+            z-index: 1;
+            margin-left: -220px;
+        }
+        .car img {
+            max-width: 100%;
+            max-height: 100%;
+            animation: car 1s linear infinite;
+        }
+        .wheel {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 25px 0 18px;
+            margin-top: -44px;
+            margin-left: -220px;
+        }
+        .wheel img {
+            width: 35px;
+            height: 35px;
+            animation: spin .5s linear infinite;
+        }
+        .car_2 {
+            width: 200px;
+            margin-top: -90px;
+            z-index: 1;
+            margin-left: 200px;
+        }
+        .car_2 img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: invert(1);
+            animation: car 1s linear infinite;
+        }
+        .wheel_2 {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 25px 0 18px;
+            margin-top: -44px;
+            margin-left: 200px;
+        }
+        .wheel_2 img {
+            width: 35px;
+            height: 35px;
+            animation: spin .5s linear infinite;
+        }
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes car {
+            0% {
+                transform: translateY(-2px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-2px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="city"></div> -->
+        <div class="highway"></div>
+        <div class="highway_2"></div>
+        <div class="car">
+            <img src="./IMG/car.png" alt="">
+        </div>
+        <div class="wheel">
+            <img src="./IMG/wheel.png" alt="">
+            <img src="./IMG/wheel.png" alt="">
+        </div>
+
+        <div class="car_2">
+            <img src="./IMG/car.png" alt="">
+        </div>
+        <div class="wheel_2">
+            <img src="./IMG/wheel.png" alt="">
+            <img src="./IMG/wheel.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

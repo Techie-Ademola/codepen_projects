@@ -18,10 +18,11 @@
             align-items: center;
             min-height: 100vh;
             background-color: #001d30;
-            /* animation: switchBg 5s linear infinite; */
         }
         .loader {
-            position: absolute;
+            position: relative;
+            top: 50%;
+            left: 30%;
             width: 150px;
             height: 150px;
             background: linear-gradient(to top, #001d30 40%, #51eeee);
@@ -58,6 +59,100 @@
         @keyframes switchBg {
             to {
                 filter: hue-rotate(360deg);
+                /* filter: invert(360); */
+            }
+        }
+        .holder {
+            margin-top: 100px;
+            width: fit-content;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+        .holder a {
+            color: white;
+            box-shadow: inset 0px 0px 0px 2px forestgreen, inset 2px 2px 10px forestgreen;
+            border-radius: 10px;
+            padding: 15px 60px;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: cursive;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background: transparent;
+            transition: .3s ease;
+        }
+        .holder a:active {
+            transform: scale(0.98) translateY(5px);
+            transition: .3s ease;
+        }
+        .holder a:nth-of-type(1):after {
+            content: '';
+            position: absolute;
+            right: -1%;
+            top: 0;
+            width: 0;
+            height: 100%;
+            border-radius: 15px;
+            background: forestgreen;
+            border: 2px solid forestgreen;
+            z-index: -1;
+            transition: .3s ease;
+        }
+        .holder a:nth-of-type(1):hover:after {
+            left: 0;
+            width: 100%;
+            transition: .3s ease;
+        }
+        .holder a:nth-of-type(2):after {
+            content: '';
+            position: absolute;
+            left: -1%;
+            top: 0;
+            width: 0;
+            height: 100%;
+            border-radius: 15px;
+            background: forestgreen;
+            border: 2px solid forestgreen;
+            z-index: -1;
+            transition: .3s ease;
+        }
+        .holder a:nth-of-type(2):hover:after {
+            width: 100%;
+            left: auto;
+            right: 0;
+            transition: .3s ease;
+        }
+        .holder a:before {
+            content: '';
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            width: 500px;
+            height: 2px;
+            background: forestgreen;
+            box-shadow: 0 0 0 8px #001d30,
+                        0 0 0 10px forestgreen,
+                        0 0 0 20px #001d30;
+            z-index: -1;
+            transition: .5s ease;
+            animation: view linear infinite;
+        }
+        .holder a:nth-of-type(1):before {
+            animation-duration: 5s;
+        }
+        .holder a:nth-of-type(2):before {
+            animation-duration: 6s;
+        }
+        @keyframes view {
+            0%, 100% {
+                transform: translate(-30%, 2000px) rotate(-35deg);
+            }
+            50% {
+                transform: translate(-30%, -2000px) rotate(-35deg);
             }
         }
     </style>
@@ -65,6 +160,10 @@
 <body>
     <section>
         <div class="loader"></div>
+        <div class="holder">
+            <a href="#">Watch More</a>
+            <a href="#">Subscribe</a>
+        </div>
     </section>
 </body>
 </html>

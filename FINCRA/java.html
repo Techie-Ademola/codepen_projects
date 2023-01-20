@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Update</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+    <style>
+        ::-webkit-scrollbar {
+          width: 0px;
+      }
+    * {
+        font-family: 'Poppins';
+      }
+      .sidenav {
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #999;
+        overflow: auto;
+        padding-top: 8% !important;
+      }
+      
+      .sidenav a {
+        display: block;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        padding: 10px 16px;
+      }
+      
+      .sidenav a:hover {
+        background-color: #666 !important;
+        color: white;
+      }
+
+      .sidenav a:hover:not(.active) {
+        background-color: blue;
+        color: white;
+      }
+        
+        .column {
+          float: left;
+          width: 32%;
+          padding: 0 10px;
+        }
+        .card-o {
+          padding: 17px !important;
+          text-align: left !important;
+        }
+
+        .newset {
+          margin-left: 200px;
+        }
+        .old {
+          font-size: 22px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {margin: 0 -5px;}
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        .robb {
+          width: 50% !important;
+          /* padding-top: 20px 0px !important; */
+        }
+        .rev {
+          padding: 0 !important;
+          border-radius: 15px;
+          height: 400px;
+          overflow-y: auto;
+        }
+        .rev::-webkit-scrollbar, .rev::-webkit-scrollbar-track, .rev::-webkit-scrollbar-thumb {
+          appearance: none;
+          display: none;
+          background: black;
+        }
+
+        .perform-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+        }
+        .perform-section .drop_down {
+          width: 8%;
+        }
+        .perform-section .input_section {
+          width: 60%;
+        }
+
+        .perform-section .input_section .update {
+          padding: 7px 40px;
+          background: #59B984;
+          border: none;
+          font-size: 12px;
+          border-radius: 5px;
+        } 
+        .perform-section .input_section .update:hover {
+          background: rgba(65, 139, 35, 0.75);
+        }
+        .perform-section .input_section .perform {
+          padding: 7px 25px;
+          background: #484BD7;
+          border: none;
+          font-size: 12px;
+          border-radius: 5px;
+        } 
+        .perform-section .input_section .perform:hover {
+          background: #474747;
+        }
+        .perform-section .input_section .top_input {
+          padding: 0px 10px;
+          width: 40%;
+          font-size: 12px;
+          color: #888;
+        }
+        .perform-section .input_section .top_input::placeholder {
+          font-size: 12px;
+          color: #888;
+        }
+        
+        /* Style the counter cards */
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          /* padding: 1px; */
+          text-align: center;
+          background-color: white;
+        }
+        .table {
+          width: 100%;
+          padding: 0 !important;
+        }
+        thead {
+          margin-top: -25px !important;
+        }
+        tr th:nth-of-type(1) {
+          padding-left: 25px !important;
+        }
+        tr th {
+          border: none !important;
+          font-size: 11px;
+          letter-spacing: 1px;
+          background: #F3F2F7;
+          position: sticky;
+          top: 0;
+        }
+
+        tr td {
+            border: none;
+            border-bottom: 1px solid whitesmoke;
+            font-size: 12px;
+            color: #888;
+            vertical-align: middle;
+        }
+        tr td:first-of-type {
+          color: #484BD7;
+          padding-left: 25px !important;
+        }
+        tr td:nth-of-type(3) span {
+          background: #FBEBEA;
+          padding: 3px 5px;
+          border-radius: 20px;
+          font-size: 10px;
+          color: #E85454;
+          font-weight: bold;
+        }
+        tr td:nth-of-type(4) {
+          width: 35%;
+        }
+        tr td:nth-of-type(5) span {
+          background: #F3F2F7;
+          padding: 3px 8px;
+          border-radius: 20px;
+          font-size: 10px;
+          font-weight: bold;
+        }
+        tr td:nth-of-type(6) span {
+          background: #FCF2E6;
+          padding: 3px 8px;
+          border-radius: 20px;
+          font-size: 10px;
+          font-weight: bold;
+          color: #EFA44A;
+          letter-spacing: 1px;
+        }
+        tr td:nth-of-type(8) i {
+          padding: 3px 8px;
+          font-size: 15px;
+          color: #888;
+        }
+        table tr:last-of-type td {
+          border-bottom: none;
+        }
+        .display {
+          background: RGBA(89, 185, 132, .5) !important;
+          color: white !important;
+          font-weight: 100 !important;
+        }
+
+        .signin {
+            border-radius: 50%;
+            text-align: center !important;
+            width: 25px;
+            height: 25px;
+            background-color: blue;
+            color: white;
+        }
+        .fa-ellipsis-h {
+            color: white !important;
+            text-align: center !important;
+            margin-left: -6px !important;
+            margin-top: 0px !important;
+        }
+
+        .sette {
+            transform: rotate(90deg);
+        }
+        
+        /* Responsive columns */
+        @media screen and (max-width: 800px) {
+          body {
+            margin: 0;
+          }
+          .sidebar {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .sidebar a {
+            display: block;
+            text-align: center;
+            float: none;
+        }
+        .table {
+          width: 1000px !important;
+          padding: 0 !important;
+        }
+          .column {
+            width: 100% !important;
+            display: block;
+            margin-bottom: 20px;
+            margin-left: 0px;
+          }
+          .card {
+            width: 100% !important;
+          }
+          .newset {
+            margin-left: 0;
+          }
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1.02) translateY(5px);
+            }
+            50% {
+                transform: scale(1.02) translateY(-5px);
+            }
+            100% {
+                transform: scale(1) translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+          <nav class="navbar navbar-expand-md navbar-light bg-primary sticky-top">
+            <a class="navbar-brand text-white" href="#">Adcash Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <span class="navbar-text ml-auto">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle bg-primary border-primary font-weight-bold" data-toggle="dropdown" aria-expanded="false">
+                        <span class="font-weight-normal">Hello,</span> Prof. Nicole Gorczany
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <button class="dropdown-item" type="button">Dev. Kelvin Powell</button>
+                      <button class="dropdown-item" type="button">Dev. Jaspal</button>
+                      <button class="dropdown-item" type="button">Dev. Mosh Hamedani</button>
+                    </div>
+                  </div>
+              </span>
+            </div>
+          </nav>
+      
+          <div class="sidebar sidenav" id="navbarText">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <i class="fa fa-users" aria-hidden="true"></i> Client
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <i class="fa fa-align-right sette" aria-hidden="true"></i> Stock
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i> Purchase
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <i class="fa fa-database" aria-hidden="true"></i> Sign Out
+              </a>
+          </div>
+        </div>
+    
+        <div class="container-fluid mt-4">
+          <div class="newset">
+            <h1 class="py-4">Dashboard</h1>
+            <div class="row">
+              <div class="column">
+                <div class="card card-o">
+                  <h5 class="text-muted ">CLIENTS</h5>
+                  <p class="card-text font-weight-bold old">4</p>
+                </div>
+              </div>
+            
+              <div class="column">
+                <div class="card card-o">
+                  <h5 class="text-muted">STOCKS</h5>
+                  <p class="card-text font-weight-bold old">4</p>
+                </div>
+              </div>
+              
+              <div class="column">
+                <div class="card card-o">
+                  <h5 class="text-muted">PURCHASES</h5>
+                  <p class="card-text font-weight-bold old">4</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="row" style="padding: 20px 0px;">
+              <div class="col-12 column robb">
+                <div class="card rev text-left my-3">
+                    <div class="perform-section">
+                      <div class="drop_down">
+                        <b-form-select
+                            id="inline-form-custom-select-pref"
+                            class="mb-2 mr-sm-2 mb-sm-0 pr-5"
+                            :options="[{ text: '10', value: null }, '25', '50', '100']"
+                            :value="null"></b-form-select>
+                      </div>
+                      <div class="input_section ">
+                        <div>
+                          <button id="myBtn" class="update text-white" onclick="updateTable()">Update All</button>
+    
+                          <form-input
+                            id="inline-form-input-name"
+                            class="mx-4 mb-sm-0 top_input"
+                            placeholder="Search..."></form-input>
+    
+                          <button class="perform text-white">Perform Transactions</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body" style="overflow-x: auto; padding: 0px !important;">
+                        <table class="table" id="myTable">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>WALLET</th>
+                                <th>AMOUNT</th>
+                                <th>NARRATION</th>
+                                <th>TYPE</th>
+                                <th>STATUS</th>
+                                <th>DATE</th>
+                                <th>ACTIONS</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>280</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status1">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>279</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status2">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>                                              
+                              </tr>
+                              <tr>
+                                <td>278</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status3">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>277</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status4">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>276</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status5">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>275</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status6">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>274</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status7">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>273</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status8">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>272</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status9">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                              <tr>
+                                <td>271</td>
+                                <td>W633EB3CD2AD72</td>
+                                <td><span>-#2,000</span></td>
+                                <td>Withdrawal of 2,000 was made from SUPERADMIN to ROFIAT ROMOKE ADEOYE (1238818203)</td>
+                                <td><span>Debit</span></td>
+                                <td><span class="td" id="status10">Pending</span></td>
+                                <td><span>2023-01-13</span></td>
+                                <td><button><i class="bi bi-printer"></i></button></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        </div>
+
+
+    <!-- <button onclick="updateTable()">Update Table</button> -->
+
+<!-- <table id="myTable">
+  <tr>
+    <td>Column 1</td>
+    <td id="status1">Pending</td>
+  </tr>
+  <tr>
+    <td>Column 2</td>
+    <td id="status2">Pending</td>
+  </tr>
+
+  <tr>
+    <td>Column 3</td>
+    <td id="status3">Pending</td>
+  </tr>
+  <tr>
+    <td>Column 4</td>
+    <td id="status4">Pending</td>
+  </tr>
+  <tr>
+    <td>Column 5</td>
+    <td id="status5">Pending</td>
+  </tr>
+</table> -->
+
+<script>
+    function updateTable() {
+      var table = document.getElementById("myTable");
+      var cellsToUpdate = document.querySelectorAll(".td");
+      document.getElementById("myBtn").disabled = true;
+
+      for (var i = 0; i < cellsToUpdate.length; i++) {
+        if (cellsToUpdate[i].id.startsWith("status")) {
+          setTimeout(function(cell) {
+            return function() {
+              cell.innerText = "Processing";
+              cell.style.animationName = 'zoom';
+              cell.style.animationDuration = '.3s';
+              cell.style.animationTimingFunction = 'linear';
+              cell.style.animationIterationCount = '1';
+              setTimeout(function(cell) {
+                cell.innerText = "PAID";
+                cell.style.backgroundColor = 'RGBA(89, 185, 132, .5)';
+                cell.style.color = 'RGBA(255, 255, 255, 1)';
+                cell.style.fontWeight = '100';
+
+                // alert("Successful Payment has been made");
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 2000,
+                  timerProgressBar: false,
+                  didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+                Toast.fire({
+                  title: 'Success!',
+                  text: 'Payment Successful',
+                  icon: 'success',
+                  confirmButtonText: 'Okay'
+                })
+              }, 3000, cell);
+            }
+          }(cellsToUpdate[i]), i * 4000);
+        }
+      }
+    }
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>    
+<script src="https://kit.fontawesome.com/0c390bb7a0.js" crossorigin="anonymous"></script>
+</body>
+</html>

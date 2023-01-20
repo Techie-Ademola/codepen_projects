@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: none;
+            background-color: #44228f;
+            box-shadow: 0 0 6px -2px rgba(0, 0, 0, 0.5);
+            transition: width 0.3s ease;
+        }
+        button .loader {
+            height: 24px;
+            width: 0px;
+            transition: width 0.3s ease;
+        }
+        button .loader svg {
+            opacity: 0;
+            transition-delay: 0.3s;
+            transition: opacity 0.15s linear;
+        }
+        button .loader svg circle {
+            stroke: white;
+            stroke-width: 4px;
+            stroke-dasharray: calc(3.14 * 2 * 10);
+            stroke-dashoffset: calc((3.14 * 2 * 10) / 3);
+            stroke-linecap: round;
+            transform-origin: center;
+            animation: rotate 0.75s linear infinite;
+            animation-play-state: paused;
+        }
+        button .text {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: -8px;
+        }
+        button.active .loader {
+            width: 24px;
+        }
+        button.active .loader svg {
+            opacity: 1;
+            transition-delay: 0.3s;
+            transition: opacity 0.15s linear;
+        }
+        button.active .loader svg circle {
+            animation-play-state: running;
+        }
+        button.active .text {
+            margin-left: unset;
+        }
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="mybutton">
+            <div class="loader">
+                <svg height="24" width="24">
+                    <circle r="10" cx="50%" cy="50%" fill="none"></circle>
+                </svg>
+            </div>
+            <span class="text">Submit</span>
+        </button>
+    </div>
+
+    <script>
+        document.getElementById("mybutton").onclick = function (event) {
+            this.classList.toggle("active")
+        }
+    </script>
+</body>
+</html>

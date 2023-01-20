@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+        html, body {
+            margin: auto;
+            position: relative;
+            min-height: 100vh;
+            background-color: #E1E8EE;
+            font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;-webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .form-structor {
+            background-color: #222;
+            border-radius: 5px 0 0 5px;
+            height: 650px;
+            width: 350px;
+            overflow: hidden;
+        }
+        .form-structor::after {
+            content: "";
+            opacity: 0.8;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background-size: 500px;
+            background-image: url("https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf884ad570b50659c5fa2dc2cfb20ecf&auto=format&fit=crop&w=1000&q=100");
+        }
+        .form-structor .signup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 90%;
+            z-index: 5;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .signup.slide-up {
+            top: 5%;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .signup.slide-up .form-holder, .form-structor .signup.slide-up .submit-btn {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .form-structor .signup.slide-up .form-title {
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .form-structor .signup.slide-up .form-title span {
+            margin-right: 5px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .signup .form-title {
+            color: #fff;
+            font-size: 1.7em;
+            text-align: center;
+        }
+        .form-structor .signup .form-title span {
+            color: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .signup .form-holder {
+            border-radius: 5px;
+            background-color: #fff;
+            overflow: hidden;
+            margin-top: 50px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .signup .form-holder .input {
+            border: 0;
+            outline: none;
+            box-shadow: none;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            padding: 8px 15px;
+            border-bottom: 1px solid #eee;
+            width: 100%;
+            font-size: 14px;
+        }
+        .form-structor .signup .form-holder .input:last-child {
+            border-bottom: 0;
+        }
+        .form-structor .signup .form-holder .input::-webkit-input-placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+        .form-structor .signup .submit-btn {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: rgba(255, 255, 255, 0.7);
+            border: 0;
+            border-radius: 5px;
+            display: block;
+            margin: 15px auto;
+            padding: 15px 45px;
+            width: 100%;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .signup .submit-btn:hover {
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .form-structor .login {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            z-index: 5;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+            background-color: #fff;
+            width: 200%;
+            height: 250px;
+            border-radius: 50%;
+            z-index: 4;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login .center {
+            position: absolute;
+            top: calc(50% - 10%);
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 90%;
+            z-index: 5;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login .center .form-title {
+            color: #000;
+            font-size: 1.7em;
+            text-align: center;
+        }
+        .form-structor .login .center .form-title span {
+            color: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login .center .form-holder {
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #E1E8EE;
+            overflow: hidden;
+            margin-top: 50px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .form-structor .login .center .form-holder .input {
+            border: 0;
+            outline: none;
+            box-shadow: none;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            padding: 8px 15px;
+            border-bottom: 1px solid #E1E8EE;
+            width: 100%;
+            font-size: 14px;
+            position: relative;
+        }
+        .user-box {
+            position: relative;
+        }
+        .form-holder .label_2 {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            padding: 10px 0;
+            font-size: 14px;
+            color: #111;
+            pointer-events: none;
+            transition: .5s;
+            z-index: 10;
+        }
+
+        .form-holder .input:focus ~ .label_2 {
+            top: -10px;
+            left: 10px;
+            color: #6B92A4;
+            font-size: 12px;
+        }
+        .form-holder .input:valid ~ .label_2 {
+            top: -10px;
+            left: 10px;
+            color: #6B92A4;
+            font-size: 12px;
+        }
+
+        .form-structor .login .center .form-holder .input:last-child {
+            border-bottom: 0;
+        }
+        .form-structor .login .center .form-holder .input::-webkit-input-placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+        .form-structor .login .center .submit-btn {
+            background-color: #6B92A4;
+            color: rgba(255, 255, 255, 0.7);
+            border: 0;
+            border-radius: 15px;
+            display: block;
+            margin: 15px auto;
+            padding: 15px 45px;
+            width: 100%;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login .center .submit-btn:hover {
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .form-structor .login.slide-up {
+            top: 90%;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login.slide-up .center {
+            top: 10%;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login.slide-up .form-holder, .form-structor .login.slide-up .submit-btn {
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login.slide-up .form-title {
+            font-size: 1em;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .form-structor .login.slide-up .form-title span {
+            margin-right: 5px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .container {
+            width: fit-content;
+            height: fit-content;
+            transform: translateX(100%);
+            overflow: hidden;
+            border-radius: 5px 0 0 5px;
+            transition: .3s;
+        }
+        input[type="checkbox"]:checked ~ .container {
+            transform: translateX(0%);
+            transition: .3s;
+        }
+        input[type="checkbox"]:checked {
+            transform: translateX(100%);
+            transition: .3s;
+
+        }
+        input[type="checkbox"]:checked ~ .opener {
+            transform: translate(-100%, -50%);
+            transition: .3s;
+        }
+        .label {
+            position: absolute;
+            top: 0;
+            right: 0%;
+            animation: stay .5s linear infinite;
+            /* z-index: 9999999; */
+        }
+        .opener {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(800%, -50%);
+            padding: 10px 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px 0 0 5px;
+            background: #494AD7;
+            width: fit-content;
+            transition: .3s;
+        }
+        .opener i {
+            color: white;
+            font-size: 13px;
+            padding: 0;
+            margin: 0;
+        }
+        .opener span {
+            width: 100%;
+            height: 100%;
+            animation: spinMe 1s linear infinite;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        @keyframes spinMe {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        input[type="checkbox"] {
+            cursor: pointer;
+            position: absolute;
+            top: 46.5%;
+            left: -24%;
+            opacity: 0;
+            width: 40px;
+            height: 40px;
+            z-index: 999;
+            transform: translateX(975%);
+            transition: .3s;
+        }  
+        .text {
+            position: absolute;
+            margin: 100px;
+            text-align: justify;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <style contenteditable="" style="display: block;">
+        .wer {
+            font-size: 30px;
+            color: white;
+            background-color: peru;
+            letter-spacing: 2rem;
+        }
+        code {}
+    </style>
+    <h1 class="wer">Learning Point</h1>
+    <code>Learning Point</code>
+    <div class="text">
+        <h1>Javatpoint</h1>
+
+Home
+Java
+Vue.js
+JavaScript
+HTML
+CSS
+UiPath
+Ext JS
+PHP
+jQuery
+Node.js
+SQL
+Android
+Quiz
+Projects
+Interview Q
+Comment
+Forum
+
+Vue.js Tutorial
+Vue.js TutorialVue.js InstallationVue.js Getting startedDeclarative RenderingConditions & LoopsVue.js InstancesVue.js TemplateVue.js ComponentsComputed PropertiesVue.js Watch PropertyVue.js Event Handling
+Data Binding
+Vue.js Data BindingForm Input Bindings
+Transition & Animation
+Transition & AnimationVue.js AnimationExplicit TransitionVue.js Custom DirectivesVue.js RoutingVue.js MixinsVue.js Render functionsVue.js Reactivity System
+Vue.js MCQ
+Vue.js MCQJavaTpoint
+Next →← Prev
+Getting started with Vue.js
+In the previous chapter, we have seen several ways to use and install Vue.js in your project. In this article, we shall see how to check the version of the Vue.js, the advantages and disadvantages of using Vue.js in your project, the first example and the explanation of all the general points related to the example.
+
+Advantages of using Vue.js
+Vue.js is one of the newest software technologies widely used for web development and building single-page applications. As you can guess by its name, it is used primarily for UI or view side of the project. It is a JavaScript based framework developed by Evan You (a former Google employee who was then working on Angular) for building the rich client-side application using JavaScript. Let's see the advantages of using Vue.js in your project:
+
+Following is the list of advantages of using Vue.js:
+
+Very Small in Size
+
+One of Vue.js' biggest advantages is that it is very small in size. The success of a JavaScript framework very much depends on its size and this exciting JavaScript plug-in is only 18-21KB, so you can download and use it very easily in no time.
+
+Easy to Understand and Code
+
+The Vue.js framework has a very simple structure and very easy to understand. It is one of the reasons for the popularity of this framework. If you are familiar with HTML and JavaScript, you can easily code in Vue.js. The users can easily add Vue.js to their web project because of its simple structure and develop applications.
+
+Simple Integration with Existing Applications
+
+Vue.js has a lot of components for everything and can be integrated with the existing applications very quickly. You can integrate it with any application that is written in JavaScript.
+
+Flexible in nature
+
+Vue.js's flexible nature also makes it easy to understand for the developers of React.js, Angular.js, and any other new JavaScript framework. It provides a lot of flexibility to use virtual nodes to write HTML files, JavaScript files, and pure JavaScript files.
+
+Components
+
+You can create reusable custom elements in Vue.js applications.
+
+Easy, comprehensive & detailed documentation
+
+Vue.js provides very easy, comprehensive, and detailed documentation, so the developers who have little idea about HTML and JavaScript can use it to code.
+
+Virtual DOM
+
+Vue.js uses virtual DOM similar to other existing frameworks such as ReactJS, Ember, etc. Virtual DOM is a light-weight in-memory tree representation of the original HTML DOM and updated without affecting the initial DOM.
+
+Two-Way Communication
+
+Vue.js provides two-way communications with its MVVM architecture that makes it very easy to handle HTML blocks.
+
+Companies which are using Vue.js
+Vue.js has started gaining popularity day by day because famous companies have already started using it in real-time. There are several companies which are successfully using Vue.js in the real scenario. Let's see some example:
+
+Facebook: The biggest successful company which is using Vue.js in their real-life project is Facebook. Facebook is using this framework for the marketing side of their Newsfeed.
+
+Adobe: Adobe is using Vue.js for its product called Portfolio. Using the Vue.js framework's easy integration advantage, the company has already migrated their existing codebase to the Vue.
+
+Xiaomi: Xiaomi is also using Vue.js to build their products catalog to provide users a reactive experience.
+
+Alibaba: One of the most significant public companies in China has used Vue.js.
+
+Some other notable companies which are using Vue.js in their project are:
+
+Grammarly
+Netflix
+Laracast
+Behance
+Gitlab
+Euronews
+Codeship
+Livestorm
+Wizzair etc.
+Check the version of your installed Vue.js
+If you are already familiar with Node.js and have installed Vue.js CLI on your system, you can check the version of your installed Vue.js using the following command on your Node.js command prompt:
+
+Open the Node.js command prompt and run the following command:
+vue --version  
+
+Getting started with Vue.js
+If it responds well, go ahead to the next step to create your new project. In the above example, you can see that Vue.js version 2.9.6 is installed successfully. Now, run the following command to create a new project:
+Syntax:
+
+vue create <YourAppName>  
+Run the vue create myfirstapp command to create an app named
+Getting started with Vue.js
+You have seen an error that vue create command works only with Vue CLI 3, and you are using an older version. Now, use the following command to uninstall the older version and install the new one.
+npm uninstall -g vue-cli  
+npm install -g @vue/cli  
+
+Getting started with Vue.js
+You can see that the older version of Vue.js is uninstalled. Now, install the newer version.
+Getting started with Vue.js
+Getting started with Vue.js
+Now, the newer version of Vue CLI is installed. You can check the Vue CLI version by using the vue --version
+Getting started with Vue.js
+You can see that the latest Vue CLI version is installed. Now, run the vue create myfirstapp command to create an app named
+Create Vue.js first app (Using vue create command)
+Run the vue create myfirstapp command on Node.js command prompt.
+Getting started with Vue.js
+This process may take some time. Wait until the creating app process is completed. After the successful completion, you will get a message on the command line that the project is successfully created.
+Getting started with Vue.js
+Now, go to your application's location by executing the following command.
+cd myfirstapp  
+
+Getting started with Vue.js
+Execute the following command to run your Vue.js app on the browser.
+npm run serve  
+
+Getting started with Vue.js
+Here, you can see that your app is compiled successfully, and the development server is started. Copy the local address and paste it on your Google Chrome browser to open the app.
+Getting started with Vue.js
+Explore Folder structure of Vue Application
+You have already executed your app on the web browser. Now, it's time to explore the complete files and folders of your project. You can select any IDE of your choice. Here, we have chosen Visual Studio Code IDE for deploying our application.
+
+Open the Visual Studio Code and load your project in the IDE. After loading your project, click on the public folder as well as the src folder. These two folders contain the most important files of your project.
+
+Getting started with Vue.js
+Package.json: The Package.json folder contains all configuration of your app. You don't need to touch that folder.
+
+Index.html: The most important file of your app is index.html file. It contains all the data that is appeared on the UI of your app. This is the only one div element which Vue will use to attach the DOM. See the index.html file:
+
+Getting started with Vue.js
+Src/main.js: main.js is the main JavaScript file which is used to drive your app.
+
+import Vue from 'vue'  
+import App from './App.vue'  
+Vue.config.productionTip = false  
+new Vue({  
+  render: h => h(App),  
+}).$mount('#app')  
+
+Getting started with Vue.js
+In the above code of main.js, the first line specifies the import of the Vue library, and the second line is used to import the App Component from app.vue. The productionTip is set to false to avoid the message "you're in development mode" in the console. After that, Vue instance is created by assigning it to DOM element #app, which has already been defined in index.html file and specified to use the App component.
+
+Src/App.vue: The App.vue is single file component that contains three parts: HTML, CSS and JAVASCRIPT. It is used to manage the single file components of your app.
+ 
+
+Getting started with Vue.js
+Src/component/HelloWorldComponent: This file is included in HelloWorld.vue file. This file contains all the style and HTML which you see when you open your app in the browser.
+
+<style >  
+h3 {  
+  margin: 40px 0 0;  
+}  
+ul {  
+  list-style-type: none;  
+  padding: 0;  
+}  
+li {  
+  display: inline-block;  
+  margin: 0 10px;  
+}  
+a {  
+  color: #42b983;  
+}  
+</style>  
+
+
+
+Getting started with Vue.js
+
+Next TopicDeclarative Rendering
+
+
+← PrevNext →
+
+Feedback
+Send your Feedback to feedback@javatpoint.com
+Help Others, Please Share
+facebook twitter pinterest
+
+Learn Latest Tutorials
+Splunk tutorial
+Splunk
+
+SPSS tutorial
+SPSS
+
+Swagger tutorial
+Swagger
+
+T-SQL tutorial
+Transact-SQL
+
+Tumblr tutorial
+Tumblr
+
+React tutorial
+ReactJS
+
+Regex tutorial
+Regex
+
+Reinforcement learning tutorial
+Reinforcement Learning
+
+R Programming tutorial
+R Programming
+
+RxJS tutorial
+RxJS
+
+React Native tutorial
+React Native
+
+Python Design Patterns
+Python Design Patterns
+
+Python Pillow tutorial
+Python Pillow
+
+Python Turtle tutorial
+Python Turtle
+
+Keras tutorial
+Keras
+
+
+Preparation
+Aptitude
+Aptitude
+
+Logical Reasoning
+Reasoning
+
+Verbal Ability
+Verbal Ability
+
+Interview Questions
+Interview Questions
+
+Company Interview Questions
+Company Questions
+
+
+Trending Technologies
+Artificial Intelligence
+Artificial Intelligence
+
+AWS Tutorial
+AWS
+
+Selenium tutorial
+Selenium
+
+Cloud Computing
+Cloud Computing
+
+Hadoop tutorial
+Hadoop
+
+ReactJS Tutorial
+ReactJS
+
+Data Science Tutorial
+Data Science
+
+Angular 7 Tutorial
+Angular 7
+
+Blockchain Tutorial
+Blockchain
+
+Git Tutorial
+Git
+
+Machine Learning Tutorial
+Machine Learning
+
+DevOps Tutorial
+DevOps
+
+
+B.Tech / MCA
+DBMS tutorial
+DBMS
+
+Data Structures tutorial
+Data Structures
+
+DAA tutorial
+DAA
+
+Operating System
+Operating System
+
+Computer Network tutorial
+Computer Network
+
+Compiler Design tutorial
+Compiler Design
+
+Computer Organization and Architecture
+Computer Organization
+
+Discrete Mathematics Tutorial
+Discrete Mathematics
+
+Ethical Hacking
+Ethical Hacking
+
+Computer Graphics Tutorial
+Computer Graphics
+
+Software Engineering 
+Software Engineering
+
+html tutorial
+Web Technology
+
+Cyber Security tutorial
+Cyber Security
+
+Automata Tutorial
+Automata
+
+C Language tutorial
+C Programming
+
+C++ tutorial
+C++
+
+Java tutorial
+Java
+
+.Net Framework tutorial
+.Net
+
+Python tutorial
+Python
+
+List of Programs
+Programs
+
+Control Systems tutorial
+Control System
+
+Data Mining Tutorial
+Data Mining
+
+Data Warehouse Tutorial
+Data Warehouse
+
+
+
+
+Javatpoint Services
+JavaTpoint offers too many high quality services. Mail us on hr@javatpoint.com, to get more information about given services.
+
+Website Designing
+Website Development
+Java Development
+PHP Development
+WordPress
+Graphic Designing
+Logo
+Digital Marketing
+On Page and Off Page SEO
+PPC
+Content Development
+Corporate Training
+Classroom and Online Training
+Data Entry
+Training For College Campus
+JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at hr@javatpoint.com.
+Duration: 1 week to 2 week
+
+Like/Subscribe us for latest updates or newsletter RSS Feed Subscribe to Get Email Alerts Facebook Page Twitter Page YouTube Blog Page
+LEARN TUTORIALS
+Learn Java
+Learn Data Structures
+Learn C Programming
+Learn C++ Tutorial
+Learn C# Tutorial
+Learn PHP Tutorial
+Learn HTML Tutorial
+Learn JavaScript Tutorial
+Learn jQuery Tutorial
+Learn Spring Tutorial
+OUR WEBSITES
+Javatpoint.com
+Hindi100.com
+Lyricsia.com
+Quoteperson.com
+Jobandplacement.com
+OUR SERVICES
+Website Development
+
+Android Development
+
+Website Designing
+
+Digital Marketing
+
+Summer Training
+
+Industrial Training
+
+College Campus Training
+
+CONTACT
+Address: G-13, 2nd Floor, Sec-3
+
+Noida, UP, 201301, India
+
+Contact No: 0120-4256464, 9990449935
+
+Contact Us
+Subscribe Us
+Privacy Policy
+Sitemap
+
+About Me
+© Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.
+    </div>
+
+    <label class="label" for="">
+        <input type="checkbox">
+        <div class="opener"><span><i class="bi bi-gear bi_gear_fill"></i></span></div>
+
+        <div class="container">
+        
+                <div class="form-structor">
+                    <div class="signup">
+                        <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+                        <div class="form-holder">
+                            <div class="user-box">
+                                <input type="text" class="input" required="" />
+                                <label class="label_2" for="">Name</label>
+                            </div>
+                            <div class="user-box">
+                                <input type="email" class="input" required="" />
+                                <label class="label_2" for="">Email</label>
+                            </div>
+                            <div class="user-box">
+                                <input type="password" class="input" required="" />
+                                <label class="label_2" for="">Passcode</label>
+                            </div>
+                        </div>
+                        <button class="submit-btn">Sign up</button>
+                    </div>
+                    <div class="login slide-up">
+                        <div class="center">
+                            <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+                            <div class="form-holder">
+                                <div class="user-box">
+                                    <input type="email" class="input" required="" />
+                                    <label class="label_2" for="">Email</label>
+                                </div>
+                                <div class="user-box">
+                                    <input type="password" class="input" required="" />
+                                    <label class="label_2" for="">Passcode</label>
+                                </div>
+                            </div>
+                            <button class="submit-btn">Log in</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </label>
+    
+
+
+    <script>
+        console.clear();
+
+        const loginBtn = document.getElementById('login');
+        const signupBtn = document.getElementById('signup');
+
+        loginBtn.addEventListener('click', (e) => {
+            let parent = e.target.parentNode.parentNode;
+            Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+                if(element !== "slide-up") {
+                    parent.classList.add('slide-up')
+                }else{
+                    signupBtn.parentNode.classList.add('slide-up')
+                    parent.classList.remove('slide-up')
+                }
+            });
+        });
+
+        signupBtn.addEventListener('click', (e) => {
+            let parent = e.target.parentNode;
+            Array.from(e.target.parentNode.classList).find((element) => {
+                if(element !== "slide-up") {
+                    parent.classList.add('slide-up')
+                }else{
+                    loginBtn.parentNode.parentNode.classList.add('slide-up')
+                    parent.classList.remove('slide-up')
+                }
+            });
+        });
+    </script>
+</body>
+</html>

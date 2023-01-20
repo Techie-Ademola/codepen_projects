@@ -1,0 +1,266 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width" initial-scale=1.0>
+        <title>Hamburger Nav</title>
+
+        <style>
+            *::before, *::after {
+                display: none !important;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            header {
+                background-color: #262626;    
+            }
+
+            li{
+                list-style: none;
+            }
+
+            a{
+                color: white;
+                text-decoration: none;
+                padding: 20px;
+            }
+
+            .navbar{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 24px;
+            }
+
+            .nav-menu{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .nav-branding{
+                font-size: 2rem;
+            }
+
+            .nav-link{
+                transition: 0.7s ease;
+            }
+
+            .nav-link:hover{
+                color: dodgerblue;
+            }
+
+            .hamburger{
+                display: none;
+                cursor: pointer;
+            }
+
+            .bar{
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                background-color: white;
+            }
+
+            @media(max-width: 1200px) {
+                .hamburger{
+                    display: block;
+                }
+
+                .hamburger.active .bar:nth-child(2){
+                    opacity: 0;
+                }
+
+                .hamburger.active .bar:nth-child(1){
+                    transform: translateY(8px) rotate(45deg);
+                }
+
+                .hamburger.active .bar:nth-child(3){
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+
+                .nav-menu{
+                    position: fixed;
+                    left: -100%;
+                    top: 70px;
+                    gap: 0;
+                    flex-direction: column;
+                    background-color: #c5d32c;
+                    width: 100%;
+                    text-align: center;
+                    transition: 0.3s;
+                }
+
+                .nav-item{
+                    margin: 16px 0;
+                }
+
+                .nav-menu.active{
+                    left: 0;
+                }
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                top: 42px;
+                left: 0;
+                min-width: 80px;
+                z-index: -1;
+                transition: .5s;
+                border-radius: 0px;
+                overflow: hidden;
+                width: 150px;
+                text-align: center;
+                height: 0px;
+            }
+
+            .dropdown-content a {
+                opacity: 0;
+                visibility: hidden;
+                color: #fff;
+                padding: 8px 10px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+                text-transform: capitalize;
+                background-color: #262626;
+            }
+            .dropdown:hover .dropdown-content a {
+                animation: swipeUp .5s ease-out;
+                animation-iteration-count: 1;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(-10px);
+            }
+
+            .dropdown-content a:hover {
+                color: white;
+                background-color: orange;
+            }
+            .dropdown .dropdown-content {
+                transition: .5s ease;
+            }
+            .dropdown:hover .dropdown-content {
+                opacity: 1;
+                visibility: visible;
+                transition: .5s;
+                z-index: 1;
+                height: 200px;
+                transition: .5s ease;
+            }
+            /* .dropdown:hover .dropdown-content a:nth-of-type(1) {
+                animation-delay: 0s;
+            }
+            .dropdown:hover .dropdown-content a:nth-of-type(2) {
+                animation-delay: .2s;
+            }
+            .dropdown:hover .dropdown-content a:nth-of-type(3) {
+                animation-delay: .4s;
+            }
+            .dropdown:hover .dropdown-content a:nth-of-type(4) {
+                animation-delay: .6s;
+            }
+            .dropdown:hover .dropdown-content a:nth-of-type(5) {
+                animation-delay: .8s;
+            } */
+            @keyframes swipeUp {
+                0% {
+                    transform: translateY(20px);
+                }
+                100% {
+                    transform: translateY(-10px);
+                }
+            }
+        </style>
+    </head>
+<body>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="nav-branding">HAM</a>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <div class="dropdown">
+                        <span class="dropbtn">Home</span>
+                        <div class="dropdown-content">
+                            <a href="#">U . S . A</a>
+                            <a href="#">Deutsch</a>
+                            <a href="#">Turkey</a>
+                            <a href="#">Japan</a>
+                            <a href="#">Italy</a>
+                        </div>
+                    </div>
+                </a>
+                
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <div class="dropdown">
+                        <span class="dropbtn">About</span>
+                        <div class="dropdown-content">
+                            <a href="#">Afghanistan</a>
+                            <a href="#">Albania</a>
+                            <a href="#">American Samoa</a>
+                            <a href="#">Andorra</a>
+                            <a href="#">Angola</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Map</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+ 
+
+
+      </nav>
+
+    </header>
+
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        })
+
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+
+        }))
+    </script>   
+</body>
+
+</html>

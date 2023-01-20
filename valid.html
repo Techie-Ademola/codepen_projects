@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" name="form" id="form" onsubmit="return validate(this);">
+        
+        <input name="price"  type="text" class="r2" />
+        <input name="price2" type="text" class="r2" />
+        <input name="price3" type="text" class="r2" />
+        <input name="price4" type="text" class="r2" />
+        <input name="price5" type="text" class="r2" />
+        ...more....
+        <input name="price50" type="text" class="r2" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <script type="text/javascript">
+        function validate() {
+            return [
+                document.form.price,
+                document.form.price2,
+                document.form.price3,
+                document.form.price4,
+                document.form.price5
+            ].every(validatePrice)
+        }
+        
+        function validatePrice(price)
+        {
+            if (price.value.trim() === "") {
+                alert("Please enter a price");
+                price.focus();
+                return false;
+            }
+            if (price.value !== "") {
+                if (! (/^\d*(?:\.\d{0,2})?$/.test(price.value))) {
+                    alert("Please enter a valid price");
+                    price.focus();
+                    return false;
+                }
+            }
+            return true;       
+        }
+    </script>
+
+    <!-- <script type="text/javascript">
+        function validate() {
+            if (document.form.price.value.trim() === "") {
+                alert("Please enter a price");
+                document.form.price.focus();
+                return false;
+            }
+            if (document.form.price.value !== "") {
+                if (! (/^\d*(?:\.\d{0,2})?$/.test(document.form.price.value))) {
+                    alert("Please enter a valid price");
+                    document.form.price.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script> -->
+</body>
+</html>
